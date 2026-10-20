@@ -1,3 +1,22 @@
+
+/*
+=========================================================
+Project      : UPI QR Studio
+Website      : https://rsbusinesses0.github.io/UPI_QR_Studio/
+Created By   : Sumit Kumar Shakya
+Developer    : Solo Creator & Developer
+Developed For: RS Businesses
+GitHub       : https://github.com/sksumitkumarshakya
+Contact      : sksumitkumarshakya@gmail.com
+
+Description  : JavaScript functionality for UPI QR Studio,
+               including QR generation, user interactions,
+               and other client-side website features.
+
+Year         : 2026
+=========================================================
+*/
+
 /* ==========================================
    UPI QR STUDIO - FAQ FUNCTIONALITY
    File: js/upi-faqs.js
