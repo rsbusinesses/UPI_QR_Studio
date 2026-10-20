@@ -13,6 +13,7 @@ Our goal is to make everyday digital payments easier to understand through a sim
 ## Table of Contents
 
 - [About UPI QR Studio](#about-upi-qr-studio)
+- [Creator and Client Credits](#creator-and-client-credits)
 - [Our Services](#our-services)
 - [Who Can Use UPI QR Studio?](#who-can-use-upi-qr-studio)
 - [How the QR Code Generator Works](#how-the-qr-code-generator-works)
@@ -25,6 +26,8 @@ Our goal is to make everyday digital payments easier to understand through a sim
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Contact Us](#contact-us)
 - [Contributing and Feedback](#contributing-and-feedback)
+- [Credits and Ownership](#credits-and-ownership)
+- [Our Commitment](#our-commitment)
 
 ---
 
@@ -34,13 +37,63 @@ UPI QR Studio brings together a practical UPI QR code creation tool and educatio
 
 Whether you want to prepare a QR code for receiving payments or learn more about UPI IDs, merchant payments, transaction limits, authentication, and fraud prevention, our website aims to make the information easier to find and understand.
 
-### Our mission
+### Our Mission
 
 To make digital payment tools and educational information accessible, understandable, and useful for everyday users and businesses.
 
-### Our vision
+### Our Vision
 
 To build a helpful online destination for UPI QR code creation, digital payment education, and responsible QR payment practices.
+
+---
+
+## Creator and Client Credits
+
+### Creator and Developer: Sumit Kumar Shakya
+
+UPI QR Studio was designed and developed by **Sumit Kumar Shakya** for his client, **RS Businesses**.
+
+As the solo creator and developer, Sumit worked on the website's design, development, frontend coding, QR code generator, educational content, responsive layout, research, information verification, testing, maintenance, branding, and deployment setup.
+
+The project was developed to help people create UPI QR codes and understand digital payments safely through an accessible, practical, and user-friendly website.
+
+**Creator information:**
+
+- **Name:** Sumit Kumar Shakya
+- **Role:** Solo Creator and Developer
+- **GitHub Profile:** [@sksumitkumarshakya](https://github.com/sksumitkumarshakya)
+- **Email:** [sksumitkumarshakya@gmail.com](mailto:sksumitkumarshakya@gmail.com)
+
+### Client: RS Businesses
+
+**RS Businesses** is the client for whom UPI QR Studio was developed.
+
+The website provides QR code generation functionality and educational resources intended to help users understand UPI and digital payments.
+
+**Client information:**
+
+- **Client Name:** RS Businesses
+- **GitHub Repository:** [UPI QR Studio](https://github.com/rsbusinesses0/UPI_QR_Studio)
+- **Live Website:** [https://rsbusinesses0.github.io/UPI_QR_Studio/](https://rsbusinesses0.github.io/UPI_QR_Studio/)
+- **Contact Email:** [rsbusinesses0@gmail.com](mailto:rsbusinesses0@gmail.com)
+
+### Development Contributions
+
+The website development work includes:
+
+- Website design and development.
+- HTML, CSS, and JavaScript coding.
+- UPI QR code generation and image download functionality.
+- UPI guides and educational content.
+- Research and information verification.
+- Responsive design for mobile devices and desktop computers.
+- GitHub repository and deployment setup.
+- Branding and website identity.
+- Testing, maintenance, and ongoing improvements.
+
+The creator and client are identified separately to acknowledge the development work and the client relationship. Legal ownership and permitted use of the website's code, design, content, branding, and other materials depend on the applicable agreement between the creator and client and any relevant third-party rights.
+
+---
 
 ## Our Services
 
@@ -209,7 +262,7 @@ The project uses:
 
 The project includes reusable components, page-specific content, styling, scripts, and configuration files.
 
-### Development workflow
+### Development Workflow
 
 The intended development workflow is:
 
@@ -308,7 +361,12 @@ Use the website's Contact Us page or the configured contact email.
 
 We welcome questions, feedback, suggestions, and reports about website functionality or content.
 
-**Email:** rsbusinesses0@gmail.com
+**Client:** RS Businesses  
+**Client email:** [rsbusinesses0@gmail.com](mailto:rsbusinesses0@gmail.com)
+
+**Creator and developer:** Sumit Kumar Shakya  
+**Developer email:** [sksumitkumarshakya@gmail.com](mailto:sksumitkumarshakya@gmail.com)  
+**GitHub profile:** [@sksumitkumarshakya](https://github.com/sksumitkumarshakya)
 
 **Website:** https://rsbusinesses0.github.io/UPI_QR_Studio/
 
@@ -327,6 +385,22 @@ If you work with the source code:
 5. Commit your changes and submit them through the project's GitHub workflow.
 
 Please avoid submitting secrets, private banking information, credentials, or other sensitive personal data.
+
+---
+
+## Credits and Ownership
+
+**Designed, developed, and maintained by Sumit Kumar Shakya for RS Businesses.**
+
+This README identifies Sumit Kumar Shakya as the creator and developer and RS Businesses as the client for whom UPI QR Studio was developed.
+
+The legal ownership and permitted use of the website's code, design, content, branding, and other project materials depend on the applicable agreement between the creator and client and any relevant third-party rights.
+
+Third-party libraries, tools, technologies, trademarks, and other materials remain subject to their respective owners' rights and license terms. UPI QR Studio is an independent informational and QR-generation project and does not claim to own UPI, NPCI, bank, or payment-application trademarks.
+
+### License
+
+No project-wide open-source license has been confirmed in this README. Until a license is selected and added to the repository, users should not assume that the project is released under the MIT License, Apache License, or another open-source license. Third-party dependencies remain subject to their own licenses.
 
 ---
 
