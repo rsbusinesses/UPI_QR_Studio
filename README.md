@@ -1,104 +1,343 @@
-# UPI QR Studio — GitHub Pages Website
+# UPI QR Studio — Create UPI QR Codes Online
 
-This is a static HTML/CSS/JavaScript website designed for GitHub Pages. The website itself does not need Python, PHP, a database, or a server-side runtime. Node.js is used only for optional local build/QA tools that generate the static pages before publication.
+**Create UPI QR codes. Explore digital payment guides. Learn how to use UPI more safely.**
 
-## Requirements
+UPI QR Studio is a web-based resource designed to help individuals, shopkeepers, freelancers, small businesses, and digital payment users create UPI QR codes and understand India's Unified Payments Interface (UPI).
 
-- Node.js **20.18.1 or newer** (Node.js 22 LTS is recommended).
-- Internet access the first time you run `npm install`, so npm can download the `cheerio` HTML parser used by the build tools.
-- VS Code or another editor.
+Our goal is to make everyday digital payments easier to understand through a simple QR generation experience, practical educational resources, frequently asked questions, and payment safety guidance.
 
-Check your installation in a terminal:
+**Visit the website:** https://rsbusinesses0.github.io/UPI_QR_Studio/
 
-```powershell
-node --version
-npm --version
-```
+---
 
-## First-time setup
+## Table of Contents
 
-Open the website's root folder in VS Code. The root folder is the one containing `index.html` and `package.json`. In VS Code, select **Terminal → New Terminal**, then run:
+- [About UPI QR Studio](#about-upi-qr-studio)
+- [Our Services](#our-services)
+- [Who Can Use UPI QR Studio?](#who-can-use-upi-qr-studio)
+- [How the QR Code Generator Works](#how-the-qr-code-generator-works)
+- [How to Use Your UPI QR Code](#how-to-use-your-upi-qr-code)
+- [Security and Payment Safety](#security-and-payment-safety)
+- [Educational Resources](#educational-resources)
+- [Technology and Website Workflow](#technology-and-website-workflow)
+- [Website Limitations](#website-limitations)
+- [Privacy and Terms](#privacy-and-terms)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Contact Us](#contact-us)
+- [Contributing and Feedback](#contributing-and-feedback)
 
-```powershell
-npm install
+---
+
+## About UPI QR Studio
+
+UPI QR Studio brings together a practical UPI QR code creation tool and educational resources about digital payments.
+
+Whether you want to prepare a QR code for receiving payments or learn more about UPI IDs, merchant payments, transaction limits, authentication, and fraud prevention, our website aims to make the information easier to find and understand.
+
+### Our mission
+
+To make digital payment tools and educational information accessible, understandable, and useful for everyday users and businesses.
+
+### Our vision
+
+To build a helpful online destination for UPI QR code creation, digital payment education, and responsible QR payment practices.
+
+## Our Services
+
+### 1. Online UPI QR Code Generator
+
+Create a QR code using the UPI payment details supported by the generator.
+
+Features include:
+
+- Enter a UPI ID or Virtual Payment Address (VPA).
+- Add an optional payee or recipient name.
+- Enter an amount when required.
+- Add an optional payment note.
+- Generate a QR code from the supplied payment details.
+- Download the generated QR code as an image.
+- Display the UPI ID beneath the QR code in the downloaded image, as supported by the generator.
+
+The available fields and behavior depend on the current implementation of the website's QR generator.
+
+### 2. UPI Guides and Educational Articles
+
+Explore practical explanations of UPI features, account setup, payment processes, and related digital payment topics.
+
+Our educational resources cover subjects such as:
+
+- UPI onboarding and account activation.
+- UPI IDs and UPI numbers.
+- Biometric authentication.
+- UPI AutoPay and recurring payments.
+- UPI Circle and delegated payments.
+- Conversational payments.
+- Merchant payments and transaction rules.
+- Cash deposit and withdrawal services associated with UPI.
+- Transaction limits and payment safety.
+
+Visit the [UPI Guides](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-guides.html) section to explore available articles.
+
+### 3. UPI Safety Center
+
+Learn about common digital payment risks and safer payment habits, including:
+
+- Checking the recipient's details before approving a payment.
+- Understanding the difference between sending and receiving money.
+- Protecting your UPI PIN, OTPs, and banking credentials.
+- Recognizing suspicious payment requests and fraudulent QR codes.
+- Verifying successful transactions through your UPI app or bank.
+- Understanding why you should never approve an unexpected payment request without checking it.
+
+Visit the [Safety Center](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/safety-center.html) for additional guidance.
+
+### 4. UPI FAQs
+
+Find answers to common questions about UPI payments, QR codes, UPI IDs, transaction issues, and digital payment safety.
+
+Our FAQ section is intended to help visitors understand common concepts and identify the appropriate next steps when they encounter a payment problem.
+
+### 5. UPI ID Providers and Payment Information
+
+Explore educational information about UPI ID providers and payment applications in India. Provider features, availability, supported banks, and account requirements can differ, so users should confirm current details with the relevant provider or bank.
+
+### 6. Contact and Informational Pages
+
+The website also provides informational pages about UPI QR Studio, contact options, privacy, terms, and other website-related information.
+
+---
+
+## Who Can Use UPI QR Studio?
+
+UPI QR Studio is designed for a broad audience.
+
+| Audience | How it may help |
+|---|---|
+| Shopkeepers and retailers | Prepare QR codes for customers to scan using compatible UPI applications. |
+| Small businesses | Organize and share QR payment details with customers. |
+| Freelancers and independent professionals | Prepare QR codes for payment requests. |
+| Service providers | Share supported UPI payment details with clients. |
+| Individuals | Create QR codes using supported UPI details. |
+| Students and learners | Understand UPI features and digital payment concepts. |
+| Digital payment users | Find practical information about UPI use and safety. |
+
+Actual payment compatibility depends on the QR details, the payer's UPI application, and the participating payment providers.
+
+## How the QR Code Generator Works
+
+Creating a QR code is designed to be straightforward.
+
+1. **Open the generator.** Visit the homepage or dedicated QR generator page.
+2. **Enter the UPI ID.** Carefully type the recipient's correct UPI ID.
+3. **Add optional details.** Enter a payee name, amount, or payment note if those fields are available and relevant.
+4. **Generate the QR code.** Use the generator to create a QR image from the supplied information.
+5. **Review the result.** Check the displayed UPI ID and other available details.
+6. **Download the QR image.** Save the generated image if you want to share or print it.
+7. **Test before sharing.** Scan the QR code with a compatible UPI app and verify the recipient and amount before approving any payment.
+
+**Important:** Generating or downloading a QR code does not itself transfer money or confirm that a payment has been received.
+
+## How to Use Your UPI QR Code
+
+### For a recipient or business
+
+1. Generate the QR code using the intended UPI payment details.
+2. Download the image and check that the information is correct.
+3. Test the QR code using a compatible UPI application.
+4. If displaying it publicly, ensure that the QR code is readable and the payment details belong to the intended recipient.
+5. Confirm incoming payments through your UPI app or bank account rather than relying solely on screenshots or messages from another person.
+
+### For someone making a payment
+
+1. Open your preferred compatible UPI application.
+2. Scan the recipient's QR code.
+3. Verify the recipient's displayed name, UPI details where available, and the amount.
+4. Enter or confirm the amount as appropriate.
+5. Approve the transaction only when you are sure the details are correct.
+6. Check the transaction status in your payment application.
+
+Never enter your UPI PIN simply to receive money. A UPI PIN is used to authorize certain transactions, not to prove that you can receive a payment.
+
+---
+
+## Security and Payment Safety
+
+Digital payment safety is an essential part of using QR codes responsibly.
+
+Please follow these practices:
+
+- **Verify the recipient:** Check the name and payment details displayed by your UPI application.
+- **Protect your credentials:** Never share your UPI PIN, banking password, or OTP with another person.
+- **Do not approve unknown requests:** Read payment requests carefully before authorizing them.
+- **Check the amount:** Confirm the amount before entering your PIN.
+- **Beware of fake support:** Use official bank or payment-provider channels when seeking help.
+- **Confirm the transaction:** Check the transaction status in your payment application or bank records.
+- **Use trusted QR codes:** Avoid scanning QR codes from suspicious messages, posters, or unknown sources.
+- **Report suspicious activity promptly:** Contact your bank or payment provider through its official support channels.
+
+UPI QR Studio provides educational information and a QR creation tool. It does not replace the security controls, transaction confirmations, or dispute-resolution processes of banks and payment applications.
+
+## Educational Resources
+
+Our website is intended to make UPI-related topics easier to explore.
+
+You can start with:
+
+- [UPI Guides](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-guides.html) — educational articles and explanations.
+- [UPI FAQs](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-faqs.html) — common questions about UPI.
+- [UPI Safety Center](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/safety-center.html) — guidance on safer payment practices.
+- [UPI ID Providers](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-id-providers.html) — information about UPI ID providers.
+
+UPI features, eligibility rules, limits, and supported services may change. Where a decision depends on current rules, users should verify the information with official NPCI resources, their bank, or the relevant payment provider.
+
+---
+
+## Technology and Website Workflow
+
+UPI QR Studio is maintained as a static website project and is published through GitHub Pages.
+
+### Technologies
+
+The project uses:
+
+- **HTML** for page structure and content.
+- **CSS** for layout, styling, and responsive presentation.
+- **JavaScript** for interactive website functionality, including QR generation.
+- **Node.js** for the project's build and validation tools.
+- **Git and GitHub** for version control and source-code hosting.
+- **GitHub Pages** for website hosting.
+
+The project includes reusable components, page-specific content, styling, scripts, and configuration files.
+
+### Development workflow
+
+The intended development workflow is:
+
+1. Edit the relevant HTML, CSS, JavaScript, content, or configuration file in VS Code.
+2. Run the available build command to prepare the website.
+3. Run the website validation checks.
+4. Review the changes locally where practical.
+5. Commit the changes to Git.
+6. Push the commit to the GitHub repository.
+7. Allow the configured GitHub Pages deployment workflow to publish the updated site.
+8. Open the live website and verify the changes.
+
+The project defines these npm scripts:
+
+```bash
+npm ci
 npm run build
 npm run check
 npm run preview
 ```
 
-Open the local preview URL printed by the last command (by default `http://127.0.0.1:8000`). Stop the preview server with **Ctrl+C**.
+Run them from the project directory after installing the project's dependencies. `npm run preview` starts the local preview workflow defined by the project.
 
-The build step writes the final static HTML pages and updates the shared header/footer, metadata, link paths, guide content, `robots.txt`, `sitemap.xml`, and optional AdSense files. `npm run check` checks internal links, anchors, common document structure and local assets. `npm run preview` serves the generated static files locally; GitHub Pages is the production host.
+Automatic publishing after a push requires a correctly configured GitHub Actions workflow and GitHub Pages settings. A successful Git push alone does not guarantee a successful deployment; check the repository's **Actions** tab for the deployment result.
 
-## Centralized edits
+### Repository
 
-- **Theme colours, fonts, spacing, radii and content width:** edit the CSS variables near the top of `css/theme.css`.
-- **Shared header:** edit `components/header.html`.
-- **Shared footer:** edit `components/footer.html`.
-- **Contact email, public site URL and optional AdSense publisher client ID:** edit `site-config.json`.
-- **Shared browser interactions:** edit `js/main.js`.
-- **QR generator behaviour:** edit the relevant browser files in `js/`, especially `js/home-qr-generator.js` and `js/qr-generator.js`.
-- **Page-specific text and sections:** edit the relevant HTML file in the root or `pages/` folder.
-- **Page titles and SEO descriptions:** update `PAGE_TITLES` and `DESCRIPTIONS` in `tools/build-data.json`.
-- **Guide summary/checklist wording:** update `SUMMARIES`, `REPEATED_ITEMS`, `PANEL_AFTERCARE`, or `GUIDE_NOTES` in `tools/build-data.json`.
+Source code and development history:
 
-After changing a shared component, SEO configuration, or build-data entry, run:
+https://github.com/rsbusinesses0/UPI_QR_Studio
 
-```powershell
-npm run build
-npm run check
-```
+### Configuration
 
-Then refresh the preview. The builder updates the generated HTML, so review your changes with version control before committing. Keep custom page-specific HTML outside the shared templates and avoid manually changing generated components on each page because the next build regenerates them from the source templates.
+The `site-config.json` file is used for website settings such as the site name, canonical website URL, contact email, and optional advertising configuration.
 
-## Node.js build tools (Python replacements)
+Before production changes, ensure that the configured website URL matches the actual public address and that the contact email is current. Rebuild and validate the site after changing configuration values.
 
-The previous Python build scripts have been replaced:
+---
 
-| Previous Python file | Node.js replacement | Purpose |
-|---|---|---|
-| `tools/build_site.py` | `tools/build-site.js` | Main static-site build: shared shell, metadata, paths, sitemap, robots file and optional AdSense setup. |
-| `tools/fix_fragments.py` | `tools/fix-fragments.js` | Repairs resolvable internal section anchors and reduces duplicated long guide paragraphs. |
-| `tools/guide_content.py` | `tools/guide-content.js` | Applies topic-specific summaries, checklist wording and aftercare text. |
+## Website Limitations
 
-Their text mappings are stored in `tools/build-data.json`. `package.json` defines the commands. Python and `requirements.txt` are no longer required by this project.
+To help visitors make informed decisions, please note:
 
-## Configure the public site URL
+- UPI QR Studio is a QR code creation and educational website, not a bank or payment service provider.
+- Creating a QR code does not guarantee that a transaction will succeed.
+- The website does not itself confirm whether a payment has reached a recipient's bank account.
+- QR code compatibility depends on the generated payment information and the application used to scan it.
+- Bank-specific requirements, payment limits, fees, eligibility, and supported features may vary.
+- Educational content is general information and should not be treated as a substitute for instructions from a bank or payment provider.
+- Internet access may be required for some website resources or third-party libraries.
+- Website features and content may change as the project develops.
 
-After creating your GitHub repository, update `siteUrl` in `site-config.json`. A GitHub Pages project site typically uses `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY`; a custom domain uses the HTTPS origin you mapped to GitHub Pages. Run `npm run build` afterward so canonical URLs, `robots.txt`, and `sitemap.xml` use the configured public URL.
+Users should verify payment details and transaction status using their own compatible UPI application or bank.
 
-Do not publish with a placeholder hostname. For AdSense, confirm the current eligibility rules in your own account. Google's signup guidance has specific site URL requirements, and a GitHub Pages project URL contains a repository path; a custom domain you own is the clearer long-term option for monetization. See [Google's URL rules](https://support.google.com/adsense/answer/2784438) and [site readiness guidance](https://support.google.com/adsense/answer/7299563).
+## Privacy and Terms
 
-## GitHub Pages publishing
+Please review the website's published policies before using its features:
 
-1. Create a GitHub repository.
-2. Run `npm install`, `npm run build`, and `npm run check` locally.
-3. Upload/commit the **contents of this folder**, not an additional wrapper directory, so `index.html` is at the repository root.
-4. Do **not** commit `node_modules/`; it is excluded by `.gitignore`. Commit the resulting static HTML and the rest of the site.
-5. Open **Settings → Pages** and choose the `main` branch and `/ (root)` as the publishing source, or configure the source you use consistently.
-6. Wait for deployment and check the public HTTPS URL. Test the homepage, every page in `pages/`, the nested guide articles, the 404 page, and QR interactions.
-7. Add the real site to Google Search Console and submit the generated sitemap after verifying its absolute URLs.
+- [Privacy Policy](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/privacy-policy.html)
+- [Terms and Conditions](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/terms-and-conditions.html)
+- [Contact Us](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/contact-us.html)
 
-GitHub Pages does not execute `tools/*.js` after deployment. It hosts the HTML/CSS/JavaScript files generated locally. The `.nojekyll` file is included because the generated site is plain static HTML.
+Do not enter your UPI PIN, OTP, banking password, or other authentication secrets into website forms or share them through support messages.
 
-## Local testing checklist
+The published privacy policy should accurately describe the website's actual data handling, third-party resources, and any advertising or analytics services that are enabled.
 
-- Test home QR generation, preview and download, including whether the UPI ID appears beneath the downloaded QR where intended.
-- Test the QR Widget page, search/filter controls, FAQ accordions, mobile menu, mailto/contact links and all internal links.
-- Test at desktop and mobile widths; review browser console and network errors.
-- QR generation uses QRCode.js from a CDN, so the library requires a working internet connection unless you choose to vendor the library locally.
-- The contact route opens the visitor's email application. It does not send or store messages on a server.
+## Frequently Asked Questions
 
-## AdSense notes
+### Is UPI QR Studio free to use?
 
-- Keep `adsenseClientId` blank until you have the real `ca-pub-` ID supplied by your own AdSense account.
-- When configured with a valid ID, the build tool inserts Google's official loader and generates the corresponding `ads.txt` file. Confirm the public `/ads.txt` URL after deployment.
-- Read `ADSENSE-LAUNCH-CHECKLIST.md` before submitting. Technical setup cannot guarantee AdSense approval or revenue.
-- Ensure the live Privacy Policy accurately describes any advertising, analytics, cookies, forms or third-party services actually enabled.
+The website provides an online QR creation tool and educational resources. Refer to the current website for the available features and any applicable terms.
 
-## Limitations and editorial responsibility
+### Does generating a QR code send money?
 
-- The QR tool creates a `upi://pay` URI. It does not confirm the UPI ID owner's identity or prove payment succeeded. Confirm the payee and amount in the payment application.
-- The site is independent educational information, not a bank, payment app, or official NPCI website.
-- Verify UPI limits, eligibility, product details and grievance processes against current official sources and relevant banks/apps before publication and periodically thereafter.
-- Review every guide for correctness, originality, clarity and usefulness; a build checker cannot certify factual accuracy or guarantee search rankings or AdSense approval.
+No. Generating or downloading a QR code creates an image containing payment-related information. A payment requires a compatible payment application and the payer's authorization.
+
+### Can I use a downloaded QR code for my business?
+
+You can use it for your intended payment purposes after confirming that the QR code contains the correct details and works with a compatible UPI application. Test it before displaying or distributing it.
+
+### Does UPI QR Studio guarantee a successful payment?
+
+No. Transaction processing and confirmation depend on the participating payment application, bank, and payment infrastructure.
+
+### What should I do if a payment fails?
+
+Check the transaction status and reference details in your payment application. Contact your bank or payment provider through its official support channels if you need assistance.
+
+### How can I report a website issue?
+
+Use the website's Contact Us page or the configured contact email.
+
+---
+
+## Contact Us
+
+We welcome questions, feedback, suggestions, and reports about website functionality or content.
+
+**Email:** rsbusinesses0@gmail.com
+
+**Website:** https://rsbusinesses0.github.io/UPI_QR_Studio/
+
+For banking or payment disputes, contact the relevant bank or payment provider directly through its official support channels.
+
+## Contributing and Feedback
+
+Suggestions that improve usability, accessibility, educational clarity, QR code functionality, or payment safety are welcome.
+
+If you work with the source code:
+
+1. Review the repository and existing project structure.
+2. Make focused changes.
+3. Run the build and validation scripts.
+4. Test the affected functionality.
+5. Commit your changes and submit them through the project's GitHub workflow.
+
+Please avoid submitting secrets, private banking information, credentials, or other sensitive personal data.
+
+---
+
+## Our Commitment
+
+UPI QR Studio aims to make QR code creation straightforward and UPI information easier to understand.
+
+We believe useful digital payment tools should be accompanied by clear instructions, practical safety guidance, and transparent limitations. We will continue improving the website as its features and educational resources develop.
+
+**Create with clarity. Pay with care. Learn with confidence.**
+
+---
+
+*UPI QR Studio is an independent informational and QR-generation project. It is not an official NPCI, UPI, bank, or payment-application website and does not claim endorsement by those organizations. Names and trademarks belong to their respective owners.*
