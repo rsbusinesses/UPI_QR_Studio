@@ -1,0 +1,266 @@
+{
+  "PAGE_TITLES": {
+    "index.html": "Create a UPI QR Code Online",
+    "pages/about-us.html": "About UPI QR Studio",
+    "pages/contact-us.html": "Contact UPI QR Studio",
+    "pages/privacy-policy.html": "Privacy Policy",
+    "pages/qr-widget.html": "UPI QR Code Generator",
+    "pages/safety-center.html": "UPI Safety Center",
+    "pages/terms-and-conditions.html": "Terms and Conditions",
+    "pages/upi-faqs.html": "UPI Payment FAQs",
+    "pages/upi-guide-topics.html": "UPI Guide Topics",
+    "pages/upi-guide.html": "UPI Guides and How-to Articles",
+    "pages/upi-guides.html": "UPI Guides",
+    "pages/upi-id-providers.html": "UPI ID Providers in India",
+    "pages/upi-guides/biometric-authentication.html": "Biometric Authentication for UPI",
+    "pages/upi-guides/cash-deposit-and-withdrawal-services.html": "UPI Cash Deposit and Withdrawal Services",
+    "pages/upi-guides/conversational-payments.html": "Conversational Payments with UPI",
+    "pages/upi-guides/onboarding-account-activation.html": "UPI Onboarding and Account Activation",
+    "pages/upi-guides/popular-guides.html": "Popular UPI Guides",
+    "pages/upi-guides/transaction-rules-and-merchant-payments.html": "UPI Transaction Rules and Merchant Payments",
+    "pages/upi-guides/upi-autopay-and-recurring-payments.html": "UPI AutoPay and Recurring Payments",
+    "pages/upi-guides/upi-circle-delegated-payments.html": "UPI Circle and Delegated Payments",
+    "pages/upi-guides/upi-id-number-guide.html": "UPI ID and UPI Number Guide",
+    "pages/upi-guides/user-safety-and-daily-limits.html": "UPI Safety and Transaction Limits",
+    "404.html": "Page Not Found"
+  },
+  "DESCRIPTIONS": {
+    "index.html": "Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources.",
+    "pages/about-us.html": "Learn about UPI QR Studio, our independent educational purpose, editorial approach and commitment to clear digital payment guidance.",
+    "pages/contact-us.html": "Contact UPI QR Studio to report an issue, suggest a correction, share accessibility feedback or ask a question about the website.",
+    "pages/privacy-policy.html": "Read how UPI QR Studio handles information when you use this static website and browser-based UPI QR tools, and learn about advertising choices.",
+    "pages/qr-widget.html": "Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below.",
+    "pages/safety-center.html": "Learn practical ways to spot UPI scams, protect your UPI PIN, verify recipients and respond to suspicious transactions.",
+    "pages/terms-and-conditions.html": "Review the terms for using UPI QR Studio, including tool limitations, user responsibilities and independent educational information.",
+    "pages/upi-faqs.html": "Find answers to common questions about UPI IDs, QR payments, PIN safety, failed transactions, refunds and transaction limits.",
+    "pages/upi-guide-topics.html": "Browse UPI guides by topic, including account setup, QR payments, AutoPay, delegated payments, security and transaction rules.",
+    "pages/upi-guide.html": "Explore practical UPI guides that explain setup, payments, UPI IDs, safety, AutoPay and other features in clear steps.",
+    "pages/upi-guides.html": "Browse UPI tutorials and practical guides for everyday digital payments, payment security and UPI features.",
+    "pages/upi-id-providers.html": "Explore UPI ID handles and payment apps. Check provider availability and supported features with the relevant bank or app.",
+    "pages/upi-guides/biometric-authentication.html": "Understand where biometric authentication may be used in payment apps, how it differs from a UPI PIN and how to protect your device.",
+    "pages/upi-guides/cash-deposit-and-withdrawal-services.html": "Learn how UPI-enabled cash deposit and withdrawal services may work, where they are available and what to verify before using them.",
+    "pages/upi-guides/conversational-payments.html": "Explore conversational payment concepts, voice or chat-assisted interfaces, usability considerations and safety checks for digital payments.",
+    "pages/upi-guides/onboarding-account-activation.html": "Learn the usual steps for setting up UPI access, linking an eligible account and configuring payment authentication with your bank or app.",
+    "pages/upi-guides/popular-guides.html": "Start with essential UPI explainers about getting set up, paying by QR, checking payment status and staying safe.",
+    "pages/upi-guides/transaction-rules-and-merchant-payments.html": "Understand UPI transaction flows, merchant payments, pending transactions and why limits and processing rules can vary.",
+    "pages/upi-guides/upi-autopay-and-recurring-payments.html": "Learn how UPI AutoPay mandates support recurring payments, how to review a mandate and how to manage or revoke it safely.",
+    "pages/upi-guides/upi-circle-delegated-payments.html": "Explore UPI Circle delegated payments, responsibilities of primary and secondary users and safeguards to review before activation.",
+    "pages/upi-guides/upi-id-number-guide.html": "Understand how UPI IDs and supported mobile-number addressing work, how to verify the recipient and how to avoid payment mistakes.",
+    "pages/upi-guides/user-safety-and-daily-limits.html": "Learn safe UPI practices and how to verify transaction limits with your bank or app, since caps may differ by transaction type and institution."
+  },
+  "GUIDE_NOTES": {
+    "biometric-authentication.html": [
+      "Biometrics are a device-level convenience, not a reason to share credentials.",
+      [
+        "Keep your device OS and payment app updated.",
+        "Never disclose the UPI PIN or approve a prompt you did not initiate.",
+        "Check the app and bank instructions because supported authentication methods differ."
+      ]
+    ],
+    "cash-deposit-and-withdrawal-services.html": [
+      "Service availability depends on the bank, cash point, participating network and local rules.",
+      [
+        "Confirm the outlet is an authorized service point.",
+        "Review fees, transaction limits and receipt details before confirming.",
+        "Keep the receipt and verify the credit or debit in the official app or statement."
+      ]
+    ],
+    "conversational-payments.html": [
+      "Voice or chat interfaces can make payment flows easier, but they do not remove the need to verify the payee.",
+      [
+        "Review the displayed recipient and amount before authorization.",
+        "Do not follow payment instructions from an unsolicited caller or message.",
+        "Use the official app interface for confirmation and dispute reporting."
+      ]
+    ],
+    "onboarding-account-activation.html": [
+      "UPI setup requirements depend on the app, bank and supported authentication path.",
+      [
+        "Install the official app and use the mobile number registered with your bank.",
+        "Complete account linking only inside the official application.",
+        "Set or reset the UPI PIN only through the supported bank/app flow."
+      ]
+    ],
+    "popular-guides.html": [
+      "Start with one task at a time and use the official app to verify every payment action.",
+      [
+        "Learn how to identify your UPI ID.",
+        "Practise scanning a QR without authorizing a payment you did not intend.",
+        "Bookmark the safety guide before you need it."
+      ]
+    ],
+    "transaction-rules-and-merchant-payments.html": [
+      "Payment status and limits can depend on the bank, payment type, risk controls and service availability.",
+      [
+        "Check the status inside the app before retrying a pending payment.",
+        "For a debit without recipient credit, follow the bank/app dispute process.",
+        "Never treat a screenshot or SMS alone as proof of settlement."
+      ]
+    ],
+    "upi-autopay-and-recurring-payments.html": [
+      "An AutoPay mandate is an authorization for future debits; review the mandate scope and schedule before approving it.",
+      [
+        "Check merchant name, maximum amount, frequency and validity.",
+        "Review active mandates periodically in the app or bank channel.",
+        "Use the official mandate-management flow to pause or revoke when supported."
+      ]
+    ],
+    "upi-circle-delegated-payments.html": [
+      "Delegated payment features have eligibility, spending controls and responsibilities defined by the participating app and bank.",
+      [
+        "Review the primary and secondary user roles before setup.",
+        "Set only an appropriate limit and monitor notifications.",
+        "Confirm current eligibility and controls in official app documentation."
+      ]
+    ],
+    "upi-id-number-guide.html": [
+      "A UPI ID is an address used to route a payment; it is not proof that the intended recipient owns the ID.",
+      [
+        "Confirm the payee name shown by your payment app.",
+        "Send a small test amount only when appropriate and with the recipient’s agreement.",
+        "Avoid relying on an old screenshot or copied ID without checking it again."
+      ]
+    ],
+    "user-safety-and-daily-limits.html": [
+      "UPI limits are not one universal number for every user and transaction; check the applicable bank and app rules.",
+      [
+        "Verify the current cap in official bank/app information.",
+        "Different transaction categories may have different limits.",
+        "If a transfer fails, read the exact error and avoid repeated attempts without checking status."
+      ]
+    ]
+  },
+  "SUMMARIES": {
+    "biometric-authentication.html": {
+      "what-is-biometric-authentication": "Biometric authentication checks a device-supported characteristic, such as a fingerprint or face, to help confirm that the device user is present. In a payment app, it may unlock access or support a verification step; it does not automatically replace the UPI PIN for every transaction.",
+      "how-fingerprint-authentication-works-for-upi": "Fingerprint verification typically uses the phone’s enrolled biometric system when the app and device support it. The exact role of a fingerprint—app sign-in, a local confirmation or a payment-related check—depends on the provider’s implementation and the transaction being made.",
+      "how-face-authentication-works-for-upi": "Face verification can mean unlocking the phone, signing in to an app, or completing a separate identity check. Those are different purposes, so read the app’s prompt and do not assume that ordinary phone face unlock authorizes every UPI payment.",
+      "what-is-aadhaar-face-authentication": "Aadhaar face authentication is an identity-verification process, not simply the face-unlock feature on a phone. It is available only in supported flows and subject to the relevant identity service, bank, device and app requirements.",
+      "how-to-set-or-reset-a-upi-pin-using-aadhaar-face-authentication": "An Aadhaar-based UPI PIN setup or reset is available only where the bank and app support that method and the user meets the stated eligibility requirements. Follow the official in-app process and carefully distinguish identity verification from the final PIN-setting step.",
+      "what-is-the-difference-between-phone-face-unlock-and-aadhaar-face-auth": "Phone face unlock generally controls access to a device; Aadhaar face authentication is used for a supported identity-verification workflow. One is not a substitute for the other, and the options shown by a bank or payment app determine what can be used for a particular task.",
+      "which-banks-and-apps-support-biometric-upi-features": "Biometric support can differ by bank, app version, device model and transaction type. Check the current feature notes published by your bank or payment app rather than assuming that a feature offered by one provider is available everywhere.",
+      "what-to-do-if-biometric-verification-fails": "A failed biometric check can be caused by sensor or camera conditions, device settings, app compatibility or service-side eligibility. Use the troubleshooting options provided by the app, and switch to another method only when the official flow offers it.",
+      "can-you-use-a-upi-pin-instead-of-biometric-authentication": "Whether a UPI PIN can be used instead of a biometric step depends on the exact app flow and why the biometric check was requested. Follow the alternatives displayed by the bank or app; never share a PIN or OTP with a person offering to help."
+    },
+    "cash-deposit-and-withdrawal-services.html": {
+      "what-is-upi-cash-point": "A UPI cash point is a participating service location or device that supports a specific cash-in or cash-out workflow. A shop that accepts ordinary UPI payments does not necessarily provide cash services, so confirm the exact service before travelling or handing over cash.",
+      "how-to-withdraw-cash-using-upi": "A UPI-linked cash withdrawal requires a supported bank or service-provider flow and a participating point that can dispense cash. Before confirming, check the amount, displayed recipient or operator details, any charges and how the transaction receipt will be issued.",
+      "how-cash-withdrawal-at-a-participating-shop-works": "At a participating shop, cash withdrawal is available only when the operator is enabled for that service and the transaction follows the official process. Verify the outlet and amount, wait for the app’s final status, and count the cash before leaving.",
+      "how-to-deposit-cash-through-supported-services": "Cash deposit through a UPI-enabled or linked service is not available at every bank, device or location. Confirm that the particular point accepts deposits, understand how the cash is counted and receipted, and review any amount or eligibility limits before proceeding.",
+      "do-you-need-a-debit-card-for-qr-based-cash-services": "A debit card may or may not be required depending on the participating service, bank and authentication flow. Do not infer eligibility from the presence of a QR code; check the provider’s current instructions for the specific cash service.",
+      "what-are-the-cash-withdrawal-limits": "Cash withdrawal caps can depend on the bank, service network, transaction method and the limits configured for the account or outlet. Check the amount displayed by the official provider and distinguish a per-transaction cap from any daily or account-level cap.",
+      "are-charges-applicable-to-cash-services": "Charges depend on the provider, service type, account terms and amount. Review the displayed fee or official tariff before approving the transaction, and keep the receipt in case the amount debited differs from the amount dispensed.",
+      "how-to-find-a-participating-cash-point": "Use the relevant bank or service provider’s official locator or support channel to confirm the address and the exact service offered. Availability can change, so do not rely solely on an old directory entry, signboard or third-party listing.",
+      "what-to-do-if-your-account-is-debited-but-you-receive-no-cash": "If a debit appears but the cash was not dispensed, do not immediately repeat the withdrawal. Save the transaction reference, time, amount and outlet details; check the app and bank record, then contact the bank or service provider through its official dispute process.",
+      "how-businesses-can-become-cash-service-points": "A business interested in offering cash services should apply through an authorized bank or service-provider channel. Before onboarding, review eligibility, settlement, staff training, cash handling, receipts, security duties and any contractual or regulatory conditions."
+    },
+    "conversational-payments.html": {
+      "what-is-hello-upi": "Conversational payment services let eligible users interact with payment features through supported voice, spoken prompts or assisted interfaces. The exact functions and access method vary by product, language and participating provider, so check the current official service guide before relying on a specific feature.",
+      "what-is-upi-123pay": "UPI 123PAY is an initiative intended to make UPI payments possible through supported feature-phone and assisted access methods. Available channels and transaction options can change; confirm the current process through NPCI or the participating bank before using a particular number, IVR or device flow.",
+      "how-to-make-upi-payments-using-a-feature-phone": "A feature-phone UPI payment uses a supported service flow rather than the full smartphone interface. Follow the instructions supplied by the participating provider, keep authentication details private and verify the payee and amount using the confirmation method available to that service.",
+      "how-to-make-payments-using-voice-commands": "Voice-assisted payments may collect details such as payee and amount through spoken prompts, but the available functionality depends on the service and language. Listen to the read-back carefully and do not continue if the payee, amount or action is unclear.",
+      "how-voice-based-payment-confirmation-works": "A voice confirmation is useful only if it clearly identifies the intended transaction. Listen for the payee, amount and requested action, and check any screen or receipt the service provides; a spoken prompt alone should not be treated as proof of final settlement.",
+      "which-languages-are-supported": "Language support is defined by the individual service, access channel and provider, and may not be identical across all users. Check the official instructions for the languages currently offered and stop if you cannot confidently understand the payee, amount or confirmation prompt.",
+      "how-to-verify-payment-details-before-confirming": "Before confirming a voice- or conversation-led payment, verify the payee identity, amount, purpose and whether the action will debit money. Ask the interface to repeat details where supported, and cancel rather than guess when the information is incomplete.",
+      "what-to-do-if-a-voice-payment-fails": "If a voice-based transaction fails or its outcome is uncertain, first check the service status, transaction history and bank account. Keep the reference number or recorded error and use the official support route; avoid making a second payment until you know whether the first one completed.",
+      "which-devices-and-applications-support-conversational-payments": "Compatibility depends on the specific service, the device and network available, bank participation, account eligibility and the current app or IVR flow. Use provider-published compatibility information and never install unofficial software to gain access to a payment feature."
+    },
+    "transaction-rules-and-merchant-payments.html": {
+      "how-to-send-money-using-upi": "To send money, choose the supported transfer method, identify the recipient and enter the amount before opening the final confirmation step. The recipient name, account selection and amount should all match your intention before you authorize a debit.",
+      "how-to-receive-money-through-upi": "To receive money, share a payment address or QR code that you control and confirm receipt in your own app or bank record. You do not need to disclose a UPI PIN or approve an unexpected debit request simply to receive funds.",
+      "how-to-scan-and-pay-using-a-qr-code": "A payment QR can prefill a UPI address and sometimes an amount or transaction note. Scanning it does not prove the recipient is trustworthy: inspect the name and amount shown in your own payment app before authorizing the debit.",
+      "how-to-pay-online-using-upi": "An online UPI payment may open your chosen payment app from a merchant checkout page. Check that the merchant, amount and order details match the purchase and complete authorization only in the trusted payment interface.",
+      "how-to-pay-at-a-shop-using-upi": "When paying at a shop, compare the payee or merchant name and amount on your payment screen with the shop’s displayed bill. Keep the transaction result and merchant receipt if available, particularly when the app shows a pending status.",
+      "how-to-pay-using-a-upi-id": "When entering a UPI ID manually, type or paste it carefully and inspect the recipient name resolved by the payment app. An ID is a routing address, not proof of identity, so cancel if the displayed payee does not match your intended recipient.",
+      "how-to-use-a-collect-payment-request": "A collect request asks you to review and potentially approve a payment; accepting it may authorize money to leave your account. Approve only a request you expected and understand, and never treat a request to pay as a requirement for receiving money.",
+      "can-you-use-upi-24-hours-a-day": "UPI services are designed for frequent, round-the-clock use, but a transaction can still be affected by maintenance, bank downtime, app outages, network problems or risk controls. Check the status shown by your bank and payment app when a service is unavailable.",
+      "what-is-the-upi-transaction-limit": "There is no single limit that should be assumed for every UPI transaction. Applicable caps can vary by bank, transaction category, account history and provider rules; check current official instructions for the specific payment you intend to make.",
+      "are-there-any-charges-for-upi-payments": "Fees can depend on the transaction type, merchant arrangement, bank terms and applicable rules. Check the current fee disclosure in the app or from the provider for your specific transaction instead of assuming that every payment has the same charge.",
+      "how-to-check-whether-a-payment-was-successful": "Use the transaction status inside your payment app and, when necessary, compare it with your bank account record. Keep the transaction ID for follow-up and do not rely on a screenshot, SMS alone or the other party’s claim as proof of settlement.",
+      "how-to-download-or-share-your-upi-qr-code": "Before sharing or printing a payment QR, inspect the encoded payment details and test the code using a trusted app where appropriate. A QR may expose the UPI ID and may prefill an amount or note, so share it only where intended and keep private information out of the note.",
+      "how-merchants-can-accept-upi-payments": "A merchant can explore QR or other UPI acceptance through its bank or an authorized payment provider. Before displaying a code, confirm that the settlement account is correct, understand reconciliation and refund processes, and train staff to verify payment status from the merchant’s own records.",
+      "what-is-a-merchant-category-code": "A merchant category code (MCC) identifies the type of business associated with a merchant account. Use the category provided through the official acquiring or payment provider, because misclassification can affect payment handling or eligibility under some provider rules.",
+      "how-merchant-refunds-work": "A merchant refund follows the merchant’s and payment provider’s refund workflow and may take time to appear in the customer’s account. Keep the original transaction ID and refund reference, and contact the merchant and bank through official channels if the expected timeframe passes.",
+      "how-to-pay-for-an-ipo-through-upi": "An IPO application may use a supported UPI mandate or approval flow, subject to the broker, bank and offer instructions. Verify the application details, amount and mandate request through the official platform and observe the published deadline; do not approve unrelated requests."
+    },
+    "upi-autopay-and-recurring-payments.html": {
+      "what-is-upi-autopay": "UPI AutoPay supports eligible recurring payments through a mandate that defines the merchant or purpose and the terms of future debits. The supported frequency, amount thresholds and management actions depend on the provider and mandate conditions shown to the user.",
+      "what-is-a-upi-mandate": "A UPI mandate records permission for a future or recurring payment under stated conditions. Before approving one, check the payee, maximum or fixed amount, schedule, validity period and the options available for viewing or revoking it.",
+      "how-to-create-an-autopay-mandate": "Create a mandate only from a service you recognize and intend to pay. Read the amount or maximum amount, frequency, start and end dates, merchant identity and cancellation path on the confirmation screen before approving.",
+      "how-to-approve-a-recurring-payment-request": "A recurring-payment approval creates or authorizes a payment arrangement, so treat it as a continuing permission rather than a one-time checkout. Confirm that the request matches the subscription or bill you chose and reject unfamiliar requests.",
+      "how-to-view-your-active-mandates": "The app or bank that manages a mandate usually provides a view of relevant active, pending or revoked instructions, though menu names differ. Check the current status and details there rather than relying on an old confirmation message.",
+      "how-to-check-the-amount-and-date-of-an-autopay-payment": "Compare the scheduled debit date and amount shown for a mandate with the bill or subscription notice. Amounts can be fixed or limited by a maximum, so review the mandate terms and the merchant’s invoice together.",
+      "how-to-pause-an-autopay-mandate": "Pausing is available only when the relevant provider and mandate support that action. Confirm the status after pausing and check whether the merchant still expects a payment through another method; pausing a mandate may not pause the service itself.",
+      "how-to-cancel-or-revoke-an-autopay-mandate": "Revocation generally concerns future debits under that mandate, but it may not terminate the separate contract or subscription with the merchant. Complete any merchant cancellation required and verify both the mandate status and the service status.",
+      "what-happens-if-an-autopay-payment-fails": "A failed recurring debit can have several causes, including insufficient funds, a mandate condition or a provider issue. Check the transaction and mandate status, read the merchant’s retry or late-payment terms, and avoid assuming that the mandate has been cancelled.",
+      "how-to-manage-subscription-payments": "Subscription management often involves two separate controls: the merchant account and the UPI mandate used to collect payment. Review both places when changing or ending a subscription so you understand whether access, future billing or both have been stopped.",
+      "what-happens-when-a-mandate-is-debited": "When a mandate is used, compare the posted debit with the mandate terms and the merchant’s billing record. If the amount, date or merchant does not match, preserve the transaction and mandate references and raise the issue with the bank or merchant through official support.",
+      "how-to-manage-mandates-after-changing-upi-apps": "Changing a UPI app does not guarantee that every mandate is transferred or managed in the new app. Check the bank’s mandate record and the original merchant or provider flow, then confirm where each active instruction can be viewed, changed or revoked."
+    },
+    "upi-circle-delegated-payments.html": {
+      "what-is-upi-circle": "UPI Circle is a delegated-payment arrangement designed to let an eligible primary user authorize a secondary user to make payments under defined controls. Availability and the exact permissions depend on the participating app, bank and the current service rules.",
+      "who-is-the-primary-user": "The primary user is the person who sets up or controls a supported delegation and chooses the permissions available to the secondary user. They should understand the spending controls, notification settings, liability and removal options before granting access.",
+      "who-is-the-secondary-user": "The secondary user receives delegated access under the permissions established for that arrangement. They should review the invitation, spending limit, approval requirements and duration, and accept only if they understand what actions they are authorized to take.",
+      "how-to-add-a-secondary-user": "Adding a secondary user should be performed inside the official app that offers the feature. Check the identity details, relationship, roles and requested permissions on both sides, and never approve an invitation received through an unrelated link or caller.",
+      "how-to-accept-a-upi-circle-invitation": "Before accepting an invitation, verify who initiated it and read the payment permissions that will be granted. Accept only through the official app after confirming the identity, limit and approval conditions shown by the service.",
+      "can-someone-use-upi-circle-without-their-own-linked-bank-account": "Whether a secondary user needs a separately linked bank account depends on the current implementation and role offered by the participating provider. Check the eligibility notes in the official app rather than relying on a general statement that applies to all providers.",
+      "how-to-set-payment-limits-for-a-secondary-user": "Set the lowest practical spending limit and use any per-transaction or approval controls the service provides. The available options and maximum values can vary, so review them in the app and explain the arrangement clearly to the secondary user.",
+      "how-to-approve-or-manage-delegated-payments": "The primary user should review incoming approval requests or delegated-payment activity in the app that manages the arrangement. Verify the payee, amount and purpose and change permissions if the observed usage no longer matches the agreed arrangement.",
+      "how-to-check-upi-circle-transactions": "Review delegated activity in the history or statements made available by the payment app or bank. Distinguish a request, a pending transfer and a completed debit, and retain transaction references if either user needs to query an entry.",
+      "how-to-remove-a-secondary-user": "Use the official management flow to revoke or remove delegated access and then confirm that the arrangement’s status has changed. If a device is lost or you suspect misuse, contact the bank or app promptly and review recent activity.",
+      "how-to-keep-delegated-payments-safe": "Delegation works best when both users understand the scope and agree on sensible limits. Review activity, keep authentication credentials private, and remove access when it is no longer needed or either user’s circumstances change."
+    },
+    "user-safety-and-daily-limits.html": {
+      "how-to-keep-your-upi-account-safe": "Account safety depends on securing both the device and the payment account. Use official apps, keep the phone updated and locked, verify payee details before payment, and report unexpected activity through your bank’s official channel.",
+      "why-you-should-never-share-your-upi-pin": "A UPI PIN is an authentication secret used to authorize a debit. Enter it only in the trusted payment app when you intend to pay; never disclose it to callers, merchants, support agents or anyone promising to receive money or issue a refund.",
+      "why-you-should-never-share-your-otp": "An OTP is meant to confirm a specific login, registration or other action, depending on the service. Do not read it to another person or enter it after an unexpected prompt; check the message purpose and proceed only in the official flow you initiated.",
+      "how-to-identify-fake-payment-requests": "A suspicious request may arrive unexpectedly, use pressure or claim that approval is needed to receive a refund, prize or payment. Read whether the prompt asks you to send money, and decline anything you did not initiate or cannot verify.",
+      "how-to-avoid-fraudulent-qr-codes": "A QR code can direct your app to a payee or prefill transaction details, but scanning does not validate the person or merchant behind it. Check the destination and amount in your own app and cancel if the resolved name differs from what you expect.",
+      "do-you-need-a-upi-pin-to-receive-money": "Receiving money into a UPI account normally does not require you to tell another person your UPI PIN. A prompt requesting a PIN usually relates to authorizing a debit, so read the transaction screen carefully and reject unexpected payment requests.",
+      "how-to-identify-fake-payment-screenshots": "A screenshot can be edited, delayed or unrelated to the transaction being discussed. For merchants and recipients, confirm the credit using the receiving account’s own transaction history or bank record before releasing goods or marking an order paid.",
+      "what-to-do-if-your-phone-is-lost": "If the phone used for UPI is lost, contact your mobile operator and bank or payment provider through official channels as soon as practical. Secure or remotely lock the device where possible, ask about blocking payment access and monitor account activity.",
+      "what-to-do-if-your-sim-is-misused": "Unexpected loss of mobile service, replacement-SIM messages or unrequested verification can indicate a mobile-account issue. Contact the operator using its official support route, alert your bank if payment access may be exposed and monitor transaction alerts.",
+      "what-is-the-daily-upi-payment-limit": "A daily limit depends on the bank, account, app, transaction category and current rules. Use the amount stated by your provider for the intended payment type; avoid relying on a single figure found online as a universal cap.",
+      "why-do-upi-transaction-limits-differ": "Limits may differ because a payment is classified by purpose, merchant type, risk setting, account type or provider-specific implementation. Check the rule for the exact transaction category with your bank or official payment app.",
+      "what-happens-if-you-enter-the-wrong-upi-pin-repeatedly": "Repeated incorrect PIN attempts may cause a temporary block or require a reset under the bank’s security rules. Stop guessing, follow the official recovery steps shown by the app or contact the bank if you are unsure whether the account is locked.",
+      "how-to-recognize-suspicious-upi-transactions": "Suspicious activity can include a debit you did not authorize, an unfamiliar beneficiary, unexpected collect requests or notifications that do not match your actions. Check the account record directly and report discrepancies promptly through the bank or app.",
+      "how-to-report-upi-fraud": "If you suspect UPI fraud, promptly report it to your bank or payment app and preserve transaction IDs, timestamps, messages and other relevant records. Use current official government cybercrime-reporting resources where appropriate; avoid contact numbers or links sent by an unknown caller.",
+      "what-to-do-if-someone-makes-an-unauthorized-payment": "For an unauthorized debit, contact the bank or payment provider promptly using its official in-app or published channel, request the transaction be investigated and follow its dispute process. Preserve the transaction reference and do not share passwords, PINs or OTPs during follow-up."
+    }
+  },
+  "REPEATED_ITEMS": {
+    "use an updated, official upi application and a secure device.": "For {topic}, use the official app provided by the relevant bank or service and keep your device protected with a screen lock and current security updates.",
+    "keep your registered mobile number active when the service requires mobile verification.": "If {topic} requires mobile or device verification, keep the SIM registered with your bank available and follow the prompts in the official app.",
+    "check the feature’s eligibility, transaction limits and any displayed charges before proceeding.": "Before using {topic}, confirm availability for your account and review the current limit and any fee shown by the provider.",
+    "open your official upi app and unlock it using your usual device security. make sure you are using the intended bank account or payment profile.": "For {topic}, begin inside the official app and confirm that the selected bank account or payment profile is the one you intend to use.",
+    "choose the relevant feature or transaction type and enter the required details carefully. use the app’s built-in selection, scan or copy option where available to reduce typing mistakes.": "Enter only the details requested for {topic}; use the app’s built-in selection or scan feature where appropriate, then review the entered information before continuing.",
+    "review the recipient or service name, amount, payment purpose, fees (if any), and any displayed limits or timing conditions.": "Before confirming {topic}, check the displayed recipient or service, amount, purpose and any fees or timing conditions against what you intended.",
+    "proceed only when all details are correct. complete the authentication requested by the app; a upi pin authorizes a debit and is not needed merely to receive money.": "Continue with {topic} only when the details are correct; enter a UPI PIN only in the trusted payment interface when you intend to authorize a debit.",
+    "wait for the final transaction status. save the reference number or receipt and check transaction history or your bank balance if the result is uncertain.": "After {topic}, check the final status in the app or bank record and keep the transaction reference if you need to follow up.",
+    "relying only on a screenshot, sms or another person’s claim instead of checking your own app or account.": "For {topic}, verify the result in your own app or bank record rather than relying only on a screenshot, message or another person’s claim.",
+    "approving a request without reading the amount, recipient and action being authorized.": "Read the recipient, amount and requested action for {topic} before approving any payment or permission.",
+    "assuming all banks, apps, devices and accounts support the same features or limits.": "Check whether {topic} is supported by your own bank, account, device and app version; features and limits can differ.",
+    "sharing confidential authentication details or following unexpected instructions from callers.": "Keep PINs, OTPs and other authentication details private while handling {topic}; ignore unexpected instructions from callers or messages."
+  },
+  "GENERIC_PREFIXES": [
+    "explains a common upi task or rule",
+    "is an important part of using upi carefully",
+    "describes a verification method that may be offered",
+    "concerns cash services that may be available",
+    "relates to upi circle, a delegated-payment arrangement",
+    "relates to a scheduled or repeat payment permission",
+    "describes a conversational or assisted way to access payment functions"
+  ],
+  "PANEL_AFTERCARE": {
+    "biometric-authentication.html": "For biometric verification, confirm which action the prompt is authorizing and use the official recovery route if the check fails. Never disclose a UPI PIN or OTP to someone offering remote help.",
+    "cash-deposit-and-withdrawal-services.html": "For cash-in or cash-out services, keep the receipt and transaction reference, count the cash before leaving and contact the authorized operator or bank if the recorded amount and cash received differ.",
+    "conversational-payments.html": "For voice- or chat-assisted payment flows, verify the payee and amount from the service confirmation or account record. If the outcome is unclear, check transaction history before attempting another payment.",
+    "onboarding-account-activation.html": "For account activation, confirm the bank account and registered mobile number shown in the official app. If verification fails, follow the bank’s published activation or recovery steps rather than sharing credentials with a third party.",
+    "popular-guides.html": "For any UPI task covered in this guide, check the final status in the payment app or bank account and keep the reference number when follow-up is needed.",
+    "transaction-rules-and-merchant-payments.html": "For a merchant payment or transaction dispute, preserve the order details, displayed status and transaction reference; use the bank or app’s official complaint route if the account record does not match the purchase.",
+    "upi-autopay-and-recurring-payments.html": "For an AutoPay mandate, check the mandate status, next debit details and cancellation result in the app or biller portal that manages it. Keep confirmation of any change or cancellation.",
+    "upi-circle-delegated-payments.html": "For delegated payments, review recent activity with the other user where appropriate and revoke access through the official app when it is no longer needed or the arrangement is no longer trusted.",
+    "upi-id-number-guide.html": "For a UPI ID or number-based payment, verify the resolved recipient name and intended amount in the payment app before authorizing the debit; an address alone does not establish identity.",
+    "user-safety-and-daily-limits.html": "For safety concerns or a limit-related failure, preserve the status message and transaction reference, check the rule with your own bank or app, and report suspected unauthorized activity promptly through official channels."
+  }
+}

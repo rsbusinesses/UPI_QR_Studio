@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." name="description">
+<title>Create a UPI QR Code Online | UPI QR Studio</title>
+<!-- Shared and section-specific CSS -->
+<link href="css/common.css" rel="stylesheet">
+<link href="css/header.css" rel="stylesheet">
+<link href="css/home.css" rel="stylesheet">  
+<link href="css/footer.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<meta content="#5A7863" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="Create a UPI QR Code Online" property="og:title"><meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="stylesheet" href="css/theme.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
+  <div class="header-container">
+    <a class="logo" href="index.html" aria-label="UPI QR Studio home">
+      <span class="logo-icon" aria-hidden="true">₹</span>
+      <span>UPI QR <strong>Studio</strong></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-navigation" id="primaryNavigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="pages/upi-guide.html">UPI Guides</a>
+      <a class="nav-link" href="pages/safety-center.html">Safety Center</a>
+      <a class="nav-link" href="pages/upi-id-providers.html">UPI ID Providers</a>
+      <a class="nav-link" href="pages/upi-faqs.html">FAQs</a>
+      <a class="nav-link" href="pages/about-us.html">About</a>
+      <a class="nav-cta" href="index.html#qr-generator">Create a QR</a>
+    </nav>
+  </div>
+</header>
+<!-- ================= HEADER ================= -->
+<!-- ================= MAIN BODY ================= -->
+<main class="home-main" id="main-content">
+<!-- Hero section -->
+<section class="hero-section">
+<div class="hero-content">
+<span class="eyebrow">SIMPLE • FAST • CONVENIENT</span>
+<h1>Your UPI QR Code, Made <span>Simple.</span></h1>
+<p>
+                    Create a UPI QR code for receiving payments and explore
+                    helpful guides to make digital payments easier and safer.
+                </p>
+<div class="hero-actions">
+<a class="primary-button" href="#qr-generator">
+                        Generate Your QR
+                    </a>
+<a class="secondary-button" href="pages/upi-guides.html">
+                        Explore UPI Guides
+                    </a>
+</div>
+<p class="hero-note">
+                    Use trusted payment apps and never share your UPI PIN.
+                </p>
+</div>
+</section>
+<!-- QR generator section -->
+<section class="qr-section" id="qr-generator">
+<div class="section-heading">
+<span class="eyebrow">CREATE YOUR QR</span>
+<h2>Generate a UPI QR Code</h2>
+<p>
+                    Enter your UPI ID and optional payment details to create
+                    a QR code for others to scan using a compatible UPI app.
+                </p>
+</div>
+<div class="qr-card">
+<form id="upiForm">
+<div class="form-group">
+<label for="upiId">UPI ID *</label>
+<input autocomplete="off" id="upiId" name="upiId" placeholder="example@bank" required="" type="text">
+</div>
+<div class="form-group">
+<label for="payeeName">Payee Name (optional)</label>
+<input autocomplete="name" id="payeeName" name="payeeName" placeholder="Your name or business name" type="text">
+</div>
+<div class="form-group">
+<label for="amount">Amount in INR (optional)</label>
+<input id="amount" min="0.01" name="amount" placeholder="e.g. 250" step="0.01" type="number">
+</div>
+<div class="form-group">
+<label for="note">Payment Note (optional)</label>
+<input id="note" maxlength="100" name="note" placeholder="e.g. Product payment" type="text">
+</div>
+<button class="primary-button full-button" type="submit">
+                        Generate QR Code
+                    </button>
+</form>
+<div aria-live="polite" class="qr-result" id="qrResult">
+<p>Your generated QR code will appear here.</p>
+</div>
+</div>
+<p class="security-note">
+<strong>Safety reminder:</strong> Verify your UPI ID before
+                sharing your QR code. Never enter your UPI PIN to receive money.
+            </p>
+</section>
+<!-- UPI introduction -->
+<section class="intro-section">
+<div class="section-heading">
+<span class="eyebrow">UNDERSTANDING UPI</span>
+<h2>What Is Unified Payments Interface?</h2>
+</div>
+<div class="intro-content">
+<p>
+                    Unified Payments Interface (UPI) is an instant payment
+                    system in India that enables eligible users to transfer
+                    money between participating bank accounts using supported
+                    applications.
+                </p>
+<p>
+                    Depending on the application and service, users can send
+                    money, pay merchants, and make payments by scanning a
+                    compatible QR code.
+                </p>
+<a class="text-link" href="pages/upi-guides.html">
+                    Learn more about UPI →
+                </a>
+</div>
+</section>
+<!-- Features -->
+<section class="features-section">
+<div class="section-heading">
+<span class="eyebrow">WHY USE UPI?</span>
+<h2>Digital Payments Made Easier</h2>
+<p>
+                    Discover the convenience of India's digital payment system.
+                </p>
+</div>
+<div class="features-grid">
+<article class="feature-card">
+<div class="feature-icon">⚡</div>
+<h3>Quick Transfers</h3>
+<p>
+                        Send money through supported UPI applications
+                        without manually entering bank account details.
+                    </p>
+</article>
+<article class="feature-card">
+<div class="feature-icon">▦</div>
+<h3>Scan and Pay</h3>
+<p>
+                        Scan a compatible merchant or personal QR code
+                        using a supported payment application.
+                    </p>
+</article>
+<article class="feature-card">
+<div class="feature-icon">₹</div>
+<h3>Convenient Payments</h3>
+<p>
+                        Make eligible payments using a UPI ID or other
+                        supported payment details.
+                    </p>
+</article>
+<article class="feature-card">
+<div class="feature-icon">🔒</div>
+<h3>Security Matters</h3>
+<p>
+                        Protect your credentials, verify recipients, and
+                        approve payment requests only when appropriate.
+                    </p>
+</article>
+<article class="feature-card">
+<div class="feature-icon">📱</div>
+<h3>Supported Apps</h3>
+<p>
+                        Choose a compatible UPI application offered by
+                        a participating provider.
+                    </p>
+</article>
+<article class="feature-card">
+<div class="feature-icon">✓</div>
+<h3>Payment Confirmation</h3>
+<p>
+                        Check the transaction status in your payment app
+                        and bank records after making a payment.
+                    </p>
+</article>
+</div>
+</section>
+<!-- Safety callout -->
+<section class="safety-callout">
+<div>
+<span class="eyebrow">STAY PROTECTED</span>
+<h2>Make Every UPI Payment Safely</h2>
+<p>
+                    Learn how to identify suspicious requests, protect your
+                    UPI PIN, and avoid common digital payment scams.
+                </p>
+</div>
+<a class="primary-button" href="pages/safety-center.html">
+                Visit Safety Center
+            </a>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<!-- ================= JAVASCRIPT ================= -->
+<!-- QR generator logic, if implemented in this file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="js/home-qr-generator.js"></script>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html">UPI QR <strong>Studio</strong></a>
+      <p>Independent educational guides and browser-based tools for understanding UPI payments. We are not a bank, payment app, or official NPCI website.</p>
+    </div>
+    <div class="footer-column">
+      <h2>Explore</h2>
+      <a href="pages/upi-guide.html">UPI Guides</a>
+      <a href="pages/upi-faqs.html">Frequently Asked Questions</a>
+      <a href="pages/upi-id-providers.html">UPI ID Providers</a>
+      <a href="pages/qr-widget.html">QR Generator</a>
+      <a href="pages/safety-center.html">Safety Center</a>
+    </div>
+    <div class="footer-column">
+      <h2>Website</h2>
+      <a href="pages/about-us.html">About Us</a>
+      <a href="pages/contact-us.html">Contact</a>
+      <a href="pages/privacy-policy.html">Privacy Policy</a>
+      <a href="pages/terms-and-conditions.html">Terms &amp; Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.</p>
+    <a href="#main-content" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer><script src="js/main.js" defer=""></script></body></html>

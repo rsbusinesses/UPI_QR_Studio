@@ -1,0 +1,175 @@
+
+/* ========================================
+   UPI QR STUDIO - COMMON STYLES
+   File: css/common.css
+======================================== */
+
+:root {
+    --primary: #0b8068;
+    --primary-dark: #086653;
+    --primary-light: #e9f7f2;
+
+    --secondary: #102a43;
+    --text: #263746;
+    --muted: #64748b;
+
+    --background: #ffffff;
+    --surface: #f6f9fc;
+    --border: #e2e8f0;
+
+    --success: #16805d;
+    --shadow: 0 12px 35px rgba(16, 42, 67, 0.08);
+
+    --radius: 16px;
+    --container-width: 1180px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-width: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(11, 128, 104, 0.35);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(var(--container-width), calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button {
+    color: #ffffff;
+    background: var(--primary);
+    box-shadow: 0 5px 14px rgba(11, 128, 104, 0.16);
+}
+
+.primary-button:hover {
+    color: #ffffff;
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    color: var(--secondary);
+    background: #ffffff;
+    border-color: var(--border);
+}
+
+.secondary-button:hover {
+    color: var(--primary-dark);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.full-button {
+    width: 100%;
+    border: 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 12px;
+    color: var(--secondary);
+    font-size: clamp(27px, 3.5vw, 38px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 700;
+}
+
+::selection {
+    color: #ffffff;
+    background: var(--primary);
+}

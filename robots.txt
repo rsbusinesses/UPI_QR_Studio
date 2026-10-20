@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# After setting siteUrl in site-config.json, rebuild to add your sitemap URL.

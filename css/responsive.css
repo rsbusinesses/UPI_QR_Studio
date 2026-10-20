@@ -1,0 +1,771 @@
+
+/* ==========================================
+   UPI QR STUDIO
+   MOBILE-FIRST RESPONSIVE ADJUSTMENTS
+   File: css/responsive.css
+========================================== */
+
+/* Prevent unwanted horizontal scrolling */
+html {
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: clip;
+}
+
+img,
+canvas,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 850px) {
+    .header-container {
+        min-height: 66px;
+    }
+
+    .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .main-navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        max-height: calc(100dvh - 66px);
+        padding: 12px 20px 22px;
+        overflow-y: auto;
+
+        background: #ffffff;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(16, 42, 67, 0.12);
+    }
+
+    .main-navigation.is-open {
+        display: flex;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        padding: 13px 8px;
+        font-size: 14px;
+        white-space: normal;
+        border-bottom: 1px solid #edf1f5;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .nav-button {
+        align-self: flex-start;
+        margin-top: 15px;
+    }
+
+    .qr-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .safety-callout {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Standard mobile phones */
+@media (max-width: 600px) {
+    /* Global spacing */
+    body {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .header-container {
+        width: calc(100% - 28px);
+        min-height: 62px;
+        gap: 12px;
+    }
+
+    /* Logo */
+    .logo {
+        gap: 8px;
+        font-size: 17px;
+        letter-spacing: -0.3px;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+    /* Hamburger menu */
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+    }
+
+    .main-navigation {
+        max-height: calc(100dvh - 62px);
+        padding: 10px 18px 20px;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: 54px 18px 48px;
+    }
+
+    .eyebrow {
+        margin-bottom: 10px;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 17px;
+        font-size: clamp(32px, 8.8vw, 43px);
+        line-height: 1.17;
+        letter-spacing: -0.9px;
+        overflow-wrap: break-word;
+    }
+
+    .hero-content > p:not(.hero-note) {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+        margin-top: 23px;
+    }
+
+    .hero-actions .primary-button,
+    .hero-actions .secondary-button {
+        width: 100%;
+        min-height: 47px;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .hero-note {
+        margin-top: 17px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    /* Section spacing and headings */
+    .qr-section,
+    .intro-section,
+    .features-section {
+        padding: 48px 16px;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(24px, 6.8vw, 30px);
+        line-height: 1.3;
+        letter-spacing: -0.5px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* QR generator */
+    .qr-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        width: 100%;
+        padding: 17px;
+        border-radius: 12px;
+    }
+
+    #upiForm {
+        width: 100%;
+        min-width: 0;
+        gap: 15px;
+    }
+
+    .form-group {
+        width: 100%;
+        min-width: 0;
+        gap: 6px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input {
+        width: 100%;
+        min-width: 0;
+        min-height: 47px;
+        padding: 11px 12px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .full-button {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .qr-result {
+        width: 100%;
+        min-width: 0;
+        min-height: 235px;
+        padding: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .qr-result img,
+    .qr-result canvas {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .qr-result p {
+        font-size: 13px;
+    }
+
+    .security-note {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    /* Introduction */
+    .intro-content {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .intro-content p + p {
+        margin-top: 14px;
+    }
+
+    .text-link {
+        font-size: 14px;
+    }
+
+    /* Feature cards */
+    .features-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .feature-card {
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr);
+        column-gap: 13px;
+        align-items: start;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .feature-icon {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 44px;
+        height: 44px;
+        margin-bottom: 0;
+        border-radius: 11px;
+        font-size: 21px;
+    }
+
+    .feature-card h3 {
+        grid-column: 2;
+        margin: 1px 0 6px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .feature-card p {
+        grid-column: 2;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
+
+    /* Safety callout */
+    .safety-callout {
+        width: calc(100% - 32px);
+        gap: 18px;
+        margin-bottom: 48px;
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+    .safety-callout h2 {
+        font-size: 24px;
+        line-height: 1.35;
+        letter-spacing: -0.4px;
+    }
+
+    .safety-callout p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .safety-callout > .primary-button {
+        width: 100%;
+        min-height: 47px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 27px;
+        width: calc(100% - 36px);
+        padding: 38px 0 30px;
+    }
+
+    .footer-logo {
+        margin-bottom: 12px;
+        font-size: 20px;
+    }
+
+    .footer-about p {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .footer-column {
+        gap: 9px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+
+    .footer-column a {
+        padding: 2px 0;
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        padding: 17px 16px;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+    .header-container {
+        width: calc(100% - 20px);
+    }
+
+    .logo {
+        gap: 6px;
+        font-size: 15px;
+    }
+
+    .logo-icon {
+        width: 33px;
+        height: 33px;
+        font-size: 18px;
+    }
+
+    .hero-section {
+        padding-inline: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .qr-section,
+    .intro-section,
+    .features-section {
+        padding-inline: 12px;
+    }
+
+    .qr-card {
+        padding: 13px;
+    }
+
+    .feature-card {
+        grid-template-columns: 39px minmax(0, 1fr);
+        column-gap: 10px;
+        padding: 14px;
+    }
+
+    .feature-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .safety-callout {
+        width: calc(100% - 24px);
+        padding: 18px 14px;
+    }
+
+    .footer-container {
+        width: calc(100% - 28px);
+    }
+}
+
+/* Landscape phones */
+@media (max-width: 850px) and (orientation: landscape) {
+    .main-navigation {
+        max-height: 75dvh;
+    }
+
+    .hero-section {
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   UPI QR STUDIO — RESPONSIVE SAFETY CENTER
+   File: css/responsive.css
+   These rules affect only .safety-center
+   ========================================================= */
+
+/* Smaller desktop and tablets */
+@media (max-width: 1050px) {
+    .safety-center .safety-hero-grid {
+        gap: 25px;
+    }
+
+    .safety-center .safety-rule-grid,
+    .safety-center .safety-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .safety-center .safety-scam-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .safety-center .safety-two-column {
+        gap: 32px;
+    }
+}
+
+/* Tablets and smaller screens */
+@media (max-width: 800px) {
+    .safety-center .safety-container {
+        width: min(100% - 36px, 650px);
+    }
+
+    .safety-center .safety-hero {
+        padding: 58px 0;
+    }
+
+    .safety-center .safety-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .safety-center .safety-hero-content {
+        max-width: 650px;
+    }
+
+    .safety-center .safety-hero-visual {
+        min-height: 300px;
+        max-width: 500px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .safety-center .safety-orbit-one {
+        width: 260px;
+        height: 260px;
+    }
+
+    .safety-center .safety-orbit-two {
+        width: 205px;
+        height: 205px;
+    }
+
+    .safety-center .safety-shield {
+        width: 145px;
+        height: 165px;
+    }
+
+    .safety-center .safety-card-top {
+        top: 18px;
+        right: 0;
+    }
+
+    .safety-center .safety-card-bottom {
+        bottom: 15px;
+        left: 0;
+    }
+
+    .safety-center .safety-core-rules,
+    .safety-center .safety-emergency,
+    .safety-center .safety-scam-library,
+    .safety-center .safety-pin-section,
+    .safety-center .safety-payment-process,
+    .safety-center .safety-merchant-section,
+    .safety-center .safety-device-section,
+    .safety-center .safety-faq-section,
+    .safety-center .safety-resources-section {
+        padding: 58px 0;
+    }
+
+    .safety-center .safety-two-column {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .safety-center .safety-device-grid,
+    .safety-center .safety-resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .safety-center .safety-final-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 560px) {
+    .safety-center .safety-container {
+        width: calc(100% - 30px);
+    }
+
+    .safety-center {
+        font-size: 15px;
+    }
+
+    .safety-center .safety-hero {
+        padding: 42px 0 38px;
+    }
+
+    .safety-center .safety-hero h1 {
+        font-size: clamp(35px, 10vw, 46px);
+        letter-spacing: -1.4px;
+    }
+
+    .safety-center .safety-hero-description {
+        font-size: 15px;
+    }
+
+    .safety-center .safety-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .safety-center .safety-button {
+        width: 100%;
+    }
+
+    .safety-center .safety-hero-visual {
+        min-height: 265px;
+    }
+
+    .safety-center .safety-orbit-one {
+        width: 220px;
+        height: 220px;
+    }
+
+    .safety-center .safety-orbit-two {
+        width: 175px;
+        height: 175px;
+    }
+
+    .safety-center .safety-shield {
+        width: 125px;
+        height: 145px;
+    }
+
+    .safety-center .safety-floating-card {
+        max-width: 195px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .safety-center .safety-floating-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .safety-center .safety-floating-card strong {
+        font-size: 11px;
+    }
+
+    .safety-center .safety-floating-card small {
+        font-size: 9px;
+    }
+
+    .safety-center .safety-card-top {
+        top: 8px;
+    }
+
+    .safety-center .safety-card-bottom {
+        bottom: 7px;
+    }
+
+    .safety-center .safety-core-rules,
+    .safety-center .safety-emergency,
+    .safety-center .safety-scam-library,
+    .safety-center .safety-pin-section,
+    .safety-center .safety-payment-process,
+    .safety-center .safety-merchant-section,
+    .safety-center .safety-device-section,
+    .safety-center .safety-faq-section,
+    .safety-center .safety-resources-section {
+        padding: 45px 0;
+    }
+
+    .safety-center h2 {
+        font-size: 27px;
+    }
+
+    .safety-center .safety-section-heading {
+        margin-bottom: 25px;
+    }
+
+    .safety-center .safety-section-heading > p {
+        font-size: 14px;
+    }
+
+    .safety-center .safety-rule-grid,
+    .safety-center .safety-process-grid,
+    .safety-center .safety-scam-grid,
+    .safety-center .safety-device-grid,
+    .safety-center .safety-resource-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .safety-center .safety-rule-card,
+    .safety-center .safety-process-card,
+    .safety-center .safety-scam-card,
+    .safety-center .safety-device-card,
+    .safety-center .safety-resource-card {
+        padding: 20px;
+    }
+
+    .safety-center .safety-emergency-panel {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        padding: 22px 18px;
+    }
+
+    .safety-center .safety-emergency-symbol {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 28px;
+    }
+
+    .safety-center .safety-emergency-actions {
+        flex-direction: column;
+    }
+
+    .safety-center .safety-emergency-steps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .safety-center .safety-emergency-step {
+        padding: 16px;
+    }
+
+    .safety-center .safety-pin-item {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .safety-center .safety-pin-symbol {
+        width: 43px;
+        height: 41px;
+    }
+
+    .safety-center .safety-final-panel {
+        padding: 23px 18px;
+    }
+
+    .safety-center .safety-final-panel h2 {
+        font-size: 27px;
+    }
+
+    .safety-center .safety-disclaimer {
+        font-size: 11px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+    .safety-center .safety-container {
+        width: calc(100% - 22px);
+    }
+
+    .safety-center .safety-hero h1 {
+        font-size: 33px;
+    }
+
+    .safety-center .safety-floating-card {
+        max-width: 175px;
+        padding: 8px;
+    }
+}

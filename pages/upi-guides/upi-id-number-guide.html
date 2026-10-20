@@ -1,0 +1,764 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Understand how UPI IDs and supported mobile-number addressing work, how to verify the recipient and how to avoid payment mistakes." name="description">
+<title>UPI ID and UPI Number Guide | UPI QR Studio</title>
+<link href="../../css/subcategory-guides.css" rel="stylesheet">
+<link href="../../css/pages.css" rel="stylesheet">
+<link href="../../css/header.css" rel="stylesheet">
+<link href="../../css/footer.css" rel="stylesheet">
+<link href="../../css/common.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<script defer="" src="../../js/subcategory-guides.js"></script>
+<meta content="#5A7863" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI ID and UPI Number Guide" property="og:title"><meta content="Understand how UPI IDs and supported mobile-number addressing work, how to verify the recipient and how to avoid payment mistakes." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="stylesheet" href="../../css/theme.css"><link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"></head>
+<body class="upi-guides-page">
+<a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
+  <div class="header-container">
+    <a class="logo" href="../../index.html" aria-label="UPI QR Studio home">
+      <span class="logo-icon" aria-hidden="true">₹</span>
+      <span>UPI QR <strong>Studio</strong></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-navigation" id="primaryNavigation" aria-label="Main navigation">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../upi-guide.html">UPI Guides</a>
+      <a class="nav-link" href="../safety-center.html">Safety Center</a>
+      <a class="nav-link" href="../upi-id-providers.html">UPI ID Providers</a>
+      <a class="nav-link" href="../upi-faqs.html">FAQs</a>
+      <a class="nav-link" href="../about-us.html">About</a>
+      <a class="nav-cta" href="../../index.html#qr-generator">Create a QR</a>
+    </nav>
+  </div>
+</header>
+<!-- Page Main Content Layout (Excludes Header and Footer) -->
+<main class="guide-main" id="main-content"><nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="../../index.html">Home</a></li><li><a href="../upi-guide.html">UPI Guides</a></li><li aria-current="page">UPI ID and UPI Number Guide</li></ol></nav><h1 class="generated-page-title">UPI ID and UPI Number Guide</h1>
+<div class="guide-layout">
+<!-- Primary Article Content Column -->
+<article class="guide-article" id="guideArticle">
+<!-- SECTION BLOCK 1: What Is a UPI ID? -->
+<section class="guide-section is-active" data-guide-section="" id="upi-id">
+<h2>What Is a UPI ID?</h2>
+<p>
+                              A UPI ID, also known as a Virtual Payment Address (VPA), is
+                              a unique payment identifier that allows a person or
+                              business to send and receive money through the Unified
+                              Payments Interface (UPI) without sharing bank account
+                              details with every payer.
+                          </p>
+<p>
+                              A UPI ID is created or assigned through a supported UPI
+                              application and is linked to an eligible bank account or
+                              another supported payment instrument. It acts as an address
+                              that helps direct a payment to the intended recipient.
+                          </p>
+<h3>How a UPI ID works</h3>
+<ol>
+<li><strong>Creation:</strong> The user registers with a supported UPI application and completes the required verification.</li>
+<li><strong>Account linking:</strong> The user links an eligible bank account or supported payment instrument, where permitted.</li>
+<li><strong>UPI ID assignment:</strong> The application provides an available UPI ID or allows the user to select one from the options offered.</li>
+<li><strong>Payment initiation:</strong> A payer enters the recipient's UPI ID or selects it through a supported contact or payment interface.</li>
+<li><strong>Recipient verification:</strong> The payer checks the recipient's displayed name before proceeding.</li>
+<li><strong>Authentication:</strong> For a payment that requires a UPI PIN, the payer enters their PIN to authorise the debit.</li>
+<li><strong>Transaction completion:</strong> The UPI system processes the transaction and provides a status, such as successful, pending, or failed.</li>
+</ol>
+<h3>Example of a UPI ID</h3>
+<p><strong>rahul123@bankname</strong></p>
+<p>
+                              This is an illustrative example. The part before the @
+                              symbol identifies the user-selected or assigned address,
+                              while the suffix identifies the payment provider or
+                              addressing system. The exact format depends on the issuing
+                              provider.
+                          </p>
+<h3>Important points</h3>
+<ul>
+<li>A UPI ID is not the same as a bank account number.</li>
+<li>It can be used to send or receive payments through compatible UPI services.</li>
+<li>A user may have more than one UPI ID, depending on the application and account configuration.</li>
+<li>A UPI ID should not be assumed to reveal the recipient's complete bank account details.</li>
+<li>A UPI ID is not a password or a substitute for payment authentication.</li>
+</ul>
+<p>
+<strong>Practical example:</strong> A shopkeeper can display a
+                              business UPI ID at a payment counter. Customers can enter
+                              the ID in their UPI application, verify the displayed
+                              business name, and pay without manually entering the
+                              shopkeeper's bank account number.
+                          </p>
+</section>
+<!-- SECTION BLOCK 2: What Is a UPI Number? -->
+<section class="guide-section" data-guide-section="" hidden="" id="upi-number">
+<h2>What Is a UPI Number?</h2>
+<p>
+                              A UPI Number is a numeric identifier that can be used to
+                              identify a UPI user for payments through services that
+                              support this feature. Depending on the provider's
+                              implementation, it may be a mobile number or another
+                              supported numeric identifier registered for UPI payments.
+                          </p>
+<p>
+                              In India, users commonly associate this feature with a
+                              mobile number that can be used to receive UPI payments.
+                              However, not every mobile number automatically works as a
+                              UPI Number. Support, registration requirements, and the
+                              relationship between a UPI Number and a UPI ID can vary by
+                              application.
+                          </p>
+<h3>How a UPI Number works</h3>
+<ol>
+<li><strong>Registration:</strong> The user registers with a compatible UPI application.</li>
+<li><strong>Mobile verification:</strong> The application verifies the mobile number associated with the user's registration and eligible account.</li>
+<li><strong>Availability check:</strong> The user checks whether the application supports registration or mapping of a UPI Number.</li>
+<li><strong>Configuration:</strong> If supported, the user activates or configures the numeric identifier according to the application's instructions.</li>
+<li><strong>Payment initiation:</strong> Another user enters the registered UPI Number in a compatible payment interface.</li>
+<li><strong>Recipient confirmation:</strong> The payer checks the recipient's displayed name and other available payment details.</li>
+<li><strong>Payment authorisation:</strong> The payer authorises the transaction using the required authentication method.</li>
+</ol>
+<h3>Important points</h3>
+<ul>
+<li>A UPI Number is a payment identifier, not a UPI PIN.</li>
+<li>A phone number being registered with a bank does not automatically mean it can be used as a UPI Number.</li>
+<li>Availability may depend on the UPI application, registration status, and applicable service rules.</li>
+<li>Do not assume every UPI application can resolve every numeric identifier.</li>
+<li>The payer should verify the recipient before authorising a payment.</li>
+</ul>
+<p>
+<strong>Practical example:</strong> If a user has configured a
+                              supported mobile-number-based UPI payment identifier,
+                              another user may be able to initiate a payment using that
+                              number instead of typing the complete UPI ID. The
+                              recipient's details must still be verified before payment.
+                          </p>
+</section>
+<!-- SECTION BLOCK 3: What Is the Difference Between a UPI ID and a UPI Number? -->
+<section class="guide-section" data-guide-section="" hidden="" id="id-vs-number">
+<h2>What Is the Difference Between a UPI ID and a UPI Number?</h2>
+<p>
+                              A UPI ID and a UPI Number serve a similar purpose: helping
+                              identify a recipient for a UPI payment. However, their
+                              formats and registration arrangements differ. A UPI ID is
+                              generally an alphanumeric virtual address, while a UPI
+                              Number is a numeric identifier that can be mapped to a UPI
+                              account or address through a supported service.
+                          </p>
+<h3>Key differences</h3>
+<ul>
+<li><strong>Format:</strong> A UPI ID usually contains text, numbers, and an @ suffix; a UPI Number is numeric.</li>
+<li><strong>Example:</strong> An illustrative UPI ID is rahul123@bankname. A UPI Number may be a registered 10-digit mobile number where supported.</li>
+<li><strong>Identification:</strong> A UPI ID uses a virtual payment address, while a UPI Number uses a supported numeric identifier.</li>
+<li><strong>Registration:</strong> A UPI ID is created or assigned through an application. A UPI Number must be registered or mapped through a supported service.</li>
+<li><strong>Ease of sharing:</strong> A UPI ID requires sharing the complete address. A supported UPI Number can be convenient when the recipient's registered number is available.</li>
+<li><strong>Availability:</strong> Both depend on provider support and account eligibility; a UPI Number also depends on numeric-identifier registration.</li>
+<li><strong>Verification:</strong> For either identifier, check the recipient's displayed name before paying.</li>
+</ul>
+<p>
+                              The examples are illustrative. Actual formats and eligibility
+                              depend on the service provider.
+                          </p>
+<h3>How to choose between them</h3>
+<ol>
+<li>Use a UPI ID when you want to share a specific payment address, particularly for business payments or when the recipient has provided that address.</li>
+<li>Use a UPI Number when the recipient confirms that the numeric identifier is registered and supported by your payment application.</li>
+<li>Verify the recipient using the name displayed by the application before entering your UPI PIN.</li>
+<li>Keep a transaction record by checking the payment status and saving the transaction reference when necessary.</li>
+</ol>
+<div class="guide-highlight">
+                              Neither a UPI ID nor a UPI Number is the same as a UPI PIN.
+                              Identifiers help route payments; the UPI PIN is a
+                              confidential authentication credential used to authorise
+                              applicable debit transactions.
+                          </div>
+<p>
+<strong>Practical example:</strong> A customer may pay a shop
+                              using shopname@bankname or a supported registered numeric
+                              identifier. In either case, the customer should confirm the
+                              displayed business name before authorising payment.
+                          </p>
+</section>
+<!-- SECTION BLOCK 4: How to Find Your UPI ID -->
+<section class="guide-section" data-guide-section="" hidden="" id="find-upi-id">
+<h2>How to Find Your UPI ID</h2>
+<p>
+                              Your UPI ID is generally available in the profile, bank
+                              account, or payment settings section of your UPI
+                              application. The precise steps depend on the application
+                              you use. Some apps provide a way to view UPI IDs through
+                              their bank-account settings.
+                          </p>
+<h3>Step-by-step process</h3>
+<ol>
+<li><strong>Open your UPI application.</strong> Launch the app in which you have registered your bank account.</li>
+<li><strong>Sign in or unlock the application.</strong> Complete any required device authentication.</li>
+<li><strong>Open your profile or account settings.</strong> Look for your profile picture, account icon, or payment settings.</li>
+<li><strong>Select the linked bank account.</strong> If multiple accounts are linked, choose the account for which you want to find the UPI ID.</li>
+<li><strong>Open the UPI ID or payment address section.</strong> It may be labelled UPI IDs, Manage UPI IDs, Payment addresses, or something similar.</li>
+<li><strong>View your UPI ID.</strong> Identify the complete address, including the portion after the @ symbol.</li>
+<li><strong>Copy or share it if needed.</strong> Use the application's built-in copy or share option where available.</li>
+<li><strong>Confirm the details before sharing.</strong> Ensure you are sharing the intended UPI ID and not a different account's identifier.</li>
+</ol>
+<h3>What if you cannot find your UPI ID?</h3>
+<ul>
+<li>Check whether your bank account has been successfully linked.</li>
+<li>Confirm that UPI registration is complete.</li>
+<li>Look under the settings for the relevant bank account rather than only the general profile.</li>
+<li>Update the application if the interface has changed.</li>
+<li>Contact the application's official support team or your bank if the identifier is unavailable.</li>
+</ul>
+<h3>Safety precautions</h3>
+<ul>
+<li>Sharing a UPI ID to receive money does not require sharing your UPI PIN.</li>
+<li>Do not disclose your OTP, UPI PIN, banking password, or other confidential authentication details.</li>
+<li>Do not assume an identifier is active merely because it appears in an old transaction record.</li>
+</ul>
+<p>
+<strong>Practical example:</strong> If your application
+                              displays rahul123@bankname under Manage UPI IDs, that is the
+                              address you can provide to someone who wants to send you
+                              money, provided it remains active and supported.
+                          </p>
+</section>
+<!-- SECTION BLOCK 5: How to Create a UPI ID -->
+<section class="guide-section" data-guide-section="" hidden="" id="create-upi-id">
+<h2>How to Create a UPI ID</h2>
+<p>
+                              A UPI ID is generally created or assigned when you register
+                              with a compatible UPI application and link an eligible bank
+                              account. Some applications allow users to create additional
+                              IDs or select from available address options. Registration
+                              requirements and the number of IDs permitted vary by
+                              provider.
+                          </p>
+<h3>Step-by-step process</h3>
+<ol>
+<li><strong>Choose a supported UPI application.</strong> Download an official application from a trusted app store or use your bank's official UPI service.</li>
+<li><strong>Register your mobile number.</strong> Follow the application's verification process. The number generally needs to match the one registered with your bank account for account discovery.</li>
+<li><strong>Complete the required device verification.</strong> Some applications use SMS-based verification or other supported checks.</li>
+<li><strong>Select your bank.</strong> Find the bank that holds your eligible account.</li>
+<li><strong>Link your bank account.</strong> Select the account detected by the application and follow the on-screen instructions.</li>
+<li><strong>Set up your UPI PIN if required.</strong> Complete the bank-supported authentication process for the selected account. Never share the PIN.</li>
+<li><strong>Open the UPI ID settings.</strong> Look for options such as Create UPI ID, Manage UPI IDs, or Add UPI ID.</li>
+<li><strong>Choose an available ID.</strong> If customisation is supported, select an allowed prefix and an available provider suffix. Otherwise, use the ID assigned by the application.</li>
+<li><strong>Confirm the setup.</strong> Complete any additional verification required by the application.</li>
+<li><strong>Test the identifier carefully.</strong> View the newly created ID and confirm that it is associated with the intended account.</li>
+</ol>
+<h3>Example</h3>
+<p>Suppose a user wants a simple UPI ID for personal payments:</p>
+<ul>
+<li>Preferred prefix: rahul123</li>
+<li>Provider suffix: @bankname</li>
+<li>Illustrative result: rahul123@bankname</li>
+</ul>
+<p>
+                              The actual suffix is determined by the application, and the
+                              preferred prefix may already be taken or unavailable.
+                          </p>
+<h3>Common problems during creation</h3>
+<ul>
+<li><strong>Mobile number mismatch:</strong> If the mobile number registered with your bank differs from the number verified in the UPI application, the account may not appear.</li>
+<li><strong>Bank account not detected:</strong> Confirm that the bank participates in the service and that your account is eligible for UPI.</li>
+<li><strong>Preferred ID unavailable:</strong> Try an alternative prefix or select one of the IDs offered by the application.</li>
+<li><strong>UPI PIN setup failure:</strong> Follow the bank's official instructions and verify that you are using an accepted authentication method.</li>
+</ul>
+<h3>Important points</h3>
+<ul>
+<li>Use only official applications and bank-authorised processes.</li>
+<li>Never create or manage a UPI ID through an unknown link sent by a stranger.</li>
+<li>Check a newly created ID before sharing it publicly.</li>
+<li>Creating a UPI ID does not eliminate the need to protect your authentication credentials.</li>
+</ul>
+</section>
+<!-- SECTION BLOCK 6: How to Share Your UPI ID Safely -->
+<section class="guide-section" data-guide-section="" hidden="" id="share-upi-id">
+<h2>How to Share Your UPI ID Safely</h2>
+<p>
+                              A UPI ID is designed to make receiving digital payments
+                              easier. You may share it with customers, friends, family
+                              members, or other intended payers. Safe sharing means
+                              providing only the payment identifier and avoiding the
+                              disclosure of confidential information.
+                          </p>
+<h3>Step-by-step process</h3>
+<ol>
+<li><strong>Find your active UPI ID.</strong> Open the UPI application and verify the identifier associated with the intended bank account.</li>
+<li><strong>Copy the complete ID.</strong> Use the application's copy function to reduce typing errors.</li>
+<li><strong>Select a suitable sharing method.</strong> Send the ID through a trusted messaging service, email, or another appropriate communication channel.</li>
+<li><strong>Check the recipient and message.</strong> Make sure the payment details are being sent to the intended person or business.</li>
+<li><strong>Explain the purpose clearly.</strong> If you are sharing the ID to receive a payment, state the amount or purpose separately where relevant.</li>
+<li><strong>Confirm receipt independently.</strong> Check your own UPI application or bank statement to verify whether the payment has arrived.</li>
+<li><strong>Keep evidence for business payments.</strong> Retain relevant transaction references, receipts, or invoices when appropriate.</li>
+</ol>
+<h3>Information you can generally share</h3>
+<ul>
+<li>Your active UPI ID.</li>
+<li>Your business name or payment instructions.</li>
+<li>Your official payment QR code, where appropriate.</li>
+<li>The amount and purpose of a requested payment.</li>
+</ul>
+<h3>Information you must never share</h3>
+<ul>
+<li>Your UPI PIN.</li>
+<li>OTPs used to authenticate transactions or account changes.</li>
+<li>Banking passwords or confidential login credentials.</li>
+<li>Screen-sharing or remote-access permissions requested by an untrusted person.</li>
+<li>Sensitive banking information unrelated to the payment.</li>
+</ul>
+<h3>Common scams to avoid</h3>
+<ul>
+<li><strong>Fake payment confirmation:</strong> Someone shows a screenshot claiming to have paid you. Verify the credit in your own application or bank statement.</li>
+<li><strong>Fraudulent collect request:</strong> A person asks you to approve a request while claiming this is necessary to receive money. Review the request carefully; authorising it may send money from your account.</li>
+<li><strong>Impersonation:</strong> A caller pretends to be from a bank or payment application and requests your PIN or OTP. Do not disclose these details.</li>
+<li><strong>Suspicious QR code:</strong> Someone sends a QR code and claims that scanning it will credit money to your account. A payment QR code may instead initiate a payment from you. Check the action and recipient displayed by your application.</li>
+</ul>
+<p>
+<strong>Practical example:</strong> A business owner can
+                              publish a UPI ID on an official website. Customers should
+                              verify the business name and check their transaction status
+                              after payment rather than relying solely on a screenshot.
+                          </p>
+</section>
+<!-- SECTION BLOCK 7: How to Pay Someone Using Their UPI ID -->
+<section class="guide-section" data-guide-section="" hidden="" id="pay-by-upi-id">
+<h2>How to Pay Someone Using Their UPI ID</h2>
+<p>
+                              UPI allows users to send money by entering a recipient's
+                              UPI ID through a supported application. The payment is
+                              directed through the UPI system, and the sender must
+                              complete the authentication required by the application
+                              and bank.
+                          </p>
+<h3>Step-by-step payment process</h3>
+<ol>
+<li><strong>Open your UPI application.</strong> Unlock it using your normal device authentication.</li>
+<li><strong>Select the payment option.</strong> Choose an option such as Pay, Send Money, or Transfer.</li>
+<li><strong>Enter the recipient's UPI ID.</strong> Type the complete identifier or paste the one provided by the recipient.</li>
+<li><strong>Verify the recipient.</strong> Check the name displayed by the application. If the name does not match your intended recipient, stop and confirm the details.</li>
+<li><strong>Enter the payment amount.</strong> Check the amount carefully before proceeding.</li>
+<li><strong>Add a note if available.</strong> You may enter the purpose of the payment, such as an invoice number or purchase reference.</li>
+<li><strong>Review the transaction.</strong> Confirm the recipient, amount, and selected funding account.</li>
+<li><strong>Authorise the payment.</strong> Enter your UPI PIN when the application requests it for a debit transaction.</li>
+<li><strong>Wait for the result.</strong> Do not assume the transaction is complete until the application reports its status.</li>
+<li><strong>Save the reference.</strong> Keep the transaction ID or receipt for future reference.</li>
+</ol>
+<h3>Example</h3>
+<p>Suppose you need to pay a service provider ₹750:</p>
+<ul>
+<li>Recipient's UPI ID: service123@bankname (illustrative).</li>
+<li>Amount: ₹750.</li>
+<li>Purpose: Service payment.</li>
+<li>Final check: Verify the displayed recipient name and amount.</li>
+<li>Authorisation: Enter your UPI PIN only in the official application when required.</li>
+</ul>
+<p>
+                              A payment may complete within seconds, but network or bank
+                              issues can sometimes cause a pending or failed status.
+                          </p>
+<h3>What to do after payment</h3>
+<ul>
+<li><strong>Successful:</strong> Check that the amount was debited and the transaction is recorded as successful.</li>
+<li><strong>Pending:</strong> Check the transaction status and avoid immediately repeating the payment.</li>
+<li><strong>Failed:</strong> Check whether the amount was debited and follow the application's or bank's instructions.</li>
+<li><strong>Wrong recipient:</strong> Save the transaction reference and report the issue promptly to your payment application and bank.</li>
+</ul>
+<div class="guide-highlight">
+                              You generally do not need to enter your UPI PIN simply to
+                              receive money. Never authorise an unfamiliar request under
+                              the impression that entering your PIN is necessary to
+                              collect a payment.
+                          </div>
+</section>
+<!-- SECTION BLOCK 8: Can You Use Your Mobile Number as a UPI Number? -->
+<section class="guide-section" data-guide-section="" hidden="" id="mobile-as-upi-number">
+<h2>Can You Use Your Mobile Number as a UPI Number?</h2>
+<p>
+                              Yes, a mobile number can be used as a UPI Number when the
+                              relevant application and service support it and the number
+                              has been properly registered or mapped. However, a mobile
+                              number is not automatically a valid UPI Number simply
+                              because it is linked to a bank account.
+                          </p>
+<p>
+                              Provider terms and implementation can differ. Some
+                              services may use the registered mobile number as the UPI
+                              Number, subject to the applicable registration and mapping
+                              process. Other providers may implement the feature
+                              differently.
+                          </p>
+<h3>Step-by-step process to check eligibility</h3>
+<ol>
+<li><strong>Open your UPI application.</strong> Use the application in which you have registered your bank account.</li>
+<li><strong>Check your profile or payment settings.</strong> Look for the UPI Number, mobile-number-based payments, or equivalent option.</li>
+<li><strong>Verify your registered mobile number.</strong> Confirm that the number shown is the one you intend to use.</li>
+<li><strong>Check the registration status.</strong> Follow the application's instructions to register, activate, or map the number if the feature is available.</li>
+<li><strong>Confirm the linked account.</strong> Check the payment account associated with the identifier, where the application provides this information.</li>
+<li><strong>Check availability with your provider.</strong> If you cannot find the feature, consult the application's official help resources.</li>
+<li><strong>Perform a cautious test if appropriate.</strong> Ask a trusted person to verify the recipient details before making a small payment, if needed.</li>
+</ol>
+<h3>Important conditions</h3>
+<ul>
+<li>The number must satisfy the application's registration requirements.</li>
+<li>The bank account and UPI registration must be eligible for the relevant service.</li>
+<li>The feature may not be available in every application.</li>
+<li>A mobile number may be associated with different payment services or accounts, so do not assume that entering a number will always identify the intended person.</li>
+<li>A mobile number and a UPI ID remain different identifiers, even if they are linked.</li>
+</ul>
+<h3>What if you change your mobile number?</h3>
+<p>
+                              If you change your phone number, SIM card, or registered
+                              mobile number, check your bank and UPI application's
+                              requirements before relying on the old identifier.
+                              Depending on the change, you may need to update your bank
+                              records, complete mobile verification again, or
+                              re-register for UPI. Changing a SIM, mobile number, or
+                              payment service provider's application can require
+                              re-registration.
+                          </p>
+<p>
+<strong>Practical example:</strong> If a customer intends to
+                              pay your mobile-number-based UPI identifier, ask them to
+                              verify the name shown in their payment application before
+                              authorising the transfer.
+                          </p>
+</section>
+<!-- SECTION BLOCK 9: How to Manage Your UPI ID -->
+<section class="guide-section" data-guide-section="" hidden="" id="manage-upi-id">
+<h2>How to Manage Your UPI ID</h2>
+<p>
+                              Managing a UPI ID means viewing, creating, selecting,
+                              sharing, or changing the identifiers available for your
+                              linked payment accounts, where the application supports
+                              those functions.
+                          </p>
+<p>
+                              Some applications allow multiple UPI IDs for an account.
+                              The available options and limits are provider-specific.
+                          </p>
+<h3>Step-by-step management process</h3>
+<ol>
+<li><strong>Open the UPI application.</strong> Sign in using the normal secure process.</li>
+<li><strong>Go to the profile or bank account section.</strong> Find the account whose UPI IDs you want to manage.</li>
+<li><strong>Select the UPI ID management option.</strong> Look for Manage UPI IDs or a similarly named menu.</li>
+<li><strong>Review existing IDs.</strong> Check which identifiers are displayed and whether the application identifies a default or preferred option.</li>
+<li><strong>Add an ID if supported.</strong> Select an available ID or create an additional one according to the application's instructions.</li>
+<li><strong>Review the default payment settings.</strong> If the application supports a default ID or receiving preference, make sure it is configured as intended.</li>
+<li><strong>Check sharing details.</strong> Update saved payment instructions, invoices, or public listings if you change the ID you use for receiving money.</li>
+<li><strong>Review old payment links and QR codes.</strong> Confirm that they still direct payments to the intended recipient.</li>
+<li><strong>Keep your details secure.</strong> Never share your UPI PIN while managing identifiers.</li>
+<li><strong>Verify the changes.</strong> Reopen the settings and confirm that the intended ID is available and correctly associated with your account.</li>
+</ol>
+<h3>Good management practices</h3>
+<ul>
+<li>Use a clear, recognisable identifier for regular business transactions when possible.</li>
+<li>Keep personal and business payment details organised.</li>
+<li>Maintain accurate payment instructions on websites, invoices, and printed materials.</li>
+<li>Review the destination of older QR codes before distributing them again.</li>
+<li>Avoid changing identifiers without updating the payment details shared with customers.</li>
+<li>Contact the provider if an identifier disappears or becomes unavailable unexpectedly.</li>
+</ul>
+<h3>Can you delete or change a UPI ID?</h3>
+<p>
+                              The ability to add, remove, deactivate, or change an ID
+                              depends on the application and its rules. Some services may
+                              allow you to disable an identifier or create a replacement
+                              rather than directly rename an existing one.
+                          </p>
+<div class="guide-highlight">
+                              Before changing an ID, check whether pending payments,
+                              recurring payment arrangements, saved QR codes, or other
+                              services depend on it.
+                          </div>
+<p>
+<strong>Practical example:</strong> If a shop changes its
+                              displayed UPI ID, it should update its website, invoices,
+                              and payment-counter QR code and verify that customers are
+                              directed to the correct business account.
+                          </p>
+</section>
+<!-- SECTION BLOCK 10: What to Do If a UPI ID Cannot Be Found -->
+<section class="guide-section" data-guide-section="" hidden="" id="troubleshoot-upi-id">
+<h2>What to Do If a UPI ID Cannot Be Found</h2>
+<p>
+                              A UPI ID may fail to resolve because it was entered
+                              incorrectly, is inactive, is not registered with the
+                              relevant service, or cannot be resolved by the particular
+                              payment application. Network problems or temporary service
+                              interruptions may also affect a transaction.
+                          </p>
+<h3>Step-by-step troubleshooting</h3>
+<ol>
+<li><strong>Check the spelling.</strong> Compare the entered UPI ID with the exact address supplied by the recipient.</li>
+<li><strong>Check the complete identifier.</strong> Make sure the prefix, @ symbol, and provider suffix are all included.</li>
+<li><strong>Ask the recipient to confirm the ID.</strong> The recipient should view the identifier in their own UPI application rather than relying on an old message.</li>
+<li><strong>Check the recipient's registration.</strong> Ask whether the ID is still active and associated with an eligible account.</li>
+<li><strong>Try the supported search method.</strong> If your application supports entering a UPI ID directly, use that feature instead of assuming every search or contact option works identically.</li>
+<li><strong>Check your internet connection.</strong> Restore a stable connection and retry if the application reports a connectivity issue.</li>
+<li><strong>Check for a service interruption.</strong> Follow the official status messages or support guidance provided by your application or bank.</li>
+<li><strong>Update the application if needed.</strong> Install updates only from an official source.</li>
+<li><strong>Try another supported payment method if appropriate.</strong> You may use another verified UPI ID or a bank-account transfer method supported by your application.</li>
+<li><strong>Contact official support.</strong> If the problem persists, provide the error message and relevant transaction or support reference, if one exists.</li>
+</ol>
+<h3>Common causes and recommended actions</h3>
+<ul>
+<li><strong>Typing error:</strong> Re-enter the exact UPI ID.</li>
+<li><strong>Incorrect provider suffix:</strong> Ask the recipient to copy the ID from the app.</li>
+<li><strong>Inactive or unavailable ID:</strong> Ask the recipient to verify its current status.</li>
+<li><strong>Bank account not detected:</strong> Check mobile-number matching and account eligibility.</li>
+<li><strong>Temporary connectivity issue:</strong> Restore connectivity and retry.</li>
+<li><strong>Unsupported identifier:</strong> Use an identifier or payment method supported by both parties.</li>
+<li><strong>Repeated resolution failure:</strong> Contact the official application or bank support team.</li>
+</ul>
+<h3>If money has already been debited</h3>
+<p>
+                              If the payment has already been initiated, do not
+                              immediately repeat it just because the recipient's
+                              application does not show the money.
+                          </p>
+<ol>
+<li>Open your transaction history.</li>
+<li>Check whether the transaction is successful, pending, or failed.</li>
+<li>Save the transaction reference number.</li>
+<li>Ask the recipient to check their bank account and transaction history.</li>
+<li>Follow the official complaint process if the status remains unresolved.</li>
+</ol>
+<div class="guide-highlight">
+                              A payment failure and a payment that is merely not visible
+                              to the recipient are not necessarily the same situation.
+                              Verify the transaction status before taking further action.
+                          </div>
+</section>
+<!-- SECTION BLOCK 11: How to Check the Recipient's Name Before Paying -->
+<section class="guide-section" data-guide-section="" hidden="" id="verify-recipient">
+<h2>How to Check the Recipient's Name Before Paying</h2>
+<p>
+                              Verifying the recipient's displayed name is an important
+                              step before authorising a UPI payment. A correctly
+                              formatted UPI ID does not, by itself, guarantee that you
+                              have selected the intended person or business.
+                          </p>
+<p>
+                              Supported UPI applications may display a recipient name
+                              after the payer enters an identifier or starts the payment
+                              flow. Always review the information provided by the
+                              application before proceeding.
+                          </p>
+<h3>Step-by-step verification process</h3>
+<ol>
+<li><strong>Enter the recipient's UPI ID.</strong> Use the identifier provided directly by the intended recipient or from a trusted source.</li>
+<li><strong>Wait for the application to resolve it.</strong> Do not proceed while the recipient information is missing or still loading.</li>
+<li><strong>Read the displayed name carefully.</strong> Check the name shown by the application against the person or business you intend to pay.</li>
+<li><strong>Compare the details.</strong> For a business, check the business or merchant name against the invoice, official website, or payment instructions. For an individual, confirm the identity through a trusted channel.</li>
+<li><strong>Confirm the amount.</strong> Make sure the payment amount matches the agreed amount.</li>
+<li><strong>Check the payment purpose.</strong> Verify any reference, invoice number, or description displayed before proceeding.</li>
+<li><strong>Stop if anything is inconsistent.</strong> Do not authorise the payment if the name is unexpected, unclear, or materially different from the intended recipient.</li>
+<li><strong>Confirm through an independent channel.</strong> Contact the recipient using a previously verified phone number or official contact method if clarification is required.</li>
+<li><strong>Authorise only after verification.</strong> Enter your UPI PIN in the official payment application only when you are ready to approve the payment.</li>
+<li><strong>Save the transaction record.</strong> After payment, check the status and retain the transaction reference.</li>
+</ol>
+<h3>What if the name does not match?</h3>
+<ul>
+<li>Do not assume that the mismatch is harmless.</li>
+<li>Ask the intended recipient to confirm the correct UPI ID.</li>
+<li>Check whether the payment is being made to an individual, business, or authorised collection account.</li>
+<li>Do not proceed until you understand the discrepancy.</li>
+<li>If you suspect impersonation or fraud, stop the transaction and report it through the appropriate official channel.</li>
+</ul>
+<h3>What if the displayed name is unfamiliar?</h3>
+<p>
+                              Some payment arrangements may show a legal account-holder
+                              name, a merchant name, or another supported name format. An
+                              unfamiliar name does not automatically prove fraud, but it
+                              must be clarified before payment.
+                          </p>
+<p>
+<strong>Practical example:</strong> An invoice says the
+                              payment should go to ABC Services, but the application
+                              displays an unrelated individual. Do not enter your UPI
+                              PIN until the business confirms the correct payment details
+                              through a trusted channel.
+                          </p>
+<div class="guide-highlight">
+                              Verify the recipient, amount, and purpose before
+                              authorising payment. Never rely only on a logo, QR-code
+                              image, payment screenshot, or message claiming that an
+                              account belongs to a particular person.
+                          </div>
+</section>
+<!-- SECTION BLOCK 12: What Happens If You Send Money to the Wrong UPI ID? -->
+<section class="guide-section" data-guide-section="" hidden="" id="wrong-upi-payment">
+<h2 id="wrong-upi-id">What Happens If You Send Money to the Wrong UPI ID?</h2>
+<p>
+                              Sending money to the wrong UPI ID can result in the amount
+                              being credited to an unintended recipient if the
+                              transaction is successfully completed. UPI payments are
+                              not automatically reversed simply because the sender made
+                              a mistake.
+                          </p>
+<p>
+                              The appropriate next step depends on the transaction
+                              status, the bank's procedures, and whether the payment was
+                              unauthorised or initiated by mistake. Report the issue
+                              promptly and retain the transaction reference.
+                          </p>
+<h3>Step-by-step action plan</h3>
+<ol>
+<li><strong>Check the transaction status.</strong> Open your UPI application's transaction history and determine whether the payment is successful, pending, or failed.</li>
+<li><strong>Save the transaction details.</strong> Record the transaction reference or UPI transaction ID, date, time, amount, and relevant recipient details.</li>
+<li><strong>Do not repeat the payment.</strong> A second transfer may create another loss if the original payment has already succeeded.</li>
+<li><strong>Report the problem through the application.</strong> Open the relevant transaction and use the official Help, Report an issue, or equivalent option if available.</li>
+<li><strong>Contact your bank promptly.</strong> Explain that the transfer was made to an unintended recipient and provide the transaction details.</li>
+<li><strong>Request formal dispute handling.</strong> Ask the bank or payment provider to register the complaint and explain the applicable recovery process.</li>
+<li><strong>Follow the complaint reference.</strong> Keep the complaint number and respond to requests for supporting information through official channels.</li>
+<li><strong>Provide only necessary evidence.</strong> Submit transaction records or other relevant documents through the bank's or provider's official process.</li>
+<li><strong>Escalate if unresolved.</strong> Follow the applicable grievance process, including the relevant UPI provider or bank escalation channel and the appropriate banking ombudsman mechanism where eligible.</li>
+<li><strong>Monitor the outcome.</strong> Check official communications and transaction records for any update or credit.</li>
+</ol>
+<h3>What happens in different situations?</h3>
+<ul>
+<li><strong>Successful:</strong> The payment has been recorded as completed. Report the wrong transfer promptly and request recovery assistance.</li>
+<li><strong>Pending:</strong> The final outcome has not yet been confirmed. Check the status and avoid sending the payment again immediately.</li>
+<li><strong>Failed:</strong> The transaction was reported as unsuccessful. Verify whether the amount was debited and follow the bank's instructions.</li>
+<li><strong>Unauthorised:</strong> You did not approve or initiate the transaction. Report it immediately through your bank's official fraud-reporting process.</li>
+<li><strong>Suspected scam:</strong> You were deceived into making the payment. Contact your bank and report the incident promptly through official channels.</li>
+</ul>
+<h3>Can a wrong UPI payment be reversed?</h3>
+<p>
+                              Recovery may be possible, but it is not guaranteed. A
+                              completed payment may require investigation and
+                              coordination between the relevant banks or payment
+                              providers. The outcome can depend on the circumstances,
+                              available evidence, and applicable rules and procedures.
+                          </p>
+<p>
+                              Do not assume that a bank can automatically debit the
+                              recipient's account without following the relevant process.
+                          </p>
+<h3>What if you suspect fraud?</h3>
+<p>If the transfer was connected to a scam, act immediately:</p>
+<ul>
+<li>Contact your bank using its official customer-support channel.</li>
+<li>Report the transaction through your UPI application.</li>
+<li>In India, report suspected cyber financial fraud through the official National Cyber Crime Reporting Portal at cybercrime.gov.in or call the national cybercrime helpline 1930, as appropriate.</li>
+<li>Keep transaction IDs, messages, phone numbers, and other relevant evidence.</li>
+<li>Do not pay anyone who promises guaranteed recovery in exchange for an advance fee.</li>
+<li>Never disclose your UPI PIN or OTP to someone claiming to help recover your money.</li>
+</ul>
+<h3>How to prevent wrong UPI payments</h3>
+<ol>
+<li>Copy the recipient's UPI ID instead of typing it manually where possible.</li>
+<li>Check the recipient's displayed name before authorising payment.</li>
+<li>Verify the amount and purpose.</li>
+<li>For a new recipient, consider confirming the payment details through a trusted channel.</li>
+<li>Use official applications and avoid suspicious payment links.</li>
+<li>Review your transaction status after every payment.</li>
+</ol>
+<p>
+<strong>Practical example:</strong> If you intend to pay
+                              ₹2,000 to a supplier but accidentally send the money to
+                              another UPI ID, save the transaction reference, report the
+                              issue through your payment application, and contact your
+                              bank immediately. Explain that it was an unintended
+                              transfer and follow the bank's formal recovery process.
+                          </p>
+<h2>Quick Summary and Essential Safety Rules</h2>
+<ul>
+<li>A UPI ID is a virtual payment address, while a UPI Number is a numeric identifier supported by certain services.</li>
+<li>Find or create identifiers only through your official UPI application or bank-supported service.</li>
+<li>Check that the identifier is active and associated with the intended account before sharing it.</li>
+<li>Verify the recipient's displayed name, amount, and payment purpose before authorising a payment.</li>
+<li>Never share your UPI PIN, OTP, banking password, or confidential login credentials.</li>
+<li>You generally do not need to enter your UPI PIN to receive money.</li>
+<li>Check the transaction status in your own application or bank statement; do not rely solely on screenshots or messages from another person.</li>
+<li>If a payment is pending, avoid immediately repeating it while the outcome is uncertain.</li>
+<li>If you send money to the wrong person or suspect fraud, save the transaction details and contact your bank and payment provider promptly.</li>
+</ul>
+<div class="guide-highlight">
+<strong>Key takeaway:</strong> UPI IDs and supported UPI
+                              Numbers make payments easier, but they do not replace
+                              careful recipient verification. Use official apps, protect
+                              your authentication credentials, and check every
+                              transaction before and after payment.
+          </div>
+</section>
+</article>
+<!-- Popular Guides Collapsible Card (Matches Image Layout) -->
+<aside aria-label="Popular Guides Navigation" class="popular-guides-card">
+<!-- Accordion Header Bar -->
+<button aria-controls="popularGuidesList" aria-expanded="true" class="popular-guides-header" id="popularGuidesToggle" type="button">
+<span class="popular-guides-title">Popular Guides</span>
+<svg aria-hidden="true" class="popular-guides-icon" height="20" id="toggleChevron" viewBox="0 0 24 24" width="20">
+<path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" fill="currentColor"></path>
+</svg>
+</button>
+<!-- Collapsible Link List -->
+<nav class="popular-guides-body" id="popularGuidesList">
+<ul class="popular-guides-list">
+<li>
+<a class="popular-guide-link active" data-guide-target="upi-id" href="#upi-id">What Is a UPI ID?</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="upi-number" href="#upi-number">What Is a UPI Number?</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="id-vs-number" href="#id-vs-number">What Is the Difference Between a UPI ID and a UPI Number?</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="find-upi-id" href="#find-upi-id">How to Find Your UPI ID</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="create-upi-id" href="#create-upi-id">How to Create a UPI ID</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="share-upi-id" href="#share-upi-id">How to Share Your UPI ID Safely</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="pay-by-upi-id" href="#pay-by-upi-id">How to Pay Someone Using Their UPI ID</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="mobile-as-upi-number" href="#mobile-as-upi-number">Can You Use Your Mobile Number as a UPI Number?</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="manage-upi-id" href="#manage-upi-id">How to Manage Your UPI ID</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="troubleshoot-upi-id" href="#troubleshoot-upi-id">What to Do If a UPI ID Cannot Be Found</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="verify-recipient" href="#verify-recipient">How to Check the Recipient's Name Before Paying</a>
+</li>
+<li>
+<a class="popular-guide-link" data-guide-target="wrong-upi-payment" href="#wrong-upi-payment">What Happens If You Send Money to the Wrong UPI ID?</a>
+</li>
+</ul>
+</nav>
+</aside>
+</div>
+<section aria-labelledby="practical-heading" class="guide-practical-panel content-card" data-guide-editorial-note="true"><h2 id="practical-heading">Practical checks before you act</h2><p>A UPI ID is an address used to route a payment; it is not proof that the intended recipient owns the ID.</p><ul><li>Confirm the payee name shown by your payment app.</li><li>Send a small test amount only when appropriate and with the recipient’s agreement.</li><li>Avoid relying on an old screenshot or copied ID without checking it again.</li></ul><p class="source-note">For a UPI ID or number-based payment, verify the resolved recipient name and intended amount in the payment app before authorizing the debit; an address alone does not establish identity.</p></section></main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="../../index.html">UPI QR <strong>Studio</strong></a>
+      <p>Independent educational guides and browser-based tools for understanding UPI payments. We are not a bank, payment app, or official NPCI website.</p>
+    </div>
+    <div class="footer-column">
+      <h2>Explore</h2>
+      <a href="../upi-guide.html">UPI Guides</a>
+      <a href="../upi-faqs.html">Frequently Asked Questions</a>
+      <a href="../upi-id-providers.html">UPI ID Providers</a>
+      <a href="../qr-widget.html">QR Generator</a>
+      <a href="../safety-center.html">Safety Center</a>
+    </div>
+    <div class="footer-column">
+      <h2>Website</h2>
+      <a href="../about-us.html">About Us</a>
+      <a href="../contact-us.html">Contact</a>
+      <a href="../privacy-policy.html">Privacy Policy</a>
+      <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.</p>
+    <a href="#main-content" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer><script src="../../js/main.js" defer=""></script></body></html>

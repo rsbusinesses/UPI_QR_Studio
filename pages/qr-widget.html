@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="#5A7863" name="theme-color">
+<title>UPI QR Code Generator | UPI QR Studio</title>
+<meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." name="description">
+<!-- Your existing website styles -->
+<link href="../css/qr-widget.css" rel="stylesheet">
+<link href="../css/pages.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
+<link href="../css/home.css" rel="stylesheet">
+<link href="../css/common.css" rel="stylesheet">
+<!-- QR widget styles only -->
+<!-- QR generation library -->
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+<!-- QR widget logic only -->
+<script defer="" src="../js/qr-generator.js"></script>
+<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
+  <div class="header-container">
+    <a class="logo" href="../index.html" aria-label="UPI QR Studio home">
+      <span class="logo-icon" aria-hidden="true">₹</span>
+      <span>UPI QR <strong>Studio</strong></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-navigation" id="primaryNavigation" aria-label="Main navigation">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="upi-guide.html">UPI Guides</a>
+      <a class="nav-link" href="safety-center.html">Safety Center</a>
+      <a class="nav-link" href="upi-id-providers.html">UPI ID Providers</a>
+      <a class="nav-link" href="upi-faqs.html">FAQs</a>
+      <a class="nav-link" href="about-us.html">About</a>
+      <a class="nav-cta" href="../index.html#qr-generator">Create a QR</a>
+    </nav>
+  </div>
+</header>
+<main class="qr-page-main" id="main-content"><nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="../index.html">Home</a></li><li aria-current="page">UPI QR Code Generator</li></ol></nav>
+<section aria-labelledby="upi-qr-heading" id="upi-qr-widget">
+<div class="qr-widget-layout">
+<!-- LEFT: UPI ID FORM -->
+<div class="qr-widget-form-panel">
+<div class="qr-widget-heading">
+<div aria-hidden="true" class="qr-widget-logo">
+<svg viewBox="0 0 32 32">
+<path d="M4 12V5h7M21 5h7v7M28 20v7h-7M11 27H4v-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path>
+<rect fill="currentColor" height="5" rx="1" width="5" x="9" y="9"></rect>
+<rect fill="currentColor" height="5" rx="1" width="5" x="18" y="9"></rect>
+<rect fill="currentColor" height="5" rx="1" width="5" x="9" y="18"></rect>
+<path d="M18 18h2v2h-2zm4 3h2v2h-2zm-4 3h5" fill="currentColor"></path>
+</svg>
+</div>
+<div class="qr-widget-heading-text">
+<h1 id="upi-qr-heading">UPI QR Generator</h1>
+<p>Generate a QR code using your UPI ID.</p>
+</div>
+</div>
+<form class="qr-widget-form" novalidate="">
+<label class="qr-widget-label" for="qr-upi-username">
+              UPI ID
+            </label>
+<div class="qr-widget-input-row">
+<input aria-label="Enter UPI username" autocapitalize="none" autocomplete="off" class="qr-widget-username" id="qr-upi-username" maxlength="100" placeholder="UPI username" required="" spellcheck="false" type="text">
+<span aria-hidden="true" class="qr-widget-at">@</span>
+<input aria-label="Enter UPI provider" autocapitalize="none" autocomplete="off" class="qr-widget-provider" id="qr-upi-provider" maxlength="80" placeholder="UPI provider" required="" spellcheck="false" type="text">
+</div>
+<p class="qr-widget-example">
+<strong>Example:</strong>
+<span>rahul123</span>
+<span class="qr-example-at">@</span>
+<span>okaxis</span>
+<span class="qr-example-full">(rahul123@okaxis)</span>
+</p>
+<p class="qr-widget-error" hidden="" role="alert"></p>
+<button class="qr-widget-generate" type="submit">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-2zM14 18h2v2h-2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Generate QR Code
+            </button>
+</form>
+</div>
+<!-- RIGHT: QR CODE RESULT -->
+<div class="qr-widget-result-panel">
+<h2>Your UPI QR Code</h2>
+<div class="qr-widget-qr-frame">
+<div class="qr-widget-qr-code"></div>
+<div class="qr-widget-placeholder">
+<svg aria-hidden="true" viewBox="0 0 64 64">
+<path d="M7 7h18v18H7zM39 7h18v18H39zM7 39h18v18H7z" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path d="M13 13h6v6h-6zM45 13h6v6h-6zM13 45h6v6h-6zM39 35h6v6h-6zM49 39h8v8h-8zM35 49h8v8h-8zM47 51h4v6h-4z" fill="currentColor"></path>
+</svg>
+<span>Your QR code will appear here</span>
+</div>
+</div>
+<div class="qr-widget-upi-display">
+<div aria-hidden="true" class="qr-widget-user-icon">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="7" fill="currentColor" r="4"></circle>
+<path d="M4 21v-2a8 8 0 0 1 16 0v2z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="qr-widget-upi-text">
+<span>UPI ID</span>
+<strong class="qr-widget-generated-id">
+                Your UPI ID will show here
+              </strong>
+</div>
+</div>
+<button class="qr-widget-download" disabled="" type="button">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v4h14v-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            Download QR Code
+          </button>
+<p aria-live="polite" class="qr-widget-status">
+            Enter your UPI ID to generate your QR code.
+          </p>
+</div>
+</div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="../index.html">UPI QR <strong>Studio</strong></a>
+      <p>Independent educational guides and browser-based tools for understanding UPI payments. We are not a bank, payment app, or official NPCI website.</p>
+    </div>
+    <div class="footer-column">
+      <h2>Explore</h2>
+      <a href="upi-guide.html">UPI Guides</a>
+      <a href="upi-faqs.html">Frequently Asked Questions</a>
+      <a href="upi-id-providers.html">UPI ID Providers</a>
+      <a href="qr-widget.html">QR Generator</a>
+      <a href="safety-center.html">Safety Center</a>
+    </div>
+    <div class="footer-column">
+      <h2>Website</h2>
+      <a href="about-us.html">About Us</a>
+      <a href="contact-us.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.</p>
+    <a href="#main-content" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer><script src="../js/main.js" defer=""></script></body></html>

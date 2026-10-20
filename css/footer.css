@@ -1,0 +1,84 @@
+
+/* ========================================
+   UPI QR STUDIO - FOOTER
+   File: css/footer.css
+======================================== */
+
+.site-footer {
+    color: #cbd5e1;
+    background: #102a43;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    width: min(var(--container-width), calc(100% - 40px));
+    margin: 0 auto;
+    padding: 65px 0 50px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.footer-logo:hover {
+    color: #ffffff;
+}
+
+.footer-logo strong {
+    color: #56d6b5;
+}
+
+.footer-about p {
+    max-width: 310px;
+    color: #bdcbd9;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-column h3 {
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.footer-column a {
+    color: #bdcbd9;
+    font-size: 13px;
+    line-height: 1.6;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #56d6b5;
+}
+
+.footer-bottom {
+    padding: 22px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #bdcbd9;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer-bottom p + p {
+    margin-top: 5px;
+}
