@@ -140,28 +140,18 @@ Year         : 2026
   });
 
 
-    // Automatically show the complete QR result on mobile.
-    // Hide the keyboard first so it does not cover the QR code.
-    if (window.matchMedia("(max-width: 760px)").matches) {
-      usernameInput.blur();
-      providerInput.blur();
+    // Close the mobile keyboard.
+    usernameInput.blur();
+    providerInput.blur();
 
-      const resultPanel = widget.querySelector(
-        ".qr-widget-result-panel"
-      );
-
-      if (resultPanel) {
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            resultPanel.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-          }, 150);
-        });
-      }
-    }
-
+    // Scroll the entire webpage to the very top.
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }, 200);
 
   // Export QR code + UPI ID together in one PNG image.
   downloadButton.addEventListener("click", () => {
