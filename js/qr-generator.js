@@ -140,18 +140,34 @@ Year         : 2026
   });
 
 
-    // Close the mobile keyboard.
+    // Close the mobile keyboard after QR generation.
     usernameInput.blur();
     providerInput.blur();
 
-    // Scroll the entire webpage to the very top.
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
+    // Force the complete webpage to its absolute top.
+    function forcePageToTop() {
+      const html = document.documentElement;
+      const oldBehavior = html.style.scrollBehavior;
+
+      // Temporarily disable smooth scrolling for a reliable reset.
+      html.style.scrollBehavior = "auto";
+
+      html.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+
+      requestAnimationFrame(() => {
+        html.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
+
+        html.style.scrollBehavior = oldBehavior;
       });
-    }, 200);
+    }
+
+    // Retry while Android's keyboard and viewport are settling.
+    setTimeout(forcePageToTop, 400);
+    setTimeout(forcePageToTop, 900);
 
   // Export QR code + UPI ID together in one PNG image.
   downloadButton.addEventListener("click", () => {
