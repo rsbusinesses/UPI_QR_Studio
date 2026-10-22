@@ -139,6 +139,30 @@ Year         : 2026
       "QR code generated. Verify the recipient details in your UPI app before making a payment.";
   });
 
+
+    // Automatically show the complete QR result on mobile.
+    // Hide the keyboard first so it does not cover the QR code.
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      usernameInput.blur();
+      providerInput.blur();
+
+      const resultPanel = widget.querySelector(
+        ".qr-widget-result-panel"
+      );
+
+      if (resultPanel) {
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            resultPanel.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }, 150);
+        });
+      }
+    }
+
+
   // Export QR code + UPI ID together in one PNG image.
   downloadButton.addEventListener("click", () => {
     if (!currentUpiId) {
