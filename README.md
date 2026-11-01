@@ -6,7 +6,7 @@ UPI QR Studio is a web-based resource designed to help individuals, shopkeepers,
 
 Our goal is to make everyday digital payments easier to understand through a simple QR generation experience, practical educational resources, frequently asked questions, and payment safety guidance.
 
-**Visit the website:** https://rsbusinesses0.github.io/UPI_QR_Studio/
+**Visit the website:** https://rsbusinesses.github.io/UPI_QR_Studio/
 
 ---
 
