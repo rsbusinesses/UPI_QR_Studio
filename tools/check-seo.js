@@ -82,6 +82,18 @@ for (const page of pages) {
   const canonicals = $('link[rel="canonical"]');
   const robots = String($('meta[name="robots"]').first().attr('content') || '').toLowerCase();
   const h1Count = $('main h1').length;
+  const guideSections = $('[data-guide-section]');
+
+  if (guideSections.length) {
+    const hiddenSections = guideSections.filter('[hidden]').length;
+    const activeSections = guideSections.filter('.is-active').length;
+    if (hiddenSections !== 0) {
+      fail(relpath + ': guide sections must be visible in source HTML so navigation works without JavaScript; found ' + hiddenSections + ' hidden sections.');
+    }
+    if (activeSections !== 1) {
+      fail(relpath + ': expected exactly one initially active guide section; found ' + activeSections + '.');
+    }
+  }
 
   if (!title) fail(relpath + ': missing title.');
   const normalizedTitle = title.toLowerCase();

@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   build:
+    # workflow_dispatch can be launched against a selected ref. Never build
+    # a non-production ref in the production Pages workflow.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -47,6 +50,8 @@ jobs:
 
   deploy:
     needs: build
+    # Defense in depth: only main may publish to the production Pages environment.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     permissions:
