@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = JSON.parse(fs.readFileSync(path.join(ROOT, 'site-config.json'), 'utf8'));
-const SITE_URL = String(CONFIG.siteUrl || '').replace(/\\/$/, '');
+const SITE_URL = String(CONFIG.siteUrl || '').replace(/\/$/, '');
 const ERRORS = [];
 const WARNINGS = [];
 const STATS = { pages: 0, indexablePages: 0, canonicalUrls: 0, sitemapUrls: 0, jsonLdBlocks: 0 };
@@ -107,7 +107,7 @@ for (const page of pages) {
   const schemaTypes = readSchema($, relpath);
   const adScripts = $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
   const publisherId = String(CONFIG.adsenseClientId || '').trim();
-  const validPublisherId = /^ca-pub-\\d{16}$/.test(publisherId);
+  const validPublisherId = /^ca-pub-\d{16}$/.test(publisherId);
 
   if (is404) {
     if (canonicals.length !== 0) fail('404.html: must not have a canonical URL.');
@@ -185,8 +185,8 @@ if (/^Disallow:\s*\/\s*$/im.test(robotsText)) fail('robots.txt: site-wide Disall
 
 const adsPath = path.join(ROOT, 'ads.txt');
 const publisherId = String(CONFIG.adsenseClientId || '').trim();
-if (/^ca-pub-\\d{16}$/.test(publisherId)) {
-  const expectedAdsTxt = `google.com, ${publisherId.replace(/^ca-/, '')}, DIRECT, f08c47fec0942fa0\\n`;
+if (/^ca-pub-\d{16}$/.test(publisherId)) {
+  const expectedAdsTxt = `google.com, ${publisherId.replace(/^ca-/, '')}, DIRECT, f08c47fec0942fa0\n`;
   if (!fs.existsSync(adsPath)) fail('ads.txt: valid publisher ID is configured but ads.txt is missing.');
   else if (fs.readFileSync(adsPath, 'utf8') !== expectedAdsTxt) fail('ads.txt: content does not match site-config.json.');
 } else if (fs.existsSync(adsPath)) {

@@ -212,7 +212,7 @@ function addStructuredData(page, $, relpath, title, description, canonicalUrl) {
 
   let schema;
   let schemaKey;
-  const siteUrl = String(CONFIG.siteUrl || '').replace(/\\/$/, '');
+  const siteUrl = String(CONFIG.siteUrl || '').replace(/\/$/, '');
 
   if (relpath === 'index.html') {
     schemaKey = 'website';
