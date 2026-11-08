@@ -88,6 +88,27 @@ try {
     }
   }
 
+  // The Pages uploader excludes dotfiles by default. The workflow opts in so
+  // .nojekyll is retained, but no other hidden file or directory may enter dist.
+  const hiddenPaths = [];
+  function collectHiddenPaths(directory) {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const full = path.join(directory, entry.name);
+      if (entry.name.startsWith('.')) {
+        hiddenPaths.push(path.relative(OUTPUT, full).split(path.sep).join('/'));
+      }
+      if (entry.isDirectory()) collectHiddenPaths(full);
+    }
+  }
+  collectHiddenPaths(OUTPUT);
+  const unexpectedHiddenPaths = hiddenPaths.filter(item => item !== '.nojekyll');
+  if (unexpectedHiddenPaths.length) {
+    throw new Error('Public artifact contains unapproved hidden files or directories: ' + unexpectedHiddenPaths.join(', '));
+  }
+  if (!hiddenPaths.includes('.nojekyll')) {
+    throw new Error('Public artifact is missing the required .nojekyll file.');
+  }
+
   const forbidden = ['tools', 'components', '.github', 'node_modules', 'package.json', 'package-lock.json', 'site-config.json'];
   for (const item of forbidden) {
     if (fs.existsSync(path.join(OUTPUT, item))) {
