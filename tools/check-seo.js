@@ -8,6 +8,8 @@ const cheerio = require('cheerio');
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = JSON.parse(fs.readFileSync(path.join(ROOT, 'site-config.json'), 'utf8'));
 const SITE_URL = String(CONFIG.siteUrl || '').replace(/\/$/, '');
+const { getAdSenseState, isAdSenseEligiblePage, adSenseLoaderUrl } = require('./adsense-config');
+const ADSENSE_STATE = getAdSenseState(CONFIG);
 const ERRORS = [];
 const WARNINGS = [];
 const STATS = { pages: 0, indexablePages: 0, canonicalUrls: 0, sitemapUrls: 0, jsonLdBlocks: 0 };
@@ -163,8 +165,6 @@ for (const page of pages) {
   const schemaObjects = schemaObjectsFor($, relpath);
   const schemaTypes = schemaObjects.map(schema => schema['@type']);
   const adScripts = $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
-  const publisherId = String(CONFIG.adsenseClientId || '').trim();
-  const validPublisherId = /^ca-pub-\d{16}$/.test(publisherId);
 
   if (is404) {
     if (canonicals.length !== 0) fail('404.html: must not have a canonical URL.');
@@ -193,13 +193,16 @@ for (const page of pages) {
     fail(relpath + ': exactly one og:url must match its canonical URL.');
   }
 
-  if (validPublisherId) {
-    if (adScripts.length !== 1) fail(relpath + ': expected one centralized AdSense loader; found ' + adScripts.length + '.');
-    else if (!String(adScripts.attr('src') || '').includes('client=' + publisherId)) {
-      fail(relpath + ': AdSense loader client does not match site-config.json.');
+  const expectedAdLoader = ADSENSE_STATE.canLoadAds && isAdSenseEligiblePage(relpath, ADSENSE_STATE);
+  if (expectedAdLoader) {
+    if (adScripts.length !== 1) fail(relpath + ': expected the centrally authorized AdSense loader; found ' + adScripts.length + '.');
+    else if (String(adScripts.attr('src') || '') !== adSenseLoaderUrl(ADSENSE_STATE.clientId)) {
+      fail(relpath + ': AdSense loader URL does not match the configured publisher ID.');
+    } else if (!adScripts.is('[async]') || String(adScripts.attr('crossorigin') || '').toLowerCase() !== 'anonymous') {
+      fail(relpath + ': AdSense loader must use async and crossorigin="anonymous".');
     }
   } else if (adScripts.length !== 0) {
-    fail(relpath + ': AdSense loader exists although no valid publisher ID is configured.');
+    fail(relpath + ': AdSense loader exists outside the approved page allowlist or before every activation gate is satisfied.');
   }
 
   if (relpath === 'index.html') {
@@ -271,13 +274,12 @@ if (sitemapDirectives.length !== 1 || sitemapDirectives[0] !== 'Sitemap: ' + SIT
 if (/^Disallow:\s*\/\s*$/im.test(robotsText)) fail('robots.txt: site-wide Disallow: / would block crawling.');
 
 const adsPath = path.join(ROOT, 'ads.txt');
-const configuredPublisherId = String(CONFIG.adsenseClientId || '').trim();
-if (/^ca-pub-\d{16}$/.test(configuredPublisherId)) {
-  const expectedAdsTxt = 'google.com, ' + configuredPublisherId.replace(/^ca-/, '') + ', DIRECT, f08c47fec0942fa0\n';
-  if (!fs.existsSync(adsPath)) fail('ads.txt: valid publisher ID is configured but ads.txt is missing.');
-  else if (fs.readFileSync(adsPath, 'utf8') !== expectedAdsTxt) fail('ads.txt: content does not match site-config.json.');
+if (ADSENSE_STATE.canWriteAdsTxt) {
+  const expectedAdsTxt = ADSENSE_STATE.adsTxtRecord + '\n';
+  if (!fs.existsSync(adsPath)) fail('ads.txt: verified account seller record is configured but the file is missing.');
+  else if (fs.readFileSync(adsPath, 'utf8') !== expectedAdsTxt) fail('ads.txt: content does not match the exact verified account record in site-config.json.');
 } else if (fs.existsSync(adsPath)) {
-  fail('ads.txt: file exists even though no valid publisher ID is configured.');
+  fail('ads.txt: file exists without a verified publisher ID and account-provided seller record.');
 }
 
 console.log('SEO checked ' + STATS.pages + ' HTML pages (' + STATS.indexablePages + ' indexable).');
