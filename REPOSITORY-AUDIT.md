@@ -85,6 +85,22 @@ The source contains 25 HTML files in total. The build walker excludes components
 - The production main branch had an older site-config.json value pointing at the prior GitHub Pages project URL during the separate Phase 1 repository inspection. That production-branch issue is outside the scope of this development-only phase and has not been changed here. Development has the intended https://upiqrstudio.com configuration.
 - The project has no separate unit-test runner or lint script in package.json; the existing validation scripts and syntax check are the applicable automated test commands.
 
+## Final CI verification
+
+Validation commit: 339feb2b2c1b9a8e9f7e1e10d39e83f778401501  
+GitHub Actions run: https://github.com/rsbusinesses/UPI_QR_Studio/actions/runs/42467929232
+
+All steps in the development validation job completed successfully:
+
+- npm ci installed 23 packages; 24 packages were audited and zero vulnerabilities were reported.
+- npm audit --audit-level=high passed with zero vulnerabilities.
+- JavaScript syntax validation passed for all files under js/ and tools/.
+- The static site build completed twice, producing 23 HTML pages; the repeatability diff was identical.
+- Site QA checked 23 HTML pages, 824 local links, 180 local assets, 0 CSS URL assets and 311 fragment links. Result: 0 errors and 0 warnings.
+- SEO QA checked 23 HTML pages, including 22 indexable pages. It found 22 canonical URLs, 22 sitemap URLs and 22 JSON-LD blocks. Result: 0 errors and 0 warnings.
+
+This run validates the source and generated static-site checks. It is not a substitute for a visual browser, Lighthouse or full WCAG audit.
+
 ## Release boundary
 
 All changes in this phase are intended for development only. Production remains unchanged. Do not merge or deploy until the release workflow and production domain configuration are reviewed and explicitly approved.
