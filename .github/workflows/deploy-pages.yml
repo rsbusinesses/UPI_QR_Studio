@@ -40,13 +40,19 @@ jobs:
       - name: Check website
         run: npm run check
 
+      - name: Check SEO metadata and indexability
+        run: npm run check:seo
+
+      - name: Package public site
+        run: npm run package:site
+
       - name: Verify homepage
         run: test -f index.html
 
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: dist
 
   deploy:
     needs: build

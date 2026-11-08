@@ -273,6 +273,9 @@ function processPage(page) {
   upsertMeta($, 'property', 'og:site_name', CONFIG.siteName);
   upsertMeta($, 'property', 'og:title', title);
   upsertMeta($, 'property', 'og:description', description);
+  upsertMeta($, 'name', 'twitter:card', 'summary');
+  upsertMeta($, 'name', 'twitter:title', title);
+  upsertMeta($, 'name', 'twitter:description', description);
   if (relpath === '404.html') upsertMeta($, 'name', 'robots', 'noindex, follow');
 
   $('link[rel="canonical"]').remove();
@@ -417,12 +420,17 @@ function writeRobotsAndSitemap(htmlPages) {
 
   let sitemap;
   if (!isPlaceholderSiteUrl(siteUrl)) {
-    const locations = htmlPages.filter(page => path.relative(ROOT, page).split(path.sep).join('/') !== '404.html')
-      .map(page => {
-        const rel = path.relative(ROOT, page).split(path.sep).join('/');
-        const publicUrl = rel === 'index.html' ? `${siteUrl}/` : `${siteUrl}/${rel}`;
-        return `  <url><loc>${escapeHtml(publicUrl)}</loc></url>`;
-      });
+    // Include only pages with a generated canonical and no noindex directive.
+    const locations = htmlPages.filter(page => {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'), { decodeEntities: false });
+      const canonical = String($('link[rel="canonical"]').attr('href') || '');
+      const robots = String($('meta[name="robots"]').attr('content') || '').toLowerCase();
+      return Boolean(canonical) && !robots.includes('noindex');
+    }).map(page => {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'), { decodeEntities: false });
+      const canonical = String($('link[rel="canonical"]').attr('href') || '');
+      return `  <url><loc>${escapeHtml(canonical)}</loc></url>`;
+    });
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + locations.join('\n') + '\n</urlset>\n';
   } else {
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<!-- Set siteUrl in site-config.json and run npm run build to populate this sitemap. -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';

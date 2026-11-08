@@ -282,6 +282,7 @@ npm ci
 npm run build
 npm run check
 npm run check:seo
+npm run package:site
 npm run preview
 ```
 
