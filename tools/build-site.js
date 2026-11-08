@@ -206,6 +206,50 @@ function addBreadcrumbs(page, $, relpath) {
   main.prepend(nav);
 }
 
+function addStructuredData(page, $, relpath, title, description, canonicalUrl) {
+  $('script[data-upiqr-schema]').remove();
+  if (!canonicalUrl || relpath === '404.html') return;
+
+  let schema;
+  let schemaKey;
+  const siteUrl = String(CONFIG.siteUrl || '').replace(/\\/$/, '');
+
+  if (relpath === 'index.html') {
+    schemaKey = 'website';
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: CONFIG.siteName,
+      url: canonicalUrl,
+      description
+    };
+  } else {
+    schemaKey = 'breadcrumbs';
+    const items = [{ name: 'Home', item: `${siteUrl}/` }];
+    if (path.basename(path.dirname(page)) === 'upi-guides') {
+      items.push({ name: 'UPI Guides', item: `${siteUrl}/pages/upi-guide.html` });
+    }
+    items.push({ name: pageTitle(relpath, $), item: canonicalUrl });
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.item
+      }))
+    };
+  }
+
+  // Escape '<' so user-editable text cannot terminate the JSON-LD script element.
+  const json = JSON.stringify(schema).replace(/</g, '\\u003c');
+  const script = $('<script type="application/ld+json"></script>')
+    .attr('data-upiqr-schema', schemaKey)
+    .text(json);
+  $('head').append(script);
+}
+
 function isPlaceholderSiteUrl(siteUrl) {
   return !siteUrl || siteUrl.includes('YOUR-USERNAME') || siteUrl.includes('YOUR-REPOSITORY');
 }
@@ -233,9 +277,14 @@ function processPage(page) {
 
   $('link[rel="canonical"]').remove();
   const siteUrl = String(CONFIG.siteUrl || '').replace(/\/$/, '');
+  let canonicalUrl = '';
   if (relpath !== '404.html' && !isPlaceholderSiteUrl(siteUrl)) {
     const canonicalPath = relpath === 'index.html' ? '/' : `/${relpath}`;
-    $('head').append(`<link rel="canonical" href="${escapeHtml(siteUrl + canonicalPath)}">`);
+    canonicalUrl = siteUrl + canonicalPath;
+    $('head').append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
+    upsertMeta($, 'property', 'og:url', canonicalUrl);
+  } else {
+    $('meta[property="og:url"]').remove();
   }
 
   // Never insert advertising code on the noindex 404 page.
@@ -307,6 +356,7 @@ function processPage(page) {
 
   addUniqueGuideContent(page, $, relpath);
   addBreadcrumbs(page, $, relpath);
+  addStructuredData(page, $, relpath, title, description, canonicalUrl);
 
   $('body footer').remove();
   const footerNode = cheerio.load(templateForPage(footerTemplate, page), { decodeEntities: false })('footer.site-footer').first();
