@@ -108,8 +108,13 @@ for (const file of jsFiles) {
 if (!errors.length) pass('Application JavaScript has no detected network, persistent-storage, cookie, or unsafe-HTML APIs.');
 
 const builder = fs.readFileSync(path.join(ROOT, 'tools/build-site.js'), 'utf8');
-if (!builder.includes('adsenseConsentConfigurationVerified === true')) {
-  fail('Build pipeline is missing the explicit AdSense consent-configuration gate.');
+const adSenseConfig = fs.readFileSync(path.join(ROOT, 'tools/adsense-config.js'), 'utf8');
+if (
+  !builder.includes('getAdSenseState(CONFIG)') ||
+  !builder.includes('adsenseState.canLoadAds') ||
+  !adSenseConfig.includes('consentConfigurationVerified &&')
+) {
+  fail('Build pipeline is missing the shared AdSense approval and consent-configuration gate.');
 }
 if (!ADSENSE_STATE.canWriteAdsTxt && fs.existsSync(path.join(ROOT, 'ads.txt'))) {
   fail('ads.txt exists without a verified publisher ID and account-provided seller record.');
