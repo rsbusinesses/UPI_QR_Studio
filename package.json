@@ -12,7 +12,8 @@
     "preview": "node tools/preview.js",
     "check:seo": "node tools/check-seo.js",
     "package:site": "node tools/package-site.js",
-    "check:content": "node tools/check-content.js"
+    "check:content": "node tools/check-content.js",
+    "check:privacy": "node tools/check-privacy.js"
   },
   "dependencies": {
     "cheerio": "^1.1.2"

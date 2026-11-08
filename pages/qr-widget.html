@@ -30,7 +30,7 @@ Year        : 2026
 <link href="../css/common.css" rel="stylesheet">
 <!-- QR widget styles only -->
 <!-- QR generation library -->
-<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+<script defer="" src="../assets/vendor/qrcode.min.js">
 </script>
 <!-- QR widget logic only -->
 <script defer="" src="../js/qr-generator.js"></script>
@@ -101,6 +101,7 @@ Year        : 2026
               Generate QR Code
             </button>
 </form>
+<p class="privacy-disclosure">QR details are processed in this browser and are not sent to a UPI QR Studio application server by this tool. GitHub Pages logs visitor IP addresses for security. <a href="privacy-policy.html">Read the Privacy Policy</a>.</p>
 </div>
 <!-- RIGHT: QR CODE RESULT -->
 <div class="qr-widget-result-panel">
@@ -151,7 +152,7 @@ Year        : 2026
 <p>The widget checks only that the two parts contain the allowed characters. It does not check whether the UPI ID exists, is active, belongs to a person or business, is linked to an eligible account, or can receive payments. A valid-looking format is not proof that the address is correct.</p>
 <p>Generating or downloading a QR code does not send money, verify a bank account, confirm that funds have arrived or process a payment. The payer must check the recipient and any transaction details shown in their own UPI app before authorizing a debit.</p>
 <h2>If the QR code does not scan</h2>
-<p>Check that the saved image is complete and clear, verify the UPI ID against the official app, and try a compatible UPI app. This page loads its QR-generation library from an external content-delivery service, so the library may not be available without a working connection.</p>
+<p>Check that the saved image is complete and clear, verify the UPI ID against the official app, and try a compatible UPI app. The QR-generation library is bundled with this website; an internet connection is still needed to load the page itself.</p>
 <p><strong>Safety:</strong> Never enter or share your UPI PIN, OTP, card PIN or banking password in a QR generator. You do not need to disclose a UPI PIN to receive money.</p>
 </section>
 </main>

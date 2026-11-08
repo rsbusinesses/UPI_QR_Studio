@@ -301,14 +301,14 @@ Year        : 2026
               GitHub may process technical and service-usage information to
               deliver, protect, and maintain its services; see the
               <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer" target="_blank">GitHub General Privacy Statement</a>.
-              The QR generator pages also load the QRCode.js browser library
-              from cdnjs.cloudflare.com when the QR tool is used. That CDN may
-              receive technical request information when it delivers the
-              library. Links may also be provided to banks, payment
-              applications, official resources, and other websites for
-              convenience or information. Google Analytics is not enabled in
-              the current build, and Google AdSense advertising is planned but
-              is not represented as currently active.
+              The QRCode.js library is bundled as a local asset and is served from this
+              website; QR generation does not request that library from an
+              external CDN. GitHub Pages logs and stores visitor IP addresses
+              for security purposes, as explained in the Privacy Policy. The
+              current build does not include Google Analytics, Google Tag
+              Manager, advertising tags, tracking pixels, or a consent platform.
+              Google AdSense is not active. External links open third-party
+              services only when you choose to follow them.
             </p>
 <p>
               Third-party websites and services are governed by their own
@@ -346,12 +346,12 @@ Year        : 2026
               and information processed by third-party services.
             </p>
 <p>
-              Although QR generation is intended to occur locally in your
-              browser, that does not automatically mean that no technical
-              information is processed anywhere during your visit. Hosting
-              logs, analytics, cookies, and third-party technologies may
-              operate separately, depending on the website's actual
-              configuration and your settings.
+              QR generation occurs in your browser. The current application code does
+              not transmit QR form fields to a UPI QR Studio application server,
+              save them in an application database, or use cookies, localStorage,
+              sessionStorage, or IndexedDB. GitHub Pages separately logs and stores
+              visitor IP addresses for security purposes. No analytics or
+              advertising integration is active in this build.
             </p>
 <p>
               Please do not submit sensitive financial credentials or
@@ -362,10 +362,13 @@ Year        : 2026
 <p>
               The Contact Us form prepares an email in your device's configured
               email application; it does not submit the form fields to a
-              UPI QR Studio web server. If you send that email, your email
-              provider and the recipient's provider handle the message.
-              Do not include UPI PINs, OTPs, passwords, or full payment
-              credentials in a contact message.
+              UPI QR Studio web server. Nothing is delivered to the site
+              operator unless you choose to send it. If sent to the published
+              contact address, the site operator receives it in that mailbox
+              and may use it to respond; the mailbox provider also processes
+              and stores it under its own terms and settings. No fixed
+              retention period is stated. Do not include UPI PINs, OTPs,
+              passwords, or full payment credentials in a contact message.
             </p>
 </section>
 <section class="terms-section" id="availability">

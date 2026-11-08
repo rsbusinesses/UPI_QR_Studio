@@ -18,7 +18,9 @@ const DEFAULT_CONFIG = {
   siteName: 'UPI QR Studio',
   siteUrl: 'https://YOUR-USERNAME.github.io/YOUR-REPOSITORY',
   contactEmail: 'YOUR-CONTACT-EMAIL@example.com',
-  adsenseClientId: ''
+  adsenseClientId: '',
+  // Owner attestation: only set true after the required consent setup is live and tested.
+  adsenseConsentConfigurationVerified: false
 };
 const CONFIG = {
   ...DEFAULT_CONFIG,
@@ -291,8 +293,9 @@ function processPage(page) {
 
   // Never insert advertising code on the noindex 404 page.
   const clientId = String(CONFIG.adsenseClientId || '').trim();
+  const consentConfigurationVerified = CONFIG.adsenseConsentConfigurationVerified === true;
   $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').remove();
-  if (relpath !== '404.html' && /^ca-pub-\d{16}$/.test(clientId)) {
+  if (relpath !== '404.html' && /^ca-pub-\d{16}$/.test(clientId) && consentConfigurationVerified) {
     const script = $('<script></script>')
       .attr('src', `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`)
       .attr('async', '')
@@ -438,8 +441,9 @@ function writeRobotsAndSitemap(htmlPages) {
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 
   const clientId = String(CONFIG.adsenseClientId || '').trim();
+  const consentConfigurationVerified = CONFIG.adsenseConsentConfigurationVerified === true;
   const adsPath = path.join(ROOT, 'ads.txt');
-  if (/^ca-pub-\d{16}$/.test(clientId)) {
+  if (/^ca-pub-\d{16}$/.test(clientId) && consentConfigurationVerified) {
     const publisherId = clientId.replace(/^ca-/, '');
     fs.writeFileSync(adsPath, `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0\n`, 'utf8');
   } else if (fs.existsSync(adsPath)) {
@@ -465,6 +469,8 @@ function main() {
   }
   if (!String(CONFIG.adsenseClientId || '').trim()) {
     console.log('AdSense is not enabled. Leave adsenseClientId blank until you have your real publisher ID.');
+  } else if (CONFIG.adsenseConsentConfigurationVerified !== true) {
+    console.warn('AdSense remains disabled: verify and test the required consent configuration, then explicitly set adsenseConsentConfigurationVerified to true.');
   }
 }
 

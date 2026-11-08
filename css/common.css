@@ -192,3 +192,21 @@ input:focus-visible {
     color: #ffffff;
     background: var(--primary);
 }
+
+.privacy-disclosure {
+    margin: 18px 0 0;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.privacy-disclosure a {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-underline-offset: 3px;
+}
