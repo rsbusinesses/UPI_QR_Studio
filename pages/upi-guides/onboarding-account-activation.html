@@ -61,9 +61,10 @@ Year        : 2026
 <ul>
 <li><strong>Active Bank Account:</strong> An account with any NPCI-partnered bank in India.</li>
 <li><strong>Registered Mobile Number:</strong> The phone number linked to your bank account must be present in the device you are configuring.</li>
-<li><strong>Active Calling and Outbound SMS Plan:</strong> Essential for sending the automated hardware-binding verification message.</li>
-<li><strong>Smartphone with Data Access:</strong> Android or iOS device running a verified network connection.</li>
-<li><strong>Authentication Asset:</strong> Either an active <em>Debit Card</em> OR your <em>Aadhaar</em> details (linked to the same mobile number) to set up your payment PIN.</li>
+<li><strong>Working registered SIM:</strong> Keep the mobile number registered with your bank available in the device you are setting up.</li>
+<li><strong>SMS and network access:</strong> Some app registration flows send an SMS to verify the mobile number or device. Your mobile operator may charge for an outgoing SMS; follow the app's current instructions.</li>
+<li><strong>Compatible device and official app:</strong> Use an up-to-date app from the bank or payment provider and a supported device.</li>
+<li><strong>Supported authentication method:</strong> Follow the method actually offered by your bank and app, which may include debit-card or Aadhaar-based verification. Availability varies.</li>
 </ul>
 </section>
 <!-- SECTION BLOCK 2: Link Bank Account -->
@@ -73,59 +74,53 @@ Year        : 2026
 <ol>
 <li><strong>Install an Authorized Application:</strong> Download a certified UPI application (such as BHIM, Google Pay, PhonePe, Paytm, or your bank’s official mobile application) exclusively from official application stores.</li>
 <li><strong>Language and Terms Selection:</strong> Launch the app, select your preferred operating language, and review the terms of service.</li>
-<li><strong>Grant Required Device Permissions:</strong> Allow necessary system permissions—specifically SMS, Phone/Device State, and Location—which are mandatory for hardware-level security binding.</li>
+<li><strong>Review permissions:</strong> Grant only the permissions the official app requests for a stated feature and that you understand. Requirements vary by app and device; do not grant unrelated permissions or remote access at the direction of a caller.</li>
 </ol>
 </section>
 <!-- SECTION BLOCK 3: Reset UPI PIN -->
 <section class="guide-section" data-guide-section="" hidden="" id="verify-mobile">
 <h2>How to Verify Your Mobile Number</h2>
-<p>Mobile verification links your physical smartphone hardware to the National Payments Corporation of India (NPCI) network through <strong>device binding</strong>.</p>
+<p>Depending on the app and bank, setup may include verifying the mobile number and binding the device to the registered SIM. The exact SMS and network steps are determined by the participating app, bank and mobile operator.</p>
 <ol>
-<li><strong>Select SIM Slot:</strong> Choose the specific SIM card slot that houses your bank-registered mobile number.</li>
-<li><strong>Outbound SMS:</strong> The application automatically triggers an encrypted, outbound SMS from your handset to NPCI's authentication servers.</li>
-<li><strong>Binding Completion:</strong> Once NPCI validates the device parameters against the mobile network operator data, device binding is completed, securing your account against unauthorized remote access.</li>
+<li><strong>Check the registered number:</strong> Confirm that the SIM in the phone matches the mobile number registered with your bank.</li>
+<li><strong>Follow the app prompt:</strong> If the official app asks to send a verification SMS, select the correct SIM and allow the app to complete that step.</li>
+<li><strong>Check the result:</strong> Continue only when the app confirms verification. If it fails, check network access, outgoing SMS availability and the bank or app's support instructions.</li>
 </ol>
 </section>
 <!-- SECTION BLOCK 4: Pay Using QR -->
 <section class="guide-section" data-guide-section="" hidden="" id="link-bank">
 <h2>How to Link Your Bank Account</h2>
-<p>Once mobile verification is established, the application queries banking networks to locate <strong>active accounts</strong> associated with your mobile number.</p>
+<p>After the required verification, a supported app may display eligible bank accounts associated with the registered mobile number. Which accounts appear depends on the bank, account eligibility and the app's current support.</p>
 <ol>
 <li><strong>Navigate Menu:</strong> Go to the Profile or Payment Methods menu inside your UPI application and tap Add Bank Account.</li>
 <li><strong>Select Institution:</strong> Choose your banking institution from the list of supported entities.</li>
-<li><strong>Secure Request:</strong> The platform sends a secure request via NPCI to pull all accounts registered under your validated mobile number.</li>
+<li><strong>Choose an eligible account:</strong> Select the correct account from the list made available by the app and follow the bank's confirmation steps. Not every account type or bank is necessarily supported.</li>
 <li><strong>Choose Account:</strong> Select the primary savings or current account you wish to attach to your profile to generate your unique <em>UPI ID (Virtual Payment Address)</em>.</li>
 </ol>
 </section>
 <!-- SECTION BLOCK 5: Share UPI ID -->
 <section class="guide-section" data-guide-section="" hidden="" id="bank-to-be-link">
 <h2>Which Bank Accounts Can Be Linked to UPI?</h2>
-<p>UPI supports multiple types of financial accounts beyond standard savings accounts:</p>
-<ul>
-<li><strong>Savings Accounts:</strong> Personal individual or primary joint accounts.</li>
-<li><strong>Current Accounts:</strong> Individual current accounts and sole proprietorship business accounts.</li>
-<li><strong>Overdraft (OD) Accounts:</strong> Approved overdraft facilities enabled for electronic debit operations.</li>
-<li><strong>RuPay Credit Cards:</strong> Directly linkable to enable merchant payments (P2M) powered by your credit line.</li>
-<li><strong>Prepaid Instruments (Wallets):</strong> NPCI-compliant digital wallets and prepaid payment instruments.</li>
-</ul>
+<p>Eligible savings and current accounts are commonly supported, but the available account types depend on the issuing bank and UPI app. Some overdraft accounts may also be eligible. Certain RuPay credit cards and prepaid payment instruments can be linked through supported issuer and app arrangements, subject to eligibility and transaction restrictions.</p>
+<p>Do not assume that every bank account, credit card or wallet can be linked. Check the current instructions from your card issuer, prepaid instrument issuer or bank before attempting setup.</p>
 </section>
 <!-- SECTION BLOCK 6: Payment Pending/Failed -->
 <section class="guide-section" data-guide-section="" hidden="" id="multiple-banks">
 <h2>How to Link Multiple Bank Accounts</h2>
-<p>You can link multiple accounts to a single UPI application to manage funding sources seamlessly.</p>
+<p>Many UPI applications let users link more than one eligible bank account. Availability and the number of accounts supported depend on the bank and app.</p>
 <ol>
 <li><strong>Access Settings:</strong> Open Profile Settings and select Add Another Bank Account.</li>
 <li><strong>Fetch Details:</strong> Choose the second financial institution where your mobile number is registered and let the system fetch the details.</li>
-<li><strong>Set Default:</strong> Once added, designate one account as your <em>Primary Default Account</em>. Incoming payments via your phone number or default UPI ID will automatically route into this chosen account.</li>
+<li><strong>Choose a preferred account:</strong> Where the app offers this option, select the account you want to use for outgoing payments. Incoming payments are credited according to the UPI ID or number and its account mapping; a preferred debit account does not necessarily change where incoming funds are received.</li>
 </ol>
 </section>
 <!-- SECTION BLOCK 7: UPI Scams -->
 <section class="guide-section" data-guide-section="" hidden="" id="upi-pin-set">
 <h2>How to Set Your UPI PIN for the First Time</h2>
-<p>Your UPI PIN is a 4-digit or 6-digit passcode managed directly by your <strong>bank’s secure server</strong>.</p>
+<p>A UPI PIN is a confidential authentication code used to authorize applicable payments. Follow the PIN length and setup steps shown by your bank and official app.</p>
 <ol>
 <li><strong>Initiate Setup:</strong> Access your linked bank account inside the app and tap Set UPI PIN.</li>
-<li><strong>Choose Method:</strong> Choose your preferred identification method: Debit Card or Aadhaar Verification.</li>
+<li><strong>Choose a supported method:</strong> Select one of the verification options currently offered by your bank and app. Depending on provider support, this may include debit-card details, Aadhaar-based verification or another approved method.</li>
 <li><strong>Verify OTP:</strong> Verify the auto-generated One-Time Password (OTP) dispatched to your registered mobile number.</li>
 <li><strong>Create PIN:</strong> Set your custom 4-digit or 6-digit PIN and re-enter it to confirm establishment.</li>
 </ol>
@@ -133,10 +128,10 @@ Year        : 2026
 <!-- SECTION BLOCK 8: Report Problem -->
 <section class="guide-section" data-guide-section="" hidden="" id="forgot-pin">
 <h2 id="forget-pin">How to Reset a Forgotten UPI PIN</h2>
-<p>If you forget your authorization code, you can reset it instantly without visiting a bank branch.</p>
+<p>If you forget your UPI PIN, use the reset option provided in your official payment app. The required verification method and whether additional bank support is needed depend on the issuer and app.</p>
 <ol>
 <li><strong>Select Reset:</strong> Open Payment Settings, locate the specific bank account, and select Forgot PIN or Reset PIN.</li>
-<li><strong>Identity Verification:</strong> Perform identity verification using either your Debit Card details or Aadhaar-linked OTP authentication.</li>
+<li><strong>Identity Verification:</strong> Complete the verification method currently offered by your bank and app. Never read an OTP to another person or enter it through a link or screen shared by an unsolicited caller.</li>
 <li><strong>Confirm New PIN:</strong> Upon successfully validating the security code, create and confirm your new UPI PIN.</li>
 </ol>
 </section>
@@ -160,16 +155,16 @@ Year        : 2026
 </section>
 <section class="guide-section" data-guide-section="" hidden="" id="new-phone">
 <h2>How to Activate UPI on a New Phone</h2>
-<p>When switching devices, security regulations demand <strong>complete hardware verification</strong> before enabling payment services.</p>
+<p>When you move to a new phone, the UPI app may ask you to verify the registered mobile number or repeat its device-registration steps. The exact process varies by provider.</p>
 <ol>
 <li><strong>Install &amp; Insert SIM:</strong> Download your preferred UPI app on the new phone and insert the bank-registered SIM card into the new device.</li>
-<li><strong>Device Binding:</strong> Complete the automated SMS device binding step to attach the new smartphone hardware ID to your profile.</li>
-<li><strong>Reconnect Accounts:</strong> Select your bank from the menu; the app automatically reconnects your accounts. Your existing UPI PIN remains valid and unchanged.</li>
+<li><strong>Complete any requested verification:</strong> Follow the SMS or other device checks shown by the official app.</li>
+<li><strong>Restore account access:</strong> Confirm or relink eligible accounts if the app asks. Do not assume account access is restored automatically; use the provider's support route if it is not.</li>
 </ol>
 </section>
 <section class="guide-section" data-guide-section="" hidden="" id="changing-sim">
 <h2>What to Do After Changing Your SIM</h2>
-<p>If you update your mobile phone number, your old UPI credentials cannot process transactions until banking records are synchronized.</p>
+<p>If you replace a SIM but keep the same number, or change the mobile number registered with your bank, the steps can differ. A number change generally requires updating the bank's customer records and then following the UPI app's re-verification instructions.</p>
 <ol>
 <li><strong>Update at Bank:</strong> Update your official mobile number first through your bank’s net banking portal, mobile app, or branch.</li>
 <li><strong>Re-register:</strong> Launch your UPI app and initiate a fresh registration process using the new SIM card.</li>
@@ -178,29 +173,26 @@ Year        : 2026
 </section>
 <section class="guide-section" data-guide-section="" hidden="" id="reinstall-upi-app">
 <h2>What Happens When You Reinstall a UPI App?</h2>
-<p>Reinstalling an application clears local app data, requiring re-authentication:</p>
-<ul>
-<li><strong>Fresh Device Verification:</strong> You must complete the encrypted outbound SMS step again.</li>
-<li><strong>Account Recovery:</strong> The platform pulls linked accounts instantly from NPCI records without requiring manual bank input.</li>
-<li><strong>PIN Continuity:</strong> Since your UPI PIN is stored securely on bank hardware rather than your phone, your previous PIN remains active.</li>
-</ul>
+<p>Reinstalling a UPI app removes its local app data and may require you to register or verify the device again. Follow the current prompts to restore account access; the app may ask you to select or relink an eligible account.</p>
+<p>Do not assume that every setting, mandate or wallet balance is automatically restored after reinstalling or changing a device. Check each feature separately in the official app and contact your bank or provider if an item is missing.</p>
 </section>
 <section class="guide-section" data-guide-section="" hidden="" id="changing-phones">
 <h2>How to Restore Access to UPI After Changing Phones</h2>
 <ol>
-<li><strong>Install App:</strong> Install the payment application on your new device and log in using your primary mobile number.</li>
-<li><strong>Execute Binding:</strong> Allow the application to execute device binding through SMS authentication.</li>
-<li><strong>Confirm Accounts:</strong> Confirm your linked accounts from the retrieved list. You can perform transactions immediately using your existing UPI PIN.</li>
+<li>Install the official payment app from its authorized app store or the bank's official website.</li>
+<li>Register with the mobile number associated with your bank account and complete the verification steps shown by the app.</li>
+<li>Confirm which eligible bank accounts are available and review your UPI IDs, mandates and balances before making a payment.</li>
+<li>Check the transaction status in the app after any transfer. Contact the bank if access or account details do not appear as expected.</li>
 </ol>
 </section>
 <section class="guide-section" data-guide-section="" hidden="" id="upi-lite-setup">
 <h2>How to Set Up UPI LITE on a New Device</h2>
-<p>UPI LITE is an on-device wallet designed for instant, low-value transactions that bypass core banking server bottlenecks and do not require entering a UPI PIN.</p>
+<p>UPI Lite is an on-device balance feature for eligible small-value payments. Availability, funding and payment flows depend on the bank and UPI app. The RBI framework states a maximum balance of ₹5,000 and a per-transaction limit of ₹1,000; providers may apply eligibility checks or more restrictive controls, and rules can change.</p>
 <ol>
-<li><strong>Access UPI LITE Setup:</strong> Open your UPI app settings and select Enable UPI LITE.</li>
-<li><strong>Link Supported Account:</strong> Select a compatible bank account to fund the wallet balance.</li>
-<li><strong>Load Wallet Balance:</strong> Allocate funds from your bank account into your UPI LITE balance (up to a maximum wallet capacity of ₹5,000) by entering your UPI PIN once.</li>
-<li><strong>PIN-Free Transactions:</strong> Transact instantly for daily small payments up to ₹1,000 per transaction without entering your PIN. Wallet transactions operate independently and do not count toward your bank's daily transaction count limits.</li>
+<li>Open the UPI Lite section in a supported official app and review its eligibility and terms.</li>
+<li>Select an eligible linked account and follow the in-app process to add funds. The app may ask for your UPI PIN to authorize the load.</li>
+<li>Before making a payment, check the amount and recipient in the app. Eligible UPI Lite payments may not require a UPI PIN within the supported limits.</li>
+<li>Before changing devices, check the app's UPI Lite closure or transfer instructions. Do not assume the balance automatically moves to another phone.</li>
 </ol>
 </section>
 </article>
@@ -265,7 +257,7 @@ Year        : 2026
 </nav>
 </aside>
 </div>
-<section aria-labelledby="practical-heading" class="guide-practical-panel content-card" data-guide-editorial-note="true"><h2 id="practical-heading">Practical checks before you act</h2><p>UPI setup requirements depend on the app, bank and supported authentication path.</p><ul><li>Install the official app and use the mobile number registered with your bank.</li><li>Complete account linking only inside the official application.</li><li>Set or reset the UPI PIN only through the supported bank/app flow.</li></ul><p class="source-note">For account activation, confirm the bank account and registered mobile number shown in the official app. If verification fails, follow the bank’s published activation or recovery steps rather than sharing credentials with a third party.</p></section></main>
+<section aria-labelledby="practical-heading" class="guide-practical-panel content-card" data-guide-editorial-note="true"><h2 id="practical-heading">Practical checks before you act</h2><p>UPI setup requirements depend on the app, bank and supported authentication path.</p><ul><li>Install the official app and use the mobile number registered with your bank.</li><li>Complete account linking only inside the official application.</li><li>Set or reset the UPI PIN only through the supported bank/app flow.</li></ul><p class="source-note">For the current registration process, check the <a href="https://www.npci.org.in/what-we-do/upi/faqs" rel="noopener noreferrer" target="_blank">official NPCI UPI FAQs</a> and your bank's published instructions. NPCI has also described optional additional authentication methods, including UIDAI face authentication for PIN setup or reset, where supported by the issuer and app. See <a href="https://www.npci.org.in/circulars/upi" rel="noopener noreferrer" target="_blank">NPCI's current UPI circulars</a>. Do not assume every feature is available in every app.</p></section></main>
 
 <footer class="site-footer">
   <div class="footer-inner">
