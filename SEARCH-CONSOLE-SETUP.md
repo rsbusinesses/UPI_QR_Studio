@@ -4,9 +4,9 @@ Phase 8 audit note: 8 November 2026.
 
 **Connected property:** `sc-domain:upiqrstudio.com` is available through the connected Search Console reporting integration. This confirms read access to Search Console data for the property, but does not expose whether the user is a verified owner or what permission level the user holds. Ownership status must still be checked in Search Console itself.
 
-**Read-only connector evidence (retrieved 8 November 2026):**
-- Sitemaps dataset returned one empty/summary row: no sitemap path, 0 submitted URLs, 0 errors, 0 warnings, and no last-submitted or last-downloaded timestamp. The connector therefore does not show a populated sitemap submission. This is not proof of successful sitemap processing.
-- Search Analytics, last 28 days: one returned row for `https://upiqrstudio.com/` dated 6 November 2026, with 1 impression and 0 clicks. This is performance data, not URL indexing evidence.
+**Read-only connector evidence (latest read, 8 November 2026):**
+- Sitemaps dataset returned one empty/summary row: path is null, submitted URLs = 0, errors = 0, warnings = 0, and last-submitted/last-downloaded timestamps are null. This does not show a populated sitemap submission or prove successful Google processing.
+- Search Analytics for the last 28 days returned 0 rows on the latest read. An earlier read returned one homepage row dated 6 November 2026 with 1 impression and 0 clicks. The later empty result is missing reporting data, not proof of zero traffic or de-indexing.
 - The connector exposes no write actions for Search Console. Sitemap submission, URL Inspection, Request indexing, Page indexing, Manual Actions and Security Issues cannot be completed or verified through this connection.
 
 Use the owner interface to confirm DNS verification, sitemap ingestion and URL indexing. Do not treat a Search Analytics row as proof of ownership or index coverage.
@@ -19,9 +19,9 @@ The repository is configured for the canonical origin:
 
 The generated sitemap is `https://upiqrstudio.com/sitemap.xml`, and `robots.txt` allows crawling and advertises that sitemap. The sitemap contains the public HTML URLs and excludes the custom 404 page.
 
-**Development-branch preparation:** the current `development` source builds a 22-URL sitemap using `https://upiqrstudio.com`, and its `robots.txt` allows crawling and references that sitemap. The current Search Console reporting connection has not surfaced a populated sitemap record. The live website, live `robots.txt` and live sitemap could not be fetched independently in this audit environment.
+**Production source and deployment (verified from GitHub):** main currently configures https://upiqrstudio.com, and its root robots.txt and 22-entry sitemap.xml use that origin. GitHub Pages build and deployment run 42475996585 completed successfully for main commit c6e975cc1b3cb5146d43f2cdc118bce03c7c9f0a on 8 November 2026. This proves the deployment workflow completed, not that custom-domain DNS, TLS or live HTTP access is working.
 
-**Production mismatch:** `main` still configures `https://rsbusinesses0.github.io/UPI-QR-Website-Final/` as its canonical origin and uses that origin in its `robots.txt` and `sitemap.xml`. Do not treat the development sitemap as live until the owner promotes the changes and confirms the custom domain in GitHub Pages settings.
+No root CNAME file was found in the repository. That alone does not determine the custom-domain setting; verify Repository → Settings → Pages and the DNS records at the domain provider. The live homepage, robots.txt and sitemap could not be independently fetched by this audit environment.
 
 ## 1. Confirm Domain-property ownership
 
@@ -31,8 +31,6 @@ The generated sitemap is `https://upiqrstudio.com/sitemap.xml`, and `robots.txt`
 4. If ownership is not verified for your Google account, use **Add property → Domain**, enter `upiqrstudio.com`, and continue to DNS verification.
 
 A Domain property covers the root domain and its subdomains. Google requires DNS-provider verification for this property type; an HTML meta tag is only supported for URL-prefix properties. The site's `google-adsense-account` meta tag is specifically for AdSense and is **not** a Search Console `google-site-verification` token. See [Verify your site ownership](https://support.google.com/webmasters/answer/9008080).
-
-A Domain property covers the root domain and its subdomains. Google requires DNS verification for this property type. See [Verify your site ownership](https://support.google.com/webmasters/answer/9008080).
 
 ## 2. Add Google's DNS record in Hostinger
 
@@ -49,17 +47,17 @@ Do not put the verification token in this repository, commit history or a public
 
 ## 3. Submit and verify the sitemap
 
-The development build prepares 22 canonical public URLs at `https://upiqrstudio.com/sitemap.xml`; the custom 404 is excluded. The current development Pages workflow packages only visitor-facing files into `dist/`, excluding build tooling, templates, repository documentation, package files and site configuration.
+The current production source and latest Pages deployment use https://upiqrstudio.com. The generated sitemap contains 22 canonical public URLs; the custom 404 is excluded. The production workflow now packages the visitor-facing dist artifact.
 
-**Do this only after the correct custom-domain version is deployed and the public sitemap is confirmed to load.** The current `main` branch still points to the older GitHub Pages project URL.
+Before submission, open https://upiqrstudio.com/sitemap.xml from your own network and confirm it returns valid XML over HTTPS. DNS/TLS/live endpoint availability could not be verified in this audit environment.
 
-After production deployment and Domain-property ownership confirmation:
+After confirming live accessibility and Domain-property ownership:
 
-1. Open the `upiqrstudio.com` property in Search Console.
-2. Open **Sitemaps**.
-3. Enter `sitemap.xml` in **Add a new sitemap** and select **Submit**.
-4. Re-open the row and record the exact status, last-read date and discovered URL count. The desired fetch status is **Success**; investigate any parsing or fetch error.
-5. If AdSense later reports an ads.txt issue, that is a separate AdSense site-status check; a Search Console sitemap submission does not resolve it.
+1. Open the upiqrstudio.com property in Search Console.
+2. Open Indexing → Sitemaps.
+3. Enter sitemap.xml in Add a new sitemap and select Submit.
+4. Re-open the row and record its exact status, last-read date and discovered URL count. Investigate fetch or parsing errors.
+5. Treat ads.txt status as a separate AdSense check; Search Console sitemap submission does not validate the ads.txt seller record.
 
 The reporting integration currently shows no populated sitemap path or submission timestamp. No sitemap submission was performed by this audit.
 
@@ -67,7 +65,7 @@ Submitting a sitemap is a discovery hint; it does not guarantee that Google will
 
 ## 4. Inspect important URLs
 
-The connected reporting integration does not expose URL Inspection or Request indexing. Perform these checks in the Search Console UI after the custom-domain deployment.
+The connected reporting integration does not expose URL Inspection or Request indexing. The latest GitHub Pages workflow deployed the custom-domain source, but first confirm the live URL opens over HTTPS from your network. Then perform these checks in the Search Console UI.
 
 Use **URL Inspection** for at least:
 

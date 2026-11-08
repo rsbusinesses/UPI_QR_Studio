@@ -1,3 +1,5 @@
+> **Historical snapshot — superseded by Phase 10.** This Phase 9 monitoring report predates the hidden-file artifact correction and final handover. The subsequent Phase 10 update explicitly includes the required .nojekyll file in the Pages artifact and makes the packager reject other hidden paths. See [FINAL-HANDOVER-AUDIT.md](https://github.com/rsbusinesses/UPI_QR_Studio/blob/development/FINAL-HANDOVER-AUDIT.md) for the consolidated status.
+
 # Phase 9 — Post-launch monitoring and maintenance report
 
 Audit date: 8 November 2026  

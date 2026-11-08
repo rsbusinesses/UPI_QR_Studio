@@ -1,3 +1,5 @@
+> **Historical snapshot — superseded by Phase 10.** This Phase 8 report was written before PR #2 was merged. Since then, PR #2 was merged into main, and GitHub Pages run [42475996585](https://github.com/rsbusinesses/UPI_QR_Studio/actions/runs/42475996585) completed successfully for main commit c6e975cc1b3cb5146d43f2cdc118bce03c7c9f0a. Earlier statements below about a stale production origin, legacy deployment workflows and an unreleased candidate describe the pre-merge state. See [FINAL-HANDOVER-AUDIT.md](https://github.com/rsbusinesses/UPI_QR_Studio/blob/development/FINAL-HANDOVER-AUDIT.md) for the current audit.
+
 # Phase 8 — Google Search Console, AdSense and production launch readiness
 
 Audit date: 8 November 2026  
