@@ -92,6 +92,7 @@ Year        : 2026
 <span>okaxis</span>
 <span class="qr-example-full">(rahul123@okaxis)</span>
 </p>
+<p class="qr-widget-example">Enter the part before @ in the first field and the provider handle after @ in the second. Copy both parts from the current UPI ID shown in your official payment app; do not guess a handle.</p>
 <p class="qr-widget-error" hidden="" role="alert"></p>
 <button class="qr-widget-generate" type="submit">
 <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -141,19 +142,17 @@ Year        : 2026
 </div>
 </section>
 
-<section aria-labelledby="qr-widget-howto" class="guide-practical-panel content-card">
-  <h2 id="qr-widget-howto">How to create and download your UPI QR code</h2>
-  <ol>
-    <li>Enter the username part of your UPI ID in the first field.</li>
-    <li>Enter the provider handle in the second field. The example shows the format <code>username@provider</code>.</li>
-    <li>Select <strong>Generate QR Code</strong> and review the UPI ID displayed with the preview.</li>
-    <li>Select <strong>Download QR Code</strong> to save the image. Scan it with your own trusted UPI app to check the details before displaying or sharing it.</li>
-  </ol>
-  <h2>What this generator does—and does not do</h2>
-  <p>This page combines the two parts you enter and creates a QR code containing a basic UPI payment address. Its format check only checks allowed characters; it does not confirm that the UPI ID exists, belongs to a particular person or can receive a payment.</p>
-  <p>Generating or downloading a QR code does not send money, verify a bank account, confirm that funds have arrived or process a payment. The payer must review the recipient name and amount in their own UPI application before authorizing a transaction.</p>
-  <p><strong>Safety:</strong> Never enter or share your UPI PIN, OTP, card PIN or banking password in a QR generator. You do not need a UPI PIN to receive money.</p>
-  <p>For optional payee-name, amount and payment-note fields, use the <a href="../index.html">UPI QR generator on the homepage</a>.</p>
+<section aria-labelledby="qr-widget-howto" class="guide-practical-panel content-card" id="qr-widget-limitations">
+<h2 id="qr-widget-howto">How to create and download your UPI QR code</h2>
+<ol><li>Open your bank or UPI app and copy the exact UPI ID you want the QR code to contain.</li><li>Enter the part before the @ symbol in the first field and the provider handle after @ in the second field. The example shows the format <code>username@provider</code>.</li><li>Select <strong>Generate QR Code</strong>. The widget joins the two parts with @, converts the result to lowercase and creates a QR preview.</li><li>Check the generated UPI ID shown below the preview. Select <strong>Download QR Code</strong> to save a PNG containing the QR and the UPI ID label.</li><li>Before sharing the image, scan it with a trusted UPI app and verify the recipient details displayed by that app. Do not authorize a payment just to test the code.</li></ol>
+<h2>What this QR code contains</h2>
+<p>This widget creates a basic UPI payment URI using the payee-address parameter (<code>pa</code>) and the UPI ID you entered. It does not add a payee name, amount or payment note. Use the <a href="../index.html#qr-generator">homepage QR generator</a> when you need those optional fields.</p>
+<h2>What the format check can—and cannot—confirm</h2>
+<p>The widget checks only that the two parts contain the allowed characters. It does not check whether the UPI ID exists, is active, belongs to a person or business, is linked to an eligible account, or can receive payments. A valid-looking format is not proof that the address is correct.</p>
+<p>Generating or downloading a QR code does not send money, verify a bank account, confirm that funds have arrived or process a payment. The payer must check the recipient and any transaction details shown in their own UPI app before authorizing a debit.</p>
+<h2>If the QR code does not scan</h2>
+<p>Check that the saved image is complete and clear, verify the UPI ID against the official app, and try a compatible UPI app. This page loads its QR-generation library from an external content-delivery service, so the library may not be available without a working connection.</p>
+<p><strong>Safety:</strong> Never enter or share your UPI PIN, OTP, card PIN or banking password in a QR generator. You do not need to disclose a UPI PIN to receive money.</p>
 </section>
 </main>
 
