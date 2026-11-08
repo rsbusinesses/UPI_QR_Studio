@@ -1,90 +1,107 @@
-# Phase 4 — Website content audit
+# Phase 4 — Complete website content audit and improvements
 
 Audit date: 8 November 2026  
-Branch audited: `development`  
-Scope: 22 public/indexable HTML pages and the custom `404.html`.
+Branch: `development`  
+Scope: all 22 indexable HTML pages and the separate `404.html` page, plus QR generator scripts, FAQ data, shared templates and build-time content transformation.
 
-## Summary
+## Executive findings
 
-- 22 indexable public pages reviewed, plus the custom 404 page.
-- No public page was identified as requiring deletion or a URL change.
-- The guide catalogue and landing pages were reviewed for distinct purpose and navigation.
-- Seven long-form guide pages contained repeated boilerplate sections that added little topic-specific information. Those repeated blocks were removed while retaining the topic-specific section summaries and each page's practical-check panel.
-- The UPI onboarding guide was corrected to avoid presenting bank/app-specific device verification, account discovery, permissions and authentication flows as universal.
-- The two QR tools are documented separately: the homepage generator supports optional payee name, amount and note fields; the standalone QR widget currently takes a UPI ID username and provider handle and performs only a format check.
-- The contact page describes its `mailto:` workflow accurately; it is not a server-side contact-form submission.
-- No author qualifications, company registration, reviews, ratings, financial certifications, contact details or other credentials were invented.
+- The repository contains 23 HTML files: 22 indexable pages and a noindex 404 page.
+- Two separate QR tools exist and have different capabilities. The homepage accepts a full UPI ID with optional payee name, amount and note. The standalone widget constructs a basic UPI ID from its username and provider-handle inputs and encodes only the payee-address parameter.
+- Neither QR tool queries a bank, verifies ownership or availability of a UPI ID, processes a payment, nor confirms receipt of funds.
+- Six long-form guides contained keyword-derived phrases such as “For what is UPI AutoPay?” and repeated generic steps that did not make sense for their topic. Those sections have now been rewritten as topic-specific instructions.
+- The guide build helper previously replaced repeated list items with keyword-injected text. That transformation has been removed so future builds do not reintroduce malformed copy.
+- The biometric-authentication page cited the original ₹5,000 introductory limit without adequately explaining that NPCI later listed a further enhancement circular. The page now labels the 2025 figure as historical and directs readers to the latest circular and their bank/app for the current limit.
+- About and Contact content does not claim unverified company history, registration details, staff, qualifications, office addresses, awards or partnerships.
+- No page deletion, URL migration or redirect was justified by this review.
 
-## Page-by-page review
+## Page-by-page inventory and evaluation
 
-Status key:
-- **A — Good:** useful, distinct purpose; no substantial rewrite identified in this audit.
-- **B — Needs improvement:** useful page; targeted corrections were made or periodic source/accuracy maintenance remains.
-- **C — Needs substantial rewriting:** no public page is currently assigned this status after the targeted cleanup.
-- **D — Duplicate/low-value:** no page was identified for deletion or consolidation.
+Status key: **Good** = distinct user purpose and no major rewrite required; **Improved** = targeted correction made; **Maintain** = useful content but requires periodic factual, legal or operational review.
 
-| Page | Status | Audit finding and action |
+| Published page | Status | Content audit |
 |---|---|---|
-| `index.html` | A | Clear QR generator purpose, optional fields, guides and safety reminders. Existing generator interface retained. |
-| `404.html` | A (utility) | Kept outside the sitemap; has `noindex, follow`; no canonical or AdSense loader in the development build. |
-| `pages/about-us.html` | A | Explains the site's independent utility and educational purpose without unsupported organizational credentials. |
-| `pages/contact-us.html` | A | Displays the configured contact email and accurately explains that the form opens the visitor's email application. |
-| `pages/privacy-policy.html` | B | Detailed disclosure; wording and CMP statements require alignment with the deployed version and actual third-party settings before release. |
-| `pages/qr-widget.html` | B | Added task instructions, format-validation limits, recipient-verification guidance and explicit non-payment-processing disclaimer. |
-| `pages/safety-center.html` | A | Comprehensive practical fraud-awareness page with official reporting resources. Recheck links periodically. |
-| `pages/terms-and-conditions.html` | B | Clearly states the tool does not process payments or verify accounts. Governing-law and liability wording still requires qualified legal review. |
-| `pages/upi-faqs.html` | B | FAQ data is local JavaScript; added a useful `noscript` fallback. Review individual answers against current NPCI and bank guidance periodically. |
-| `pages/upi-guide-topics.html` | B | Replaced a near-empty link page with a structured topic index and relevant internal links. |
-| `pages/upi-guide.html` | A | Detailed guide index with distinct topic areas and internal navigation. |
-| `pages/upi-guides.html` | B | Expanded the guide landing page with purpose, quick-start links and safety/troubleshooting pathways. |
-| `pages/upi-id-providers.html` | B | Directory provides examples and official provider destinations. Provider features, supported banks and links can change and need periodic checking. |
-| `pages/upi-guides/biometric-authentication.html` | B | Removed repeated generic instructional blocks, retained topic-specific summaries and added the NPCI additional-authentication circular reference. Feature support is issuer/app-dependent. |
-| `pages/upi-guides/cash-deposit-and-withdrawal-services.html` | B | Removed repeated generic blocks and added the NPCI UPI Cash Point reference. The ₹5,000 per-transaction limit is identified as applying to that named service, not all cash products. |
-| `pages/upi-guides/conversational-payments.html` | B | Removed repeated generic blocks and retained distinct topic summaries; added NPCI reference. Feature and language availability remain provider-dependent. |
-| `pages/upi-guides/onboarding-account-activation.html` | B | Corrected overbroad claims about mandatory permissions, SMS/device binding internals, supported account types, incoming-payment routing and automatic account restoration. Added current NPCI references. |
-| `pages/upi-guides/popular-guides.html` | A | Practical step-by-step guide with distinct user tasks; no significant rewrite identified in this pass. |
-| `pages/upi-guides/transaction-rules-and-merchant-payments.html` | B | Removed repeated generic blocks and added NPCI/RBI references. Limits are described as category/provider-dependent rather than one universal cap. |
-| `pages/upi-guides/upi-autopay-and-recurring-payments.html` | B | Removed repeated generic blocks and added the RBI Digital Payments – E-mandate Framework, 2026 reference and a concise summary of issuer notifications/mandate controls. |
-| `pages/upi-guides/upi-circle-delegated-payments.html` | B | Removed repeated generic blocks and added NPCI's UPI Circle overview. IoT device-profile limits are not generalized to every human-user delegation journey. |
-| `pages/upi-guides/upi-id-number-guide.html` | A | Detailed guide retained; only the first section was made visible without JavaScript and official identifier references were added. |
-| `pages/upi-guides/user-safety-and-daily-limits.html` | B | Removed repeated generic blocks, retained topic-specific summaries and linked NPCI fraud awareness and the national cybercrime reporting portal. |
+| `index.html` — Home | Improved | Clear purpose and working generator fields. Added instructions covering required UPI ID, optional fields, preview, PNG download, safe scanning, QR limitations and scan troubleshooting. Added HTML length limits consistent with client-side checks. |
+| `pages/qr-widget.html` — Standalone QR generator | Improved | Clarified the two-part UPI ID input, exact provider-handle sourcing, generated URI scope, download contents, format-only validation and absence of payee-name/amount/note fields. Added explicit payment and verification limitations. |
+| `pages/upi-guide.html` — Full guide index | Good / Maintain | Comprehensive question index across onboarding, identifiers, payments, merchant use, authentication and safety. It is intentionally more detailed than the concise guide hub and topic overview; review time-sensitive subtopics periodically. |
+| `pages/upi-guide-topics.html` — Topic index | Good | Concise topical navigation with brief descriptions and links to the more detailed guides. Some category labels overlap with the other guide landing pages, but this page functions as a topic chooser. |
+| `pages/upi-guides.html` — Guide hub | Good | Short orientation page directing visitors to quick-start, feature, safety and troubleshooting material. Its summaries overlap slightly with the topic index by design. |
+| `pages/upi-faqs.html` — FAQs | Maintain | Interactive FAQ browser backed by local JavaScript data containing 159 question-and-answer entries. A short set of quick answers remains visible as a fallback. JavaScript is required for the complete filterable FAQ list; feature-specific answers should be rechecked when NPCI, RBI, bank or app rules change. |
+| `pages/upi-id-providers.html` — Provider directory | Maintain | Eight illustrative provider listings with official website destinations, search/category filters and a clear non-exhaustive-directory disclaimer. Provider availability, branding, app features and URLs can change; inclusion is not an endorsement or guarantee of eligibility. |
+| `pages/safety-center.html` — Safety Center | Good / Maintain | Detailed guidance on fraud patterns, credential protection, payment verification, urgent reporting and evidence preservation. It references the national 1930 helpline and official cybercrime portal; check government reporting links and procedures periodically. |
+| `pages/about-us.html` — About | Good | Explains the website's utility and educational purpose, mission and values. It describes the site as independent and does not claim a company history, registration, certifications, employee roster or official payment-sector affiliation. |
+| `pages/contact-us.html` — Contact | Good / Maintain | Displays the configured email address and accurately explains that the form prepares an email in the visitor's own mail application rather than submitting to a website server. It warns visitors not to send PINs, OTPs or banking credentials. |
+| `pages/privacy-policy.html` — Privacy Policy | Maintain | Describes local QR processing, technical requests, the external QRCode.js CDN, GitHub Pages hosting, the absence of Google Analytics in the current repository build and AdSense as planned rather than active. Must be compared with deployed scripts, hosting configuration, logs, advertising and consent settings before production release. |
+| `pages/terms-and-conditions.html` — Terms | Maintain | Explains the informational/utility nature of the site and that QR creation is not payment processing or a payment guarantee. Liability, governing-law and dispute provisions remain a general draft and require qualified Indian legal review. |
+| `pages/upi-guides/biometric-authentication.html` | Improved / Maintain | Distinguishes phone unlock, optional on-device payment biometrics and UIDAI face authentication used in supported UPI PIN set/reset journeys. Updated the historical 2025 ₹5,000 introductory figure to explain that NPCI subsequently listed a further enhancement circular; current caps and implementation must be checked with NPCI and the provider. |
+| `pages/upi-guides/cash-deposit-and-withdrawal-services.html` | Improved / Maintain | Rewrote the corrupted UPI Cash Point boilerplate. Clarifies that NPCI's named UPI Cash Point product is a cash-withdrawal service at authorised BC touchpoints, not an ordinary payment QR or a universal cash-deposit facility. Other cash products remain provider-specific. |
+| `pages/upi-guides/conversational-payments.html` | Improved / Maintain | Rewrote the repeated keyword template with practical guidance for official entry points, language selection, checking spoken payee/amount details and verifying final transaction status. Hello! UPI and UPI 123PAY features remain service- and provider-dependent. |
+| `pages/upi-guides/onboarding-account-activation.html` | Maintain | Covers bank/mobile verification, account linking, PIN setup/reset and device changes with bank/app eligibility qualifiers. Exact activation and authentication paths change by issuer and app; follow the official current flow rather than treating every menu or method as universal. |
+| `pages/upi-guides/popular-guides.html` | Good | Provides practical high-level instructions for registration, linking accounts, PIN setup/reset, QR payments, sharing an ID, pending payments and complaint pathways. No substantial rewrite was required in this pass. |
+| `pages/upi-guides/transaction-rules-and-merchant-payments.html` | Improved / Maintain | Rewrote malformed keyword-led sending-money steps. Emphasizes recipient resolution, displayed-name checks, amount verification, collect-request caution, pending status and official dispute routes. Transaction limits and charges remain category- and provider-dependent. |
+| `pages/upi-guides/upi-autopay-and-recurring-payments.html` | Improved / Maintain | Rewrote generic boilerplate with mandate-specific checks for merchant, amount/maximum amount, frequency, validity, authorization and cancellation. The RBI 2026 e-mandate framework is summarized only at a high level; exact applicability and exceptions should be checked for each issuer and mandate. |
+| `pages/upi-guides/upi-circle-delegated-payments.html` | Improved / Maintain | Rewrote repetitive text around primary/secondary user roles, invitation verification, permissions, limits and revocation. Clarifies that IoT-device/software delegation has a distinct scope and must not be confused with every person-to-person arrangement. |
+| `pages/upi-guides/upi-id-number-guide.html` | Good / Maintain | Detailed explanation of payment identifiers, lookup, recipient verification, wrong-recipient payments and reporting. Avoids implying that a UPI ID or numeric identifier proves a recipient's identity. Numeric-identifier formats and availability should be checked against current NPCI and provider rules. |
+| `pages/upi-guides/user-safety-and-daily-limits.html` | Improved / Maintain | Replaced repetitive generic instructions with clear device/account protection, payment-screen checks and a practical fraud-response sequence. Retains the warning that limits differ by transaction category and provider. |
+| `404.html` — Page not found | Good (utility) | Clear recovery links to Home, guides and Contact. It is marked noindex and is not included in the sitemap. |
 
-## Technical and content observations
+## Improvements completed
 
-### QR tools
+### QR generator guidance and product boundaries
 
-The homepage generator accepts a UPI ID and optional payee name, amount and payment note. The standalone `pages/qr-widget.html` tool accepts the username and provider handle separately. Its client-side format validation does not establish that an identifier exists or belongs to a particular person. Neither tool processes or confirms a payment.
+The homepage now explains the full UPI ID as required input and the payee name, INR amount and note as optional fields. It explains previewing and downloading the PNG, checking recipient details in a trusted UPI app before sharing, and what to do when a QR will not scan.
 
-The QR pages load the QRCode.js browser library from cdnjs. The Privacy Policy should continue to describe third-party asset delivery and request logging accurately.
+The standalone tool now explains that it joins the username and provider handle, lowercases the resulting identifier, and creates a basic UPI payment URI using the `pa` parameter only. It does not add a payee name, amount or note. Its format check does not prove that the identifier exists, is active, belongs to a person or business, or can receive money.
 
-### Contact workflow
+Both pages now state that QR generation does not send or receive funds, confirm receipt, or provide a payment receipt. The homepage HTML input limits now align with client-side validation: 321 characters for the UPI ID pattern, 100 for the payee name and 100 for the payment note.
 
-The static contact form opens a `mailto:` link in the visitor's own email application. It does not submit form data to a website server. The displayed address matches the repository's configured contact email.
+### Editorial correction and regression prevention
 
-### Editorial quality
+Six guides were rewritten to remove mechanically inserted phrases and generic repeated lists. `tools/guide-content.js` no longer rewrites repeated list items with keywords derived from section headings. The unused repeated-item and panel-aftercare data was removed from `tools/build-data.json`.
 
-Search-engine-first repetition was removed from the seven templated guides. The retained sections are based on their distinct topic summaries and practical-check panels. This is preferable to retaining generic instructions that repeat the same steps regardless of topic. Future expansions should add verified, topic-specific explanations and primary-source references rather than word-count padding.
+A new `npm run check:content` command checks built HTML for known keyword artefacts and verifies that both QR tools include core usage and limitation guidance. It is included in the development validation workflow and the main-only deployment workflow.
 
-### Current authoritative references added or refreshed
+### Trust and transparency
 
-- NPCI: UPI FAQs — https://www.npci.org.in/what-we-do/upi/faqs
-- NPCI: UPI Cash Point — https://www.npci.org.in/product/upi-cash-point
-- NPCI: UPI Circle — https://www.npci.org.in/product/upi-circle
-- NPCI: UPI additional authentication circular — https://www.npci.org.in/uploads/UPI_OC_No_226_FY_2025_26_Introduction_of_Additional_Authentication_methods_in_UPI_42c3693399.pdf
-- NPCI: current UPI circulars — https://www.npci.org.in/circulars/upi
-- NPCI: Fraud Awareness — https://www.npci.org.in/fraud-awareness
-- RBI: Digital Payments – E-mandate Framework, 2026 — https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13374
-- RBI: UPI transaction limits and payment-system developments — https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23436
-- National Cyber Crime Reporting Portal — https://cybercrime.gov.in/
+The shared footer credit has been punctuated without changing the stated attribution. No unverified business details, staff, professional qualifications, registrations, contact addresses or institutional affiliations were added.
 
-## Outstanding review items
+## Important claims checked against official sources
 
-1. Confirm the privacy policy against the final deployed site, hosting logs, external scripts, advertising settings and consent implementation.
-2. Have the Terms and Conditions and Privacy Policy reviewed by a qualified Indian legal professional before production publication.
-3. Recheck UPI provider directory links and bank/app support details before release and periodically thereafter.
-4. Expand any guide that needs deeper topic-specific explanation using current primary sources; do not reintroduce boilerplate.
-5. Perform hands-on QR generation/download and responsive browser testing on representative desktop and mobile devices. Repository CI does not prove these end-to-end interactions.
+- NPCI describes UPI Cash Point as cash withdrawal at authorised BC touchpoints and publishes a ₹5,000 per-transaction limit for that named service, subject to other applicable limits. This must not be generalized to all cash-in/cash-out products.
+- NPCI describes UPI Circle as delegation from a primary user to a secondary user; its product overview says the secondary user may or may not have a bank account linked to UPI.
+- NPCI's 7 October 2025 circular introduced optional on-device biometric transaction authentication with an initial ₹5,000 per-transaction limit. NPCI's circular list subsequently includes OC-226A (FY 2026–27), an enhancement to that limit. The earlier value is therefore labelled historical rather than current; the live cap must be checked in the latest circular and the user's bank/app.
+- RBI's Digital Payments – E-mandate Framework, 2026 governs recurring e-mandate arrangements and includes customer-notification and transaction-limit provisions. The guide avoids suggesting that every mandate or issuer follows identical terms.
+- RBI's published UPI limit explanation distinguishes P2P limits from P2M limits, which NPCI may prescribe or revise in consultation with ecosystem participants. The site therefore does not state one universal cap for every payment type.
+- The National Cyber Crime Reporting Portal identifies 1930 as the immediate-reporting helpline for cyber financial fraud. Visitors are also advised to contact their bank promptly.
 
-## Audit outcome
+## Sources used
 
-No page deletions, URL migrations or redirects were required. The edited pages preserve the existing navigation and public URLs. The development branch build and automated checks are the release gate; live production behavior must be verified separately after an authorized production deployment.
+- NPCI, UPI FAQs: https://www.npci.org.in/what-we-do/upi/faqs
+- NPCI, UPI product and operating circular directory: https://www.npci.org.in/circulars/upi
+- NPCI, UPI Cash Point: https://www.npci.org.in/product/upi-cash-point
+- NPCI, UPI Circle: https://www.npci.org.in/product/upi-circle
+- NPCI, OC-226 (7 October 2025), additional authentication methods: https://www.npci.org.in/uploads/UPI_OC_No_226_FY_2025_26_Introduction_of_Additional_Authentication_methods_in_UPI_42c3693399.pdf
+- RBI, Digital Payments – E-mandate Framework, 2026: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13374
+- RBI, payment-system developments / UPI limit framework: https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23436
+- Government of India, National Cyber Crime Reporting Portal: https://cybercrime.gov.in/
+
+## Remaining factual, legal and hands-on review
+
+1. Recheck the provider directory's eight outbound destinations and current app eligibility periodically; it is intentionally non-exhaustive.
+2. Before production release, compare the Privacy Policy with the actual published scripts, GitHub Pages hosting and logs, CDN usage, ad tags, analytics tags and consent-management implementation. Repository evidence is not a substitute for review of the live deployment.
+3. Obtain qualified Indian legal review of the Privacy Policy and Terms, including the applicable website owner/data-controller identity, legal notices, liability and dispute language.
+4. Confirm whether the configured email `rsbusinesses0@gmail.com` is the intended public contact for privacy and legal requests. Supply a legal business name, postal address or phone number only if you want those published; none has been invented.
+5. Perform manual QR scanning, PNG download, print-quality and responsive-browser tests on representative devices. Automated repository checks do not demonstrate real-world scanner compatibility or mobile usability.
+
+## Information needed from the site owner
+
+- Confirm that `rsbusinesses0@gmail.com` is the correct public contact for general, privacy and legal enquiries.
+- Supply the legal owner/operator name and a postal service address only if these details should appear in the legal notices.
+- Confirm the real production configuration for analytics, advertising, cookies/consent, hosting logs and external scripts before the Privacy Policy is treated as final.
+- Review legal wording with a qualified Indian professional before publication.
+
+## Validation
+
+Automated repository checks run by the development GitHub Actions workflow after each commit. The new content check guards against malformed keyword-template phrases and verifies that both QR-generator pages contain the required guidance. CI results for this commit will be recorded after the run completes.
+
+This audit describes the repository state on `development`. It does not assert that these changes have been deployed to the live site.

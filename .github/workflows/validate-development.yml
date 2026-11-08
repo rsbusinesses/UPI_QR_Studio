@@ -48,6 +48,9 @@ jobs:
       - name: Check generated website
         run: npm run check
 
+      - name: Check content quality and QR guidance
+        run: npm run check:content
+
       - name: Check SEO metadata and indexability
         run: npm run check:seo
 

@@ -282,6 +282,7 @@ npm ci
 npm run build
 npm run check
 npm run check:seo
+npm run check:content — check for malformed guide template copy and verify QR-tool guidance.
 npm run package:site
 npm run preview
 ```

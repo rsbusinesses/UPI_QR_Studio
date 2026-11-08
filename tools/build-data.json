@@ -228,20 +228,6 @@
       "what-to-do-if-someone-makes-an-unauthorized-payment": "For an unauthorized debit, contact the bank or payment provider promptly using its official in-app or published channel, request the transaction be investigated and follow its dispute process. Preserve the transaction reference and do not share passwords, PINs or OTPs during follow-up."
     }
   },
-  "REPEATED_ITEMS": {
-    "use an updated, official upi application and a secure device.": "For {topic}, use the official app provided by the relevant bank or service and keep your device protected with a screen lock and current security updates.",
-    "keep your registered mobile number active when the service requires mobile verification.": "If {topic} requires mobile or device verification, keep the SIM registered with your bank available and follow the prompts in the official app.",
-    "check the feature’s eligibility, transaction limits and any displayed charges before proceeding.": "Before using {topic}, confirm availability for your account and review the current limit and any fee shown by the provider.",
-    "open your official upi app and unlock it using your usual device security. make sure you are using the intended bank account or payment profile.": "For {topic}, begin inside the official app and confirm that the selected bank account or payment profile is the one you intend to use.",
-    "choose the relevant feature or transaction type and enter the required details carefully. use the app’s built-in selection, scan or copy option where available to reduce typing mistakes.": "Enter only the details requested for {topic}; use the app’s built-in selection or scan feature where appropriate, then review the entered information before continuing.",
-    "review the recipient or service name, amount, payment purpose, fees (if any), and any displayed limits or timing conditions.": "Before confirming {topic}, check the displayed recipient or service, amount, purpose and any fees or timing conditions against what you intended.",
-    "proceed only when all details are correct. complete the authentication requested by the app; a upi pin authorizes a debit and is not needed merely to receive money.": "Continue with {topic} only when the details are correct; enter a UPI PIN only in the trusted payment interface when you intend to authorize a debit.",
-    "wait for the final transaction status. save the reference number or receipt and check transaction history or your bank balance if the result is uncertain.": "After {topic}, check the final status in the app or bank record and keep the transaction reference if you need to follow up.",
-    "relying only on a screenshot, sms or another person’s claim instead of checking your own app or account.": "For {topic}, verify the result in your own app or bank record rather than relying only on a screenshot, message or another person’s claim.",
-    "approving a request without reading the amount, recipient and action being authorized.": "Read the recipient, amount and requested action for {topic} before approving any payment or permission.",
-    "assuming all banks, apps, devices and accounts support the same features or limits.": "Check whether {topic} is supported by your own bank, account, device and app version; features and limits can differ.",
-    "sharing confidential authentication details or following unexpected instructions from callers.": "Keep PINs, OTPs and other authentication details private while handling {topic}; ignore unexpected instructions from callers or messages."
-  },
   "GENERIC_PREFIXES": [
     "explains a common upi task or rule",
     "is an important part of using upi carefully",
@@ -250,17 +236,5 @@
     "relates to upi circle, a delegated-payment arrangement",
     "relates to a scheduled or repeat payment permission",
     "describes a conversational or assisted way to access payment functions"
-  ],
-  "PANEL_AFTERCARE": {
-    "biometric-authentication.html": "For biometric verification, confirm which action the prompt is authorizing and use the official recovery route if the check fails. Never disclose a UPI PIN or OTP to someone offering remote help.",
-    "cash-deposit-and-withdrawal-services.html": "For cash-in or cash-out services, keep the receipt and transaction reference, count the cash before leaving and contact the authorized operator or bank if the recorded amount and cash received differ.",
-    "conversational-payments.html": "For voice- or chat-assisted payment flows, verify the payee and amount from the service confirmation or account record. If the outcome is unclear, check transaction history before attempting another payment.",
-    "onboarding-account-activation.html": "For account activation, confirm the bank account and registered mobile number shown in the official app. If verification fails, follow the bank’s published activation or recovery steps rather than sharing credentials with a third party.",
-    "popular-guides.html": "For any UPI task covered in this guide, check the final status in the payment app or bank account and keep the reference number when follow-up is needed.",
-    "transaction-rules-and-merchant-payments.html": "For a merchant payment or transaction dispute, preserve the order details, displayed status and transaction reference; use the bank or app’s official complaint route if the account record does not match the purchase.",
-    "upi-autopay-and-recurring-payments.html": "For an AutoPay mandate, check the mandate status, next debit details and cancellation result in the app or biller portal that manages it. Keep confirmation of any change or cancellation.",
-    "upi-circle-delegated-payments.html": "For delegated payments, review recent activity with the other user where appropriate and revoke access through the official app when it is no longer needed or the arrangement is no longer trusted.",
-    "upi-id-number-guide.html": "For a UPI ID or number-based payment, verify the resolved recipient name and intended amount in the payment app before authorizing the debit; an address alone does not establish identity.",
-    "user-safety-and-daily-limits.html": "For safety concerns or a limit-related failure, preserve the status message and transaction reference, check the rule with your own bank or app, and report suspected unauthorized activity promptly through official channels."
-  }
+  ]
 }

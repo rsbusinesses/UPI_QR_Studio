@@ -451,7 +451,7 @@ function main() {
   const htmlPages = collectHtmlPages();
   for (const page of htmlPages) processPage(page);
   const fragmentResult = fixFragmentTargets(htmlPages, ROOT);
-  const contentChanges = contextualizeGuides(htmlPages, ROOT);
+  const contentChanges = contextualizeGuides(htmlPages);
   console.log(`Applied ${contentChanges} guide-content improvements.`);
   writeRobotsAndSitemap(htmlPages);
   console.log(`Built ${htmlPages.length} HTML pages.`);
