@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   build:
+    # workflow_dispatch can be launched against a selected ref. Never build
+    # a non-production ref in the production Pages workflow.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -37,16 +40,30 @@ jobs:
       - name: Check website
         run: npm run check
 
+      - name: Check content quality and QR guidance
+        run: npm run check:content
+
+      - name: Check SEO metadata and indexability
+        run: npm run check:seo
+
+      - name: Package public site
+        run: npm run package:site
+
+      - name: Check AdSense loader, page allowlist and ads.txt
+        run: npm run check:adsense
+
       - name: Verify homepage
         run: test -f index.html
 
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: dist
 
   deploy:
     needs: build
+    # Defense in depth: only main may publish to the production Pages environment.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     permissions:

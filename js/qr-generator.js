@@ -2,7 +2,7 @@
 /*
 =========================================================
 Project      : UPI QR Studio
-Website      : https://rsbusinesses0.github.io/UPI_QR_Studio/
+Website      : https://upiqrstudio.com/
 Created By   : Sumit Kumar Shakya
 Developer    : Solo Creator & Developer
 Developed For: RS Businesses
@@ -137,37 +137,11 @@ Year         : 2026
 
     statusElement.textContent =
       "QR code generated. Verify the recipient details in your UPI app before making a payment.";
-  });
 
-
-    // Close the mobile keyboard after QR generation.
+    // Close the mobile keyboard after successful QR generation.
     usernameInput.blur();
     providerInput.blur();
-
-    // Force the complete webpage to its absolute top.
-    function forcePageToTop() {
-      const html = document.documentElement;
-      const oldBehavior = html.style.scrollBehavior;
-
-      // Temporarily disable smooth scrolling for a reliable reset.
-      html.style.scrollBehavior = "auto";
-
-      html.scrollTop = 0;
-      document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-
-      requestAnimationFrame(() => {
-        html.scrollTop = 0;
-        document.body.scrollTop = 0;
-        window.scrollTo(0, 0);
-
-        html.style.scrollBehavior = oldBehavior;
-      });
-    }
-
-    // Retry while Android's keyboard and viewport are settling.
-    setTimeout(forcePageToTop, 400);
-    setTimeout(forcePageToTop, 900);
+  });
 
   // Export QR code + UPI ID together in one PNG image.
   downloadButton.addEventListener("click", () => {

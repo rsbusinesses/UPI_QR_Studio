@@ -9,7 +9,12 @@
   "scripts": {
     "build": "node tools/build-site.js",
     "check": "node tools/check-site.js",
-    "preview": "node tools/preview.js"
+    "preview": "node tools/preview.js",
+    "check:seo": "node tools/check-seo.js",
+    "package:site": "node tools/package-site.js",
+    "check:content": "node tools/check-content.js",
+    "check:privacy": "node tools/check-privacy.js",
+    "check:adsense": "node tools/check-adsense.js"
   },
   "dependencies": {
     "cheerio": "^1.1.2"

@@ -11,6 +11,7 @@ const cheerio = require('cheerio');
 const DATA = require('./build-data.json');
 const { fixFragmentTargets } = require('./fix-fragments');
 const { contextualizeGuides } = require('./guide-content');
+const { getAdSenseState, isAdSenseEligiblePage, adSenseLoaderUrl } = require('./adsense-config');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_PATH = path.join(ROOT, 'site-config.json');
@@ -18,7 +19,26 @@ const DEFAULT_CONFIG = {
   siteName: 'UPI QR Studio',
   siteUrl: 'https://YOUR-USERNAME.github.io/YOUR-REPOSITORY',
   contactEmail: 'YOUR-CONTACT-EMAIL@example.com',
-  adsenseClientId: ''
+  adsenseClientId: '',
+  adsensePublisherIdVerified: false,
+  adsenseVerificationMetaTagEnabled: false,
+  adsenseAdsTxtRecord: '',
+  adsenseAdsTxtRecordVerified: false,
+  adsenseSiteReviewApproved: false,
+  adsenseConsentConfigurationVerified: false,
+  adsenseActivationAuthorized: false,
+  adsenseMode: 'disabled',
+  adsenseEligiblePages: [
+    'pages/upi-guides/biometric-authentication.html',
+    'pages/upi-guides/cash-deposit-and-withdrawal-services.html',
+    'pages/upi-guides/conversational-payments.html',
+    'pages/upi-guides/onboarding-account-activation.html',
+    'pages/upi-guides/transaction-rules-and-merchant-payments.html',
+    'pages/upi-guides/upi-autopay-and-recurring-payments.html',
+    'pages/upi-guides/upi-circle-delegated-payments.html',
+    'pages/upi-guides/upi-id-number-guide.html',
+    'pages/upi-guides/user-safety-and-daily-limits.html'
+  ]
 };
 const CONFIG = {
   ...DEFAULT_CONFIG,
@@ -206,6 +226,50 @@ function addBreadcrumbs(page, $, relpath) {
   main.prepend(nav);
 }
 
+function addStructuredData(page, $, relpath, title, description, canonicalUrl) {
+  $('script[data-upiqr-schema]').remove();
+  if (!canonicalUrl || relpath === '404.html') return;
+
+  let schema;
+  let schemaKey;
+  const siteUrl = String(CONFIG.siteUrl || '').replace(/\/$/, '');
+
+  if (relpath === 'index.html') {
+    schemaKey = 'website';
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: CONFIG.siteName,
+      url: canonicalUrl,
+      description
+    };
+  } else {
+    schemaKey = 'breadcrumbs';
+    const items = [{ name: 'Home', item: `${siteUrl}/` }];
+    if (path.basename(path.dirname(page)) === 'upi-guides') {
+      items.push({ name: 'UPI Guides', item: `${siteUrl}/pages/upi-guide.html` });
+    }
+    items.push({ name: pageTitle(relpath, $), item: canonicalUrl });
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.item
+      }))
+    };
+  }
+
+  // Escape '<' so user-editable text cannot terminate the JSON-LD script element.
+  const json = JSON.stringify(schema).replace(/</g, '\\u003c');
+  const script = $('<script type="application/ld+json"></script>')
+    .attr('data-upiqr-schema', schemaKey)
+    .text(json);
+  $('head').append(script);
+}
+
 function isPlaceholderSiteUrl(siteUrl) {
   return !siteUrl || siteUrl.includes('YOUR-USERNAME') || siteUrl.includes('YOUR-REPOSITORY');
 }
@@ -229,21 +293,39 @@ function processPage(page) {
   upsertMeta($, 'property', 'og:site_name', CONFIG.siteName);
   upsertMeta($, 'property', 'og:title', title);
   upsertMeta($, 'property', 'og:description', description);
+  upsertMeta($, 'name', 'twitter:card', 'summary');
+  upsertMeta($, 'name', 'twitter:title', title);
+  upsertMeta($, 'name', 'twitter:description', description);
   if (relpath === '404.html') upsertMeta($, 'name', 'robots', 'noindex, follow');
 
   $('link[rel="canonical"]').remove();
+  $('meta[property="og:url"]').remove();
   const siteUrl = String(CONFIG.siteUrl || '').replace(/\/$/, '');
+  let canonicalUrl = '';
   if (relpath !== '404.html' && !isPlaceholderSiteUrl(siteUrl)) {
     const canonicalPath = relpath === 'index.html' ? '/' : `/${relpath}`;
-    $('head').append(`<link rel="canonical" href="${escapeHtml(siteUrl + canonicalPath)}">`);
+    canonicalUrl = siteUrl + canonicalPath;
+    $('head').append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
+    $('head').append(`<meta property="og:url" content="${escapeHtml(canonicalUrl)}">`);
   }
 
-  // Never insert advertising code on the noindex 404 page.
-  const clientId = String(CONFIG.adsenseClientId || '').trim();
+  // Remove any existing AdSense loader before applying the single central policy.
+  // This build supports Auto ads only; it does not generate ad-unit slot markup.
+  const adsenseState = getAdSenseState(CONFIG);
   $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').remove();
-  if (relpath !== '404.html' && /^ca-pub-\d{16}$/.test(clientId)) {
+  $('meta[name="google-adsense-account"]').remove();
+
+  if (relpath === 'index.html' && adsenseState.canPublishVerificationMeta) {
+    $('head').append(
+      $('<meta>')
+        .attr('name', 'google-adsense-account')
+        .attr('content', adsenseState.clientId)
+    );
+  }
+
+  if (adsenseState.canLoadAds && isAdSenseEligiblePage(relpath, adsenseState)) {
     const script = $('<script></script>')
-      .attr('src', `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`)
+      .attr('src', adSenseLoaderUrl(adsenseState.clientId))
       .attr('async', '')
       .attr('crossorigin', 'anonymous');
     $('head').append(script);
@@ -260,11 +342,15 @@ function processPage(page) {
   });
   $('head').append(`<link rel="icon" type="image/svg+xml" href="${relativePrefix(page)}assets/favicon.svg">`);
 
-  const hasAdSenseMarker = $('head').contents().toArray().some(node => node.type === 'comment' && String(node.data || '').includes('ADSENSE INSERTION POINT'));
+  // Remove the old inert placeholder comment; advertising is controlled centrally above.
   $('head').contents().toArray().forEach(node => {
-    if (node.type === 'text' && String(node.data || '').includes('ADSENSE INSERTION POINT')) $(node).remove();
+    if (
+      (node.type === 'comment' || node.type === 'text') &&
+      /ADSENSE INSERTION POINT/i.test(String(node.data || ''))
+    ) {
+      $(node).remove();
+    }
   });
-  if (!hasAdSenseMarker) $('head').append('<!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. -->');
 
   $('header.site-header').remove();
   $('[id]').each((_, element) => {
@@ -307,6 +393,7 @@ function processPage(page) {
 
   addUniqueGuideContent(page, $, relpath);
   addBreadcrumbs(page, $, relpath);
+  addStructuredData(page, $, relpath, title, description, canonicalUrl);
 
   $('body footer').remove();
   const footerNode = cheerio.load(templateForPage(footerTemplate, page), { decodeEntities: false })('footer.site-footer').first();
@@ -368,24 +455,29 @@ function writeRobotsAndSitemap(htmlPages) {
 
   let sitemap;
   if (!isPlaceholderSiteUrl(siteUrl)) {
-    const locations = htmlPages.filter(page => path.relative(ROOT, page).split(path.sep).join('/') !== '404.html')
-      .map(page => {
-        const rel = path.relative(ROOT, page).split(path.sep).join('/');
-        const publicUrl = rel === 'index.html' ? `${siteUrl}/` : `${siteUrl}/${rel}`;
-        return `  <url><loc>${escapeHtml(publicUrl)}</loc></url>`;
-      });
+    // Include only pages with a generated canonical and no noindex directive.
+    const locations = htmlPages.filter(page => {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'), { decodeEntities: false });
+      const canonical = String($('link[rel="canonical"]').attr('href') || '');
+      const robots = String($('meta[name="robots"]').attr('content') || '').toLowerCase();
+      return Boolean(canonical) && !robots.includes('noindex');
+    }).map(page => {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'), { decodeEntities: false });
+      const canonical = String($('link[rel="canonical"]').attr('href') || '');
+      return `  <url><loc>${escapeHtml(canonical)}</loc></url>`;
+    });
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + locations.join('\n') + '\n</urlset>\n';
   } else {
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<!-- Set siteUrl in site-config.json and run npm run build to populate this sitemap. -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   }
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 
-  const clientId = String(CONFIG.adsenseClientId || '').trim();
+  const adsenseState = getAdSenseState(CONFIG);
   const adsPath = path.join(ROOT, 'ads.txt');
-  if (/^ca-pub-\d{16}$/.test(clientId)) {
-    const publisherId = clientId.replace(/^ca-/, '');
-    fs.writeFileSync(adsPath, `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0\n`, 'utf8');
+  if (adsenseState.canWriteAdsTxt) {
+    fs.writeFileSync(adsPath, adsenseState.adsTxtRecord + '\n', 'utf8');
   } else if (fs.existsSync(adsPath)) {
+    // Never leave a stale or guessed seller record in the public root.
     fs.unlinkSync(adsPath);
   }
 }
@@ -394,7 +486,7 @@ function main() {
   const htmlPages = collectHtmlPages();
   for (const page of htmlPages) processPage(page);
   const fragmentResult = fixFragmentTargets(htmlPages, ROOT);
-  const contentChanges = contextualizeGuides(htmlPages, ROOT);
+  const contentChanges = contextualizeGuides(htmlPages);
   console.log(`Applied ${contentChanges} guide-content improvements.`);
   writeRobotsAndSitemap(htmlPages);
   console.log(`Built ${htmlPages.length} HTML pages.`);
@@ -406,8 +498,19 @@ function main() {
   if (!CONFIG.contactEmail || String(CONFIG.contactEmail).includes('example.com')) {
     console.log('SETUP REQUIRED: replace contactEmail in site-config.json before publication.');
   }
-  if (!String(CONFIG.adsenseClientId || '').trim()) {
-    console.log('AdSense is not enabled. Leave adsenseClientId blank until you have your real publisher ID.');
+  const adsenseState = getAdSenseState(CONFIG);
+  if (adsenseState.canLoadAds) {
+    console.log('AdSense Auto ads loader enabled only on the configured editorial-page allowlist.');
+  } else {
+    console.log('AdSense advertising remains disabled: ' + adsenseState.reasons.join('; ') + '.');
+  }
+  if (adsenseState.canPublishVerificationMeta) {
+    console.log('AdSense site-verification meta tag enabled on the homepage; this does not load advertising scripts.');
+  }
+  if (adsenseState.canWriteAdsTxt) {
+    console.log('Verified account-provided ads.txt seller record generated at the public root.');
+  } else {
+    console.log('No ads.txt generated: a verified publisher ID and account-copied seller record are required.');
   }
 }
 

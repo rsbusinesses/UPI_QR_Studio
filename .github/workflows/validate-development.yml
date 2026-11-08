@@ -1,0 +1,64 @@
+name: Validate development branch
+
+on:
+  push:
+    branches:
+      - development
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-development-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out development
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Audit locked dependencies
+        run: npm audit --audit-level=high
+
+      - name: Check JavaScript syntax
+        run: find js tools -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+
+      - name: Build website
+        run: npm run build
+
+      - name: Verify build is repeatable
+        shell: bash
+        run: |
+          git diff --no-ext-diff -- . > "$RUNNER_TEMP/first-build.diff"
+          npm run build
+          git diff --no-ext-diff -- . > "$RUNNER_TEMP/second-build.diff"
+          diff -u "$RUNNER_TEMP/first-build.diff" "$RUNNER_TEMP/second-build.diff"
+
+      - name: Check generated website
+        run: npm run check
+
+      - name: Check privacy and security disclosures
+        run: npm run check:privacy
+
+      - name: Check content quality and QR guidance
+        run: npm run check:content
+
+      - name: Check SEO metadata and indexability
+        run: npm run check:seo
+
+      - name: Package public site and verify deployment allowlist
+        run: npm run package:site
+
+      - name: Check AdSense loader, page allowlist and ads.txt
+        run: npm run check:adsense

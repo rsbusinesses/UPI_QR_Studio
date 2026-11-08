@@ -2,7 +2,7 @@
 <!--
 =========================================================
 Project     : UPI QR Studio
-Website     : https://rsbusinesses0.github.io/UPI_QR_Studio/
+Website     : https://upiqrstudio.com/
 Created By  : Sumit Kumar Shakya
 Developer   : Solo Creator & Developer
 Developed For: RS Businesses
@@ -16,7 +16,7 @@ Description : UPI QR Studio is a web project designed to
 Year        : 2026
 =========================================================
 --><html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6680219748778164" crossorigin="anonymous"></script>
+
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="#5A7863" name="theme-color">
@@ -30,11 +30,11 @@ Year        : 2026
 <link href="../css/common.css" rel="stylesheet">
 <!-- QR widget styles only -->
 <!-- QR generation library -->
-<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+<script defer="" src="../assets/vendor/qrcode.min.js">
 </script>
 <!-- QR widget logic only -->
 <script defer="" src="../js/qr-generator.js"></script>
-<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://rsbusinesses0.github.io/UPI-QR-Website-Final/pages/qr-widget.html"><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"></head>
+<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://upiqrstudio.com/pages/qr-widget.html"><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
   <div class="header-container">
@@ -92,6 +92,7 @@ Year        : 2026
 <span>okaxis</span>
 <span class="qr-example-full">(rahul123@okaxis)</span>
 </p>
+<p class="qr-widget-example">Enter the part before @ in the first field and the provider handle after @ in the second. Copy both parts from the current UPI ID shown in your official payment app; do not guess a handle.</p>
 <p class="qr-widget-error" hidden="" role="alert"></p>
 <button class="qr-widget-generate" type="submit">
 <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -100,6 +101,7 @@ Year        : 2026
               Generate QR Code
             </button>
 </form>
+<p class="privacy-disclosure">QR details are processed in this browser and are not sent to a UPI QR Studio application server by this tool. GitHub Pages logs visitor IP addresses for security. <a href="privacy-policy.html">Read the Privacy Policy</a>.</p>
 </div>
 <!-- RIGHT: QR CODE RESULT -->
 <div class="qr-widget-result-panel">
@@ -140,6 +142,19 @@ Year        : 2026
 </div>
 </div>
 </section>
+
+<section aria-labelledby="qr-widget-howto" class="guide-practical-panel content-card" id="qr-widget-limitations">
+<h2 id="qr-widget-howto">How to create and download your UPI QR code</h2>
+<ol><li>Open your bank or UPI app and copy the exact UPI ID you want the QR code to contain.</li><li>Enter the part before the @ symbol in the first field and the provider handle after @ in the second field. The example shows the format <code>username@provider</code>.</li><li>Select <strong>Generate QR Code</strong>. The widget joins the two parts with @, converts the result to lowercase and creates a QR preview.</li><li>Check the generated UPI ID shown below the preview. Select <strong>Download QR Code</strong> to save a PNG containing the QR and the UPI ID label.</li><li>Before sharing the image, scan it with a trusted UPI app and verify the recipient details displayed by that app. Do not authorize a payment just to test the code.</li></ol>
+<h2>What this QR code contains</h2>
+<p>This widget creates a basic UPI payment URI using the payee-address parameter (<code>pa</code>) and the UPI ID you entered. It does not add a payee name, amount or payment note. Use the <a href="../index.html#qr-generator">homepage QR generator</a> when you need those optional fields.</p>
+<h2>What the format check can—and cannot—confirm</h2>
+<p>The widget checks only that the two parts contain the allowed characters. It does not check whether the UPI ID exists, is active, belongs to a person or business, is linked to an eligible account, or can receive payments. A valid-looking format is not proof that the address is correct.</p>
+<p>Generating or downloading a QR code does not send money, verify a bank account, confirm that funds have arrived or process a payment. The payer must check the recipient and any transaction details shown in their own UPI app before authorizing a debit.</p>
+<h2>If the QR code does not scan</h2>
+<p>Check that the saved image is complete and clear, verify the UPI ID against the official app, and try a compatible UPI app. The QR-generation library is bundled with this website; an internet connection is still needed to load the page itself.</p>
+<p><strong>Safety:</strong> Never enter or share your UPI PIN, OTP, card PIN or banking password in a QR generator. You do not need to disclose a UPI PIN to receive money.</p>
+</section>
 </main>
 
 
@@ -168,7 +183,7 @@ Year        : 2026
   <div class="footer-bottom">
     <p style="text-align: left;">© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.
       <br>
-        Made by <a href="https://github.com/rsbusinesses0/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
+        Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
     </p>
     
     <a href="#main-content" class="back-to-top">Back to top ↑</a>

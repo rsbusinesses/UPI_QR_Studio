@@ -1,6 +1,25 @@
 {
   "siteName": "UPI QR Studio",
-  "siteUrl": "https://rsbusinesses0.github.io/UPI-QR-Website-Final/",
+  "siteUrl": "https://upiqrstudio.com",
   "contactEmail": "rsbusinesses0@gmail.com",
-  "adsenseClientId": ""
+  "adsenseClientId": "ca-pub-6680219748778164",
+  "adsensePublisherIdVerified": true,
+  "adsenseVerificationMetaTagEnabled": true,
+  "adsenseAdsTxtRecord": "google.com, pub-6680219748778164, DIRECT, f08c47fec0942fa0",
+  "adsenseAdsTxtRecordVerified": true,
+  "adsenseSiteReviewApproved": false,
+  "adsenseConsentConfigurationVerified": false,
+  "adsenseActivationAuthorized": false,
+  "adsenseMode": "disabled",
+  "adsenseEligiblePages": [
+    "pages/upi-guides/biometric-authentication.html",
+    "pages/upi-guides/cash-deposit-and-withdrawal-services.html",
+    "pages/upi-guides/conversational-payments.html",
+    "pages/upi-guides/onboarding-account-activation.html",
+    "pages/upi-guides/transaction-rules-and-merchant-payments.html",
+    "pages/upi-guides/upi-autopay-and-recurring-payments.html",
+    "pages/upi-guides/upi-circle-delegated-payments.html",
+    "pages/upi-guides/upi-id-number-guide.html",
+    "pages/upi-guides/user-safety-and-daily-limits.html"
+  ]
 }

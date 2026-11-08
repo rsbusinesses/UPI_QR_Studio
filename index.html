@@ -2,7 +2,7 @@
 <!--
 =========================================================
 Project     : UPI QR Studio
-Website     : https://rsbusinesses0.github.io/UPI_QR_Studio/
+Website     : https://upiqrstudio.com/
 Created By  : Sumit Kumar Shakya
 Developer   : Solo Creator & Developer
 Developed For: RS Businesses
@@ -16,7 +16,7 @@ Description : UPI QR Studio is a web project designed to
 Year        : 2026
 =========================================================
 --><html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6680219748778164" crossorigin="anonymous"></script>
+
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." name="description">
@@ -27,7 +27,7 @@ Year        : 2026
 <link href="css/home.css" rel="stylesheet">  
 <link href="css/footer.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
-<meta content="#5A7863" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="Create a UPI QR Code Online" property="og:title"><meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://rsbusinesses0.github.io/UPI-QR-Website-Final/"><link rel="stylesheet" href="css/theme.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"></head>
+<meta content="#5A7863" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="Create a UPI QR Code Online" property="og:title"><meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://upiqrstudio.com/"><link rel="stylesheet" href="css/theme.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
   <div class="header-container">
@@ -88,11 +88,11 @@ Year        : 2026
 <form id="upiForm">
 <div class="form-group">
 <label for="upiId">UPI ID *</label>
-<input autocomplete="off" id="upiId" name="upiId" placeholder="example@bank" required="" type="text">
+<input autocomplete="off" id="upiId" maxlength="321" name="upiId" placeholder="example@bank" required="" type="text">
 </div>
 <div class="form-group">
 <label for="payeeName">Payee Name (optional)</label>
-<input autocomplete="name" id="payeeName" name="payeeName" placeholder="Your name or business name" type="text">
+<input autocomplete="name" id="payeeName" maxlength="100" name="payeeName" placeholder="Your name or business name" type="text">
 </div>
 <div class="form-group">
 <label for="amount">Amount in INR (optional)</label>
@@ -110,11 +110,31 @@ Year        : 2026
 <p>Your generated QR code will appear here.</p>
 </div>
 </div>
+<p class="privacy-disclosure">QR details are processed in this browser and are not sent to a UPI QR Studio application server by this tool. GitHub Pages logs visitor IP addresses for security. <a href="pages/privacy-policy.html">Read the Privacy Policy</a>.</p>
 <p class="security-note">
 <strong>Safety reminder:</strong> Verify your UPI ID before
                 sharing your QR code. Never enter your UPI PIN to receive money.
             </p>
 </section>
+<section class="intro-section" id="upi-qr-guidance" aria-labelledby="upi-qr-guidance-title">
+<div class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2 id="upi-qr-guidance-title">How to create and use your UPI QR code</h2><p>This tool creates a QR code that can open a UPI payment screen in a compatible app. It does not collect or receive a payment.</p></div>
+<div class="intro-content">
+<p><strong>Required:</strong> Enter the complete UPI ID exactly as shown in your own bank or payment app. Do not guess the provider handle or use an identifier copied from an unverified message.</p>
+<p><strong>Optional:</strong> Add a payee name, a positive amount in INR (up to two decimal places), and a payment note of up to 100 characters. Leave any of these fields blank when they are not needed.</p>
+<ol>
+<li>Check the UPI ID in the official app or account information provided by your bank or payment service.</li>
+<li>Enter the UPI ID and any optional details, then select <strong>Generate QR Code</strong>.</li>
+<li>Review the QR preview and the UPI ID, payee name and amount shown below it. Correct the form and generate it again if anything is wrong.</li>
+<li>Select <strong>Download QR Code</strong> to save a PNG image. The UPI ID, payee name and amount are displayed as labels in the image; the payment note is encoded in the QR data but is not printed as a separate label.</li>
+<li>Before displaying or sharing the image, scan it with a trusted UPI app and check the recipient details and amount shown by that app. A payer should authorize payment only when those details match the intended transaction.</li>
+</ol>
+<h3>What this generator does not do</h3>
+<p>The generator does not check whether a UPI ID exists, is active, belongs to you or can receive money. It does not connect to a bank, send or receive funds, confirm that a payment has succeeded, or provide a payment receipt. A generated or downloaded QR code is not proof that money has been received.</p>
+<h3>If the QR code does not scan</h3>
+<ul><li>Check that the QR image is fully visible, sharply displayed or printed, and not cropped, covered or damaged.</li><li>Try a compatible, up-to-date UPI app with a working internet connection. The QR-generation library is bundled with this website, so it does not need a separate third-party library request.</li><li>Do not use or share the code if the app shows an unexpected recipient or amount. Recheck the UPI ID with its owner and generate a fresh code.</li></ul>
+<p>For a simpler QR containing only a UPI ID, see the <a href="pages/qr-widget.html">standalone UPI QR generator</a>. It does not include the optional payee name, amount or note fields available here.</p>
+<p><strong>Safety:</strong> Never enter or share your UPI PIN, OTP, card PIN or banking password in this website. A PIN is not needed merely to receive money.</p>
+</div></section>
 <!-- UPI introduction -->
 <section class="intro-section">
 <div class="section-heading">
@@ -216,7 +236,7 @@ Year        : 2026
 <!-- ================= FOOTER ================= -->
 <!-- ================= JAVASCRIPT ================= -->
 <!-- QR generator logic, if implemented in this file -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="assets/vendor/qrcode.min.js"></script>
 <script src="js/home-qr-generator.js"></script>
 
 
@@ -245,7 +265,7 @@ Year        : 2026
   <div class="footer-bottom">
     <p style="text-align: left;">© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.
       <br>
-        Made by <a href="https://github.com/rsbusinesses0/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
+        Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
     </p>
     
     <a href="#main-content" class="back-to-top">Back to top ↑</a>

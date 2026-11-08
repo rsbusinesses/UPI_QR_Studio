@@ -2,7 +2,7 @@
 /*
 =========================================================
 Project      : UPI QR Studio
-Website      : https://rsbusinesses0.github.io/UPI_QR_Studio/
+Website      : https://upiqrstudio.com/
 Created By   : Sumit Kumar Shakya
 Developer    : Solo Creator & Developer
 Developed For: RS Businesses
