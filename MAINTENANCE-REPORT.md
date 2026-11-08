@@ -113,7 +113,7 @@ The successful production build included:
 - `npm run package:site`
 - `npm run check:adsense`
 
-The development workflow for the synchronized source had previously passed `npm audit --audit-level=high`, syntax checks, repeatable build, privacy/security checks, site/content/SEO checks, package validation and AdSense checks. The action-runtime maintenance update triggers a new development CI run; use its result before promoting this update.
+The development workflow for the synchronized source had previously passed `npm audit --audit-level=high`, syntax checks, repeatable build, privacy/security checks, site/content/SEO checks, package validation and AdSense checks. The development validation for maintenance commit `b2a37a418daf2ab62d55f81b3d6f0c34b1eb64b5` completed successfully in [run 42480989373](https://github.com/rsbusinesses/UPI_QR_Studio/actions/runs/42480989373). It executed the updated checkout/setup-node actions and passed npm audit, syntax, reproducible build, site, privacy, content, SEO, packaging and AdSense checks. The deployment-only upload/deploy action updates are not executed on development because the production workflow is guarded to run only on `main`; they remain unexercised until a future owner-approved release. Do not trigger a production deployment solely to test them.
 
 ## 6. Owner actions
 
