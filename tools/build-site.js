@@ -276,15 +276,14 @@ function processPage(page) {
   if (relpath === '404.html') upsertMeta($, 'name', 'robots', 'noindex, follow');
 
   $('link[rel="canonical"]').remove();
+  $('meta[property="og:url"]').remove();
   const siteUrl = String(CONFIG.siteUrl || '').replace(/\/$/, '');
   let canonicalUrl = '';
   if (relpath !== '404.html' && !isPlaceholderSiteUrl(siteUrl)) {
     const canonicalPath = relpath === 'index.html' ? '/' : `/${relpath}`;
     canonicalUrl = siteUrl + canonicalPath;
     $('head').append(`<link rel="canonical" href="${escapeHtml(canonicalUrl)}">`);
-    upsertMeta($, 'property', 'og:url', canonicalUrl);
-  } else {
-    $('meta[property="og:url"]').remove();
+    $('head').append(`<meta property="og:url" content="${escapeHtml(canonicalUrl)}">`);
   }
 
   // Never insert advertising code on the noindex 404 page.
