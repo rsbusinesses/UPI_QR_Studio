@@ -11,6 +11,7 @@ const cheerio = require('cheerio');
 const DATA = require('./build-data.json');
 const { fixFragmentTargets } = require('./fix-fragments');
 const { contextualizeGuides } = require('./guide-content');
+const { getAdSenseState, isAdSenseEligiblePage, adSenseLoaderUrl } = require('./adsense-config');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_PATH = path.join(ROOT, 'site-config.json');
@@ -19,8 +20,25 @@ const DEFAULT_CONFIG = {
   siteUrl: 'https://YOUR-USERNAME.github.io/YOUR-REPOSITORY',
   contactEmail: 'YOUR-CONTACT-EMAIL@example.com',
   adsenseClientId: '',
-  // Owner attestation: only set true after the required consent setup is live and tested.
-  adsenseConsentConfigurationVerified: false
+  adsensePublisherIdVerified: false,
+  adsenseVerificationMetaTagEnabled: false,
+  adsenseAdsTxtRecord: '',
+  adsenseAdsTxtRecordVerified: false,
+  adsenseSiteReviewApproved: false,
+  adsenseConsentConfigurationVerified: false,
+  adsenseActivationAuthorized: false,
+  adsenseMode: 'disabled',
+  adsenseEligiblePages: [
+    'pages/upi-guides/biometric-authentication.html',
+    'pages/upi-guides/cash-deposit-and-withdrawal-services.html',
+    'pages/upi-guides/conversational-payments.html',
+    'pages/upi-guides/onboarding-account-activation.html',
+    'pages/upi-guides/transaction-rules-and-merchant-payments.html',
+    'pages/upi-guides/upi-autopay-and-recurring-payments.html',
+    'pages/upi-guides/upi-circle-delegated-payments.html',
+    'pages/upi-guides/upi-id-number-guide.html',
+    'pages/upi-guides/user-safety-and-daily-limits.html'
+  ]
 };
 const CONFIG = {
   ...DEFAULT_CONFIG,
@@ -291,13 +309,23 @@ function processPage(page) {
     $('head').append(`<meta property="og:url" content="${escapeHtml(canonicalUrl)}">`);
   }
 
-  // Never insert advertising code on the noindex 404 page.
-  const clientId = String(CONFIG.adsenseClientId || '').trim();
-  const consentConfigurationVerified = CONFIG.adsenseConsentConfigurationVerified === true;
+  // Remove any existing AdSense loader before applying the single central policy.
+  // This build supports Auto ads only; it does not generate ad-unit slot markup.
+  const adsenseState = getAdSenseState(CONFIG);
   $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').remove();
-  if (relpath !== '404.html' && /^ca-pub-\d{16}$/.test(clientId) && consentConfigurationVerified) {
+  $('meta[name="google-adsense-account"]').remove();
+
+  if (relpath === 'index.html' && adsenseState.canPublishVerificationMeta) {
+    $('head').append(
+      $('<meta>')
+        .attr('name', 'google-adsense-account')
+        .attr('content', adsenseState.clientId)
+    );
+  }
+
+  if (adsenseState.canLoadAds && isAdSenseEligiblePage(relpath, adsenseState)) {
     const script = $('<script></script>')
-      .attr('src', `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`)
+      .attr('src', adSenseLoaderUrl(adsenseState.clientId))
       .attr('async', '')
       .attr('crossorigin', 'anonymous');
     $('head').append(script);
@@ -314,11 +342,15 @@ function processPage(page) {
   });
   $('head').append(`<link rel="icon" type="image/svg+xml" href="${relativePrefix(page)}assets/favicon.svg">`);
 
-  const hasAdSenseMarker = $('head').contents().toArray().some(node => node.type === 'comment' && String(node.data || '').includes('ADSENSE INSERTION POINT'));
+  // Remove the old inert placeholder comment; advertising is controlled centrally above.
   $('head').contents().toArray().forEach(node => {
-    if (node.type === 'text' && String(node.data || '').includes('ADSENSE INSERTION POINT')) $(node).remove();
+    if (
+      (node.type === 'comment' || node.type === 'text') &&
+      /ADSENSE INSERTION POINT/i.test(String(node.data || ''))
+    ) {
+      $(node).remove();
+    }
   });
-  if (!hasAdSenseMarker) $('head').append('<!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. -->');
 
   $('header.site-header').remove();
   $('[id]').each((_, element) => {
@@ -440,13 +472,12 @@ function writeRobotsAndSitemap(htmlPages) {
   }
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 
-  const clientId = String(CONFIG.adsenseClientId || '').trim();
-  const consentConfigurationVerified = CONFIG.adsenseConsentConfigurationVerified === true;
+  const adsenseState = getAdSenseState(CONFIG);
   const adsPath = path.join(ROOT, 'ads.txt');
-  if (/^ca-pub-\d{16}$/.test(clientId) && consentConfigurationVerified) {
-    const publisherId = clientId.replace(/^ca-/, '');
-    fs.writeFileSync(adsPath, `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0\n`, 'utf8');
+  if (adsenseState.canWriteAdsTxt) {
+    fs.writeFileSync(adsPath, adsenseState.adsTxtRecord + '\n', 'utf8');
   } else if (fs.existsSync(adsPath)) {
+    // Never leave a stale or guessed seller record in the public root.
     fs.unlinkSync(adsPath);
   }
 }
@@ -467,10 +498,19 @@ function main() {
   if (!CONFIG.contactEmail || String(CONFIG.contactEmail).includes('example.com')) {
     console.log('SETUP REQUIRED: replace contactEmail in site-config.json before publication.');
   }
-  if (!String(CONFIG.adsenseClientId || '').trim()) {
-    console.log('AdSense is not enabled. Leave adsenseClientId blank until you have your real publisher ID.');
-  } else if (CONFIG.adsenseConsentConfigurationVerified !== true) {
-    console.warn('AdSense remains disabled: verify and test the required consent configuration, then explicitly set adsenseConsentConfigurationVerified to true.');
+  const adsenseState = getAdSenseState(CONFIG);
+  if (adsenseState.canLoadAds) {
+    console.log('AdSense Auto ads loader enabled only on the configured editorial-page allowlist.');
+  } else {
+    console.log('AdSense advertising remains disabled: ' + adsenseState.reasons.join('; ') + '.');
+  }
+  if (adsenseState.canPublishVerificationMeta) {
+    console.log('AdSense site-verification meta tag enabled on the homepage; this does not load advertising scripts.');
+  }
+  if (adsenseState.canWriteAdsTxt) {
+    console.log('Verified account-provided ads.txt seller record generated at the public root.');
+  } else {
+    console.log('No ads.txt generated: a verified publisher ID and account-copied seller record are required.');
   }
 }
 

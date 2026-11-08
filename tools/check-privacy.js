@@ -5,9 +5,9 @@ const path = require('node:path');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG = JSON.parse(fs.readFileSync(path.join(ROOT, 'site-config.json'), 'utf8'));
-const PUBLISHER_ID = String(CONFIG.adsenseClientId || '').trim();
-const CONSENT_VERIFIED = CONFIG.adsenseConsentConfigurationVerified === true;
-const ADS_ENABLED = /^ca-pub-\d{16}$/.test(PUBLISHER_ID) && CONSENT_VERIFIED;
+const { getAdSenseState } = require('./adsense-config');
+const ADSENSE_STATE = getAdSenseState(CONFIG);
+const ADS_ENABLED = ADSENSE_STATE.canLoadAds;
 const errors = [];
 const checks = [];
 
@@ -111,10 +111,10 @@ const builder = fs.readFileSync(path.join(ROOT, 'tools/build-site.js'), 'utf8');
 if (!builder.includes('adsenseConsentConfigurationVerified === true')) {
   fail('Build pipeline is missing the explicit AdSense consent-configuration gate.');
 }
-if (!CONSENT_VERIFIED && fs.existsSync(path.join(ROOT, 'ads.txt'))) {
-  fail('ads.txt exists while the consent-configuration attestation is false.');
+if (!ADSENSE_STATE.canWriteAdsTxt && fs.existsSync(path.join(ROOT, 'ads.txt'))) {
+  fail('ads.txt exists without a verified publisher ID and account-provided seller record.');
 }
-if (!ADS_ENABLED) pass('AdSense and ads.txt remain disabled unless a valid publisher ID and explicit owner attestation are both present.');
+if (!ADS_ENABLED) pass('AdSense remains disabled until the full approval, consent, account-record and owner-authorization gates are satisfied.');
 
 const privacy = fs.readFileSync(path.join(ROOT, 'pages/privacy-policy.html'), 'utf8');
 const terms = fs.readFileSync(path.join(ROOT, 'pages/terms-and-conditions.html'), 'utf8');

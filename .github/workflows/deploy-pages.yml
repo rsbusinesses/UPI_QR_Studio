@@ -49,6 +49,9 @@ jobs:
       - name: Package public site
         run: npm run package:site
 
+      - name: Check AdSense loader, page allowlist and ads.txt
+        run: npm run check:adsense
+
       - name: Verify homepage
         run: test -f index.html
 
