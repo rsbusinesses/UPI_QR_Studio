@@ -71,7 +71,7 @@ Year        : 2026
 </span>
 <span>
 <strong>Last updated:</strong>
-<time datetime="2026-10-19">19 October 2026</time>
+<time datetime="2026-10-19">8 November 2026</time>
 </span>
 </div>
 </div>
@@ -128,8 +128,11 @@ Year        : 2026
 <p>
               We do not maintain a database intended to store the UPI
               details or other form entries you submit to the QR generator.
-              However, the hosting platform, Google Analytics, and
-              advertising services may process technical or usage
+              The hosting and content-delivery infrastructure may process
+              technical request information. Google Analytics is not enabled
+              in the current website build, and Google AdSense is planned but
+              is not active. If analytics or advertising services are enabled
+              later, they may process additional technical or usage
               information as described below.
             </p>
 <p>
@@ -457,12 +460,18 @@ Year        : 2026
                 for a required consent mechanism.
               </p>
 <p>
-                For visitors in the European Economic Area, the United
-                Kingdom, and Switzerland, Google's publisher requirements
-                include specific consent and disclosure obligations.
-                We will configure an appropriate consent mechanism,
-                including a Google-certified consent management platform
-                where required for the advertising services used.
+                No consent management platform (CMP) is currently
+                implemented in this website build. When serving personalized
+                Google publisher ads to users in the European Economic Area,
+                the United Kingdom, or Switzerland, Google requires publishers
+                to use a CMP that Google has certified and that integrates
+                with the IAB Transparency and Consent Framework (TCF).
+                Before any advertising is enabled, the site owner must select,
+                configure and test an appropriate consent mechanism for the
+                actual ad products, visitor locations and applicable law.
+                See Google's
+                <a class="pp-inline-link" href="https://support.google.com/adsense/answer/13554116?hl=en" rel="noopener noreferrer" target="_blank">publisher CMP requirements and current certified CMP list</a>.
+                This policy text does not mean a CMP has already been deployed.
               </p>
 <p>
                 If a consent management tool is deployed, visitors should
@@ -482,9 +491,17 @@ Year        : 2026
 <div class="pp-card-body">
 <h2>Hosting Providers and Third-Party Services</h2>
 <p>
-                UPI QR Studio may rely on third-party infrastructure
-                and services to publish pages, deliver website assets,
-                measure usage, protect against abuse, and display ads.
+                UPI QR Studio relies on third-party infrastructure and
+                services to publish pages and deliver some website assets.
+                In particular, the QR generator pages load the QRCode.js
+                browser library from cdnjs.cloudflare.com. The CDN may receive
+                technical request information, such as the requesting IP
+                address, browser details, referrer information and request
+                timestamps, when the library is delivered. Google Analytics
+                is not enabled in the current build, and AdSense is planned
+                but is not active. If analytics or advertising is enabled
+                later, the relevant providers may process additional usage
+                and advertising information.
               </p>
 <p>
                 These services may process technical information such
@@ -493,10 +510,12 @@ Year        : 2026
               </p>
 <h3>Website Hosting and GitHub</h3>
 <p>
-                Our website source code may be maintained in a private
-                GitHub repository. Repository privacy is separate from
-                the privacy of the deployed website: a private source
-                repository does not make a published website private.
+                The website source code is maintained in a publicly accessible
+                <a class="pp-inline-link" href="https://github.com/rsbusinesses/UPI_QR_Studio" rel="noopener noreferrer" target="_blank">GitHub repository</a>.
+                The source repository and deployed website are separate
+                resources. Visitors can access the published website without
+                using GitHub, and the public availability of source code does
+                not change the information processed when a visitor opens a page.
               </p>
 <p>
                 The hosting or deployment provider may process request
