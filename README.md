@@ -6,7 +6,7 @@ UPI QR Studio is a web-based resource designed to help individuals, shopkeepers,
 
 Our goal is to make everyday digital payments easier to understand through a simple QR generation experience, practical educational resources, frequently asked questions, and payment safety guidance.
 
-**Visit the website:** https://rsbusinesses.github.io/UPI_QR_Studio/
+**Visit the website:** https://upiqrstudio.com/
 
 ---
 
@@ -73,8 +73,8 @@ The website provides QR code generation functionality and educational resources 
 **Client information:**
 
 - **Client Name:** RS Businesses
-- **GitHub Repository:** [UPI QR Studio](https://github.com/rsbusinesses0/UPI_QR_Studio)
-- **Live Website:** [https://rsbusinesses0.github.io/UPI_QR_Studio/](https://rsbusinesses0.github.io/UPI_QR_Studio/)
+- **GitHub Repository:** [UPI QR Studio](https://github.com/rsbusinesses/UPI_QR_Studio)
+- **Live Website:** [https://upiqrstudio.com/](https://upiqrstudio.com/)
 - **Contact Email:** [rsbusinesses0@gmail.com](mailto:rsbusinesses0@gmail.com)
 
 ### Development Contributions
@@ -129,7 +129,7 @@ Our educational resources cover subjects such as:
 - Cash deposit and withdrawal services associated with UPI.
 - Transaction limits and payment safety.
 
-Visit the [UPI Guides](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-guides.html) section to explore available articles.
+Visit the [UPI Guides](https://upiqrstudio.com/pages/upi-guides.html) section to explore available articles.
 
 ### 3. UPI Safety Center
 
@@ -142,7 +142,7 @@ Learn about common digital payment risks and safer payment habits, including:
 - Verifying successful transactions through your UPI app or bank.
 - Understanding why you should never approve an unexpected payment request without checking it.
 
-Visit the [Safety Center](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/safety-center.html) for additional guidance.
+Visit the [Safety Center](https://upiqrstudio.com/pages/safety-center.html) for additional guidance.
 
 ### 4. UPI FAQs
 
@@ -236,10 +236,10 @@ Our website is intended to make UPI-related topics easier to explore.
 
 You can start with:
 
-- [UPI Guides](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-guides.html) — educational articles and explanations.
-- [UPI FAQs](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-faqs.html) — common questions about UPI.
-- [UPI Safety Center](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/safety-center.html) — guidance on safer payment practices.
-- [UPI ID Providers](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/upi-id-providers.html) — information about UPI ID providers.
+- [UPI Guides](https://upiqrstudio.com/pages/upi-guides.html) — educational articles and explanations.
+- [UPI FAQs](https://upiqrstudio.com/pages/upi-faqs.html) — common questions about UPI.
+- [UPI Safety Center](https://upiqrstudio.com/pages/safety-center.html) — guidance on safer payment practices.
+- [UPI ID Providers](https://upiqrstudio.com/pages/upi-id-providers.html) — information about UPI ID providers.
 
 UPI features, eligibility rules, limits, and supported services may change. Where a decision depends on current rules, users should verify the information with official NPCI resources, their bank, or the relevant payment provider.
 
@@ -292,7 +292,7 @@ Automatic publishing after a push requires a correctly configured GitHub Actions
 
 Source code and development history:
 
-https://github.com/rsbusinesses0/UPI_QR_Studio
+https://github.com/rsbusinesses/UPI_QR_Studio
 
 ### Configuration
 
@@ -321,9 +321,9 @@ Users should verify payment details and transaction status using their own compa
 
 Please review the website's published policies before using its features:
 
-- [Privacy Policy](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/privacy-policy.html)
-- [Terms and Conditions](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/terms-and-conditions.html)
-- [Contact Us](https://rsbusinesses0.github.io/UPI_QR_Studio/pages/contact-us.html)
+- [Privacy Policy](https://upiqrstudio.com/pages/privacy-policy.html)
+- [Terms and Conditions](https://upiqrstudio.com/pages/terms-and-conditions.html)
+- [Contact Us](https://upiqrstudio.com/pages/contact-us.html)
 
 Do not enter your UPI PIN, OTP, banking password, or other authentication secrets into website forms or share them through support messages.
 
@@ -368,7 +368,7 @@ We welcome questions, feedback, suggestions, and reports about website functiona
 **Developer email:** [sksumitkumarshakya@gmail.com](mailto:sksumitkumarshakya@gmail.com)  
 **GitHub profile:** [@sksumitkumarshakya](https://github.com/sksumitkumarshakya)
 
-**Website:** https://rsbusinesses0.github.io/UPI_QR_Studio/
+**Website:** https://upiqrstudio.com/
 
 For banking or payment disputes, contact the relevant bank or payment provider directly through its official support channels.
 
