@@ -118,7 +118,9 @@ for (const page of pages) {
   }
 
   if (h1Count !== 1) fail(relpath + ': expected one H1 in main; found ' + h1Count + '.');
-  for (const property of ['og:type', 'og:title', 'og:description', 'og:site_name', 'og:url']) {
+  const requiredOgProperties = ['og:type', 'og:title', 'og:description', 'og:site_name'];
+  if (!is404) requiredOgProperties.push('og:url');
+  for (const property of requiredOgProperties) {
     const tags = $('meta[property="' + property + '"]');
     if (tags.length !== 1 || !String(tags.first().attr('content') || '').trim()) {
       fail(relpath + ': expected exactly one non-empty Open Graph property ' + property + '; found ' + tags.length + '.');
@@ -152,8 +154,9 @@ for (const page of pages) {
   }
 
   if (robots.includes('noindex')) fail(relpath + ': an indexable page contains a noindex directive.');
-  if ($('meta[property="og:url"]').attr('content') !== expectedCanonical) {
-    fail(relpath + ': og:url must match its canonical URL.');
+  const ogUrlTags = $('meta[property="og:url"]');
+  if (ogUrlTags.length !== 1 || ogUrlTags.attr('content') !== expectedCanonical) {
+    fail(relpath + ': exactly one og:url must match its canonical URL.');
   }
 
   if (validPublisherId) {
