@@ -12,7 +12,7 @@ No application-wide rewrite was performed. No files were removed because all bro
 
 ## Architecture inventory
 
-The repository contains 76 tracked entries:
+The repository tree contains 76 entries: 67 tracked files and 9 directories.
 
 | Category | Inventory | Purpose |
 |---|---:|---|

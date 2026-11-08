@@ -61,8 +61,8 @@ if (!String(CONFIG.siteName || '').trim()) fail('site-config.json: siteName must
 if (!String(CONFIG.contactEmail || '').trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(CONFIG.contactEmail || '').trim())) {
   fail('site-config.json: contactEmail must be a valid email address.');
 }
-const configuredPublisherId = String(CONFIG.adsenseClientId || '').trim();
-if (configuredPublisherId && !/^ca-pub-\d{16}$/.test(configuredPublisherId)) {
+const configuredPublisherIdForValidation = String(CONFIG.adsenseClientId || '').trim();
+if (configuredPublisherIdForValidation && !/^ca-pub-\d{16}$/.test(configuredPublisherIdForValidation)) {
   fail('site-config.json: adsenseClientId must be blank or a valid ca-pub- ID containing 16 digits.');
 }
 if (!SITE_URL) fail('site-config.json: siteUrl is empty.');
