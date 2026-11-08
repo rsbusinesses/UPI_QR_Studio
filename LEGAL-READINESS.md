@@ -13,6 +13,8 @@ Branch: `development`
 - No CMP or consent banner is currently implemented in the development code.
 - The contact page uses the configured email address and an email-client `mailto:` flow. It does not submit form data to a server.
 - The displayed contact address matches `site-config.json`.
+- The Contact Us form uses a `mailto:` flow; its fields are placed into an email draft rather than posted to the website server.
+- The site is configured for GitHub Pages hosting, and the Privacy Policy links to GitHub's General Privacy Statement for the host's own data practices.
 - The source repository is publicly accessible; the Privacy Policy was corrected so it no longer suggests the repository may be private.
 
 ## Changes made
