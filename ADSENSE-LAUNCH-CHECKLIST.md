@@ -11,33 +11,33 @@ The source audit covered all 23 HTML documents (22 indexable pages and the noind
 | Item | Finding |
 | --- | --- |
 | Existing AdSense loader | None active in the audited branch |
-| Publisher IDs | No `ca-pub-` identifier configured or embedded |
+| Publisher IDs | Owner-supplied `ca-pub-6680219748778164` configured in `site-config.json`; not independently authenticated through an AdSense account connection |
 | Ad-unit code / slot IDs | None found |
 | Duplicate loader scripts | None found |
 | Multiple publisher IDs | None found |
 | Build-time ad behavior | The earlier builder removed and conditionally injected a loader based on a two-flag gate. This phase replaces it with separate account, site-review, consent, seller-record and owner-authorization gates. |
-| Existing `ads.txt` | No root `ads.txt` file in the audited branch tree |
-| Generated/deployed `ads.txt` | No record generated in this branch; live URL was not independently fetched by this audit environment |
+| Existing `ads.txt` | Root `ads.txt` now contains the exact seller line supplied by the site owner |
+| Generated/deployed `ads.txt` | Build generates and packages the configured seller record; live endpoint still requires deployment verification |
 | QR-generator interference | No advertising code or slots in either QR tool; both tools use local QRCode.js |
 | Old insertion comments | The builder previously added an inert “ADSENSE INSERTION POINT” comment to each HTML head. The revised builder removes these comments; they are not ad code. |
 
-No account-specific code was blindly deleted. The existing active integration point was the central builder and its blank configuration. No Google AdSense account connection or publisher ID was available in this work session. The repository's `adsenseClientId` remains blank; no ID or seller relationship was fabricated.
+After the initial audit, the site owner supplied the official Auto ads loader snippet, homepage verification meta tag, and exact seller relationship line. These values are now configured centrally. The connector did not sign in to or independently inspect the AdSense account; the verification flags record the owner's explicit representation that these are the account-provided values.
 
 ## 2. Controlled architecture now implemented
 
 ### One central configuration
 
-All AdSense settings live in `site-config.json`. Defaults are deliberately disabled:
+All AdSense settings live in `site-config.json`. The supplied account details are now populated:
 
-- `adsenseClientId`: blank until copied from the actual account's official Auto ads code.
-- `adsensePublisherIdVerified`: false until the ID is checked against the signed-in account.
-- `adsenseVerificationMetaTagEnabled`: false; optional ownership verification only, not an ad loader.
-- `adsenseAdsTxtRecord`: blank until the exact seller line is copied from the account.
-- `adsenseAdsTxtRecordVerified`: false until that exact line is checked against the account.
+- `adsenseClientId`: `ca-pub-6680219748778164` (owner-supplied official Auto ads code).
+- `adsensePublisherIdVerified`: true, based on the owner's representation that the supplied code belongs to the account; not independently account-authenticated by this connector.
+- `adsenseVerificationMetaTagEnabled`: true; the exact homepage-only `google-adsense-account` meta tag will be emitted by the builder. This tag verifies site ownership and does not load ads.
+- `adsenseAdsTxtRecord`: `google.com, pub-6680219748778164, DIRECT, f08c47fec0942fa0`.
+- `adsenseAdsTxtRecordVerified`: true, based on the exact seller line supplied by the owner; the build checks that its publisher ID and Google authority ID match the configured client ID.
 - `adsenseSiteReviewApproved`: false until AdSense reports the site as Ready.
-- `adsenseConsentConfigurationVerified`: false until the actual visitor-geography, ad-mode and consent setup is reviewed and tested.
-- `adsenseActivationAuthorized`: false; the owner must deliberately authorize advertising.
-- `adsenseMode`: `disabled` by default; `auto` is the only serving mode supported here.
+- `adsenseConsentConfigurationVerified`: false until the actual visitor-geography, ad-mode and consent setup is implemented and tested.
+- `adsenseActivationAuthorized`: false until the site is Ready and the owner explicitly authorizes serving.
+- `adsenseMode`: `disabled`; Auto ads remains blocked until all release gates pass.
 - `adsenseEligiblePages`: an allowlist of long-form editorial UPI guides.
 
 Shared validation lives in `tools/adsense-config.js`. It validates the publisher ID, checks that the account-provided `ads.txt` record belongs to that publisher, and computes separate permissions for site verification, `ads.txt` publication and advertising activation.
@@ -89,20 +89,28 @@ No ad units or visual ad placeholders were added. When Auto ads is eventually co
 
 ## 4. Publisher ID and account status
 
-**Current status: not supplied and not authenticated.** No Google AdSense account was connected or read in this task.
+**Current configuration (8 November 2026):** The owner supplied the account's official Auto ads snippet and seller record. The repository now uses publisher ID `ca-pub-6680219748778164`; this is an owner attestation, not an independent sign-in or API verification of the AdSense account.
 
-To obtain and configure the ID:
-1. Sign in to the Google account that owns the AdSense account.
-2. In AdSense, open **Account → Settings → Account information** to view the publisher ID, displayed as `pub-1234567890123456`.
-3. For the website loader, use the actual `ca-pub-1234567890123456` value in the official Auto ads code snippet from **Ads → Get code**. Do not guess the identifier or use a sample.
-4. Only after checking that code against the account, enter it into `adsenseClientId` and set `adsensePublisherIdVerified` to true.
+The homepage meta tag is enabled using the exact supplied value:
+
+```html
+<meta name="google-adsense-account" content="ca-pub-6680219748778164">
+```
+
+The root `ads.txt` is configured with the exact supplied seller relationship:
+
+```text
+google.com, pub-6680219748778164, DIRECT, f08c47fec0942fa0
+```
+
+The builder emits the meta tag on the homepage only and generates `ads.txt` from `site-config.json`. Neither item loads or displays advertisements.
 
 Before activation:
 - Add `https://upiqrstudio.com` on the AdSense **Sites** page.
-- Verify ownership using a method offered in the account. Prefer the homepage meta-tag method if it is available and you want to avoid loading the ad-serving script during verification. Set `adsenseVerificationMetaTagEnabled` to true only after configuring the real verified ID.
+- Deploy the `development` changes to the production branch/domain, then use AdSense's site-ownership check to confirm that the homepage meta tag is detected. The configured tag does not load ads.
 - Request review and wait for Google to mark the site **Ready**. A repository build or passing automated test does not establish approval.
 - Complete the account setup and any identity/payment verification request shown in the account. Google states that identity verification may be required from June 2026 before ads can start serving.
-- Copy the exact seller line from the site's AdSense ads.txt status page into `adsenseAdsTxtRecord`; verify that it contains your publisher ID and the relationship shown by Google, then set `adsenseAdsTxtRecordVerified` to true.
+- Confirm the supplied seller line appears at `https://upiqrstudio.com/ads.txt` after production deployment and that AdSense's ads.txt status page recognizes it.
 - After reviewing consent and page placement, set `adsenseSiteReviewApproved`, `adsenseConsentConfigurationVerified`, and `adsenseActivationAuthorized` to true, and change `adsenseMode` to `auto`. Those final settings are intentionally not enabled in this commit.
 
 Never put the Google account password, recovery codes or payment credentials in the repository or chat.
@@ -171,4 +179,4 @@ The development and production deployment workflows run this check after packagi
 
 ## Readiness conclusion
 
-The development branch is configured for controlled future AdSense integration, but it is **not connected to a verified publisher account, not site-approved, and not serving ads**. The real publisher ID, account-copied ads.txt line, account/site status, consent configuration and explicit owner authorization remain outstanding. AdSense acceptance is determined by Google and is not guaranteed by this work.
+The development branch now contains the owner-supplied publisher ID, homepage verification meta tag and exact `ads.txt` record. The AdSense review is **not confirmed Ready**, consent/CMP configuration has not been verified, and ad activation remains disabled. Deploy the branch, complete site ownership verification, wait for a Ready status, configure and test the required consent flow for your traffic, then deliberately enable the remaining release flags. AdSense acceptance and ad serving are determined by Google and are not guaranteed by repository changes.
