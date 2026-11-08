@@ -281,6 +281,7 @@ The project defines these npm scripts:
 npm ci
 npm run build
 npm run check
+npm run check:seo
 npm run preview
 ```
 

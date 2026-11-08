@@ -57,10 +57,18 @@ function schemaTypesFor($, relpath) {
   return types;
 }
 
+if (!String(CONFIG.siteName || '').trim()) fail('site-config.json: siteName must be a non-empty string.');
+if (!String(CONFIG.contactEmail || '').trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(CONFIG.contactEmail || '').trim())) {
+  fail('site-config.json: contactEmail must be a valid email address.');
+}
+const configuredPublisherId = String(CONFIG.adsenseClientId || '').trim();
+if (configuredPublisherId && !/^ca-pub-\d{16}$/.test(configuredPublisherId)) {
+  fail('site-config.json: adsenseClientId must be blank or a valid ca-pub- ID containing 16 digits.');
+}
 if (!SITE_URL) fail('site-config.json: siteUrl is empty.');
 try {
   const parsedSiteUrl = new URL(SITE_URL);
-  if (parsedSiteUrl.protocol !== 'https:' || parsedSiteUrl.pathname !== '/') {
+  if (parsedSiteUrl.protocol !== 'https:' || parsedSiteUrl.pathname !== '/' || parsedSiteUrl.username || parsedSiteUrl.password || parsedSiteUrl.search || parsedSiteUrl.hash) {
     fail('site-config.json: siteUrl must be an HTTPS origin without a path; found ' + SITE_URL);
   }
 } catch (error) {
@@ -110,9 +118,10 @@ for (const page of pages) {
   }
 
   if (h1Count !== 1) fail(relpath + ': expected one H1 in main; found ' + h1Count + '.');
-  for (const property of ['og:type', 'og:title', 'og:description', 'og:site_name']) {
-    if (!$('meta[property="' + property + '"]').attr('content')) {
-      fail(relpath + ': missing Open Graph property ' + property + '.');
+  for (const property of ['og:type', 'og:title', 'og:description', 'og:site_name', 'og:url']) {
+    const tags = $('meta[property="' + property + '"]');
+    if (tags.length !== 1 || !String(tags.first().attr('content') || '').trim()) {
+      fail(relpath + ': expected exactly one non-empty Open Graph property ' + property + '; found ' + tags.length + '.');
     }
   }
 
@@ -195,8 +204,9 @@ const robotsText = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
 const robotLines = robotsText.split(/\r?\n/).map(line => line.trim());
 if (!robotLines.includes('User-agent: *')) fail('robots.txt: missing User-agent: *.');
 if (!robotLines.includes('Allow: /')) fail('robots.txt: missing Allow: /.');
-if (!robotLines.includes('Sitemap: ' + SITE_URL + '/sitemap.xml')) {
-  fail('robots.txt: sitemap directive must reference ' + SITE_URL + '/sitemap.xml.');
+const sitemapDirectives = robotLines.filter(line => /^Sitemap:/i.test(line));
+if (sitemapDirectives.length !== 1 || sitemapDirectives[0] !== 'Sitemap: ' + SITE_URL + '/sitemap.xml') {
+  fail('robots.txt: expected exactly one sitemap directive referencing ' + SITE_URL + '/sitemap.xml.');
 }
 if (/^Disallow:\s*\/\s*$/im.test(robotsText)) fail('robots.txt: site-wide Disallow: / would block crawling.');
 
