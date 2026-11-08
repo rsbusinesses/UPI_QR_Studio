@@ -44,3 +44,6 @@ jobs:
 
       - name: Check generated website
         run: npm run check
+
+      - name: Check SEO metadata and indexability
+        run: npm run check:seo
