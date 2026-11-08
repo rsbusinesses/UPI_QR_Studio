@@ -40,21 +40,21 @@ function canonicalFor(relpath) {
   return relpath === 'index.html' ? SITE_URL + '/' : SITE_URL + '/' + relpath;
 }
 
-function schemaTypesFor($, relpath) {
-  const types = [];
+function schemaObjectsFor($, relpath) {
+  const objects = [];
   $('script[type="application/ld+json"]').each((_, element) => {
     STATS.jsonLdBlocks++;
     try {
       const parsed = JSON.parse($(element).text());
       const records = Array.isArray(parsed) ? parsed : [parsed];
       for (const record of records) {
-        if (record && record['@type']) types.push(record['@type']);
+        if (record && typeof record === 'object' && record['@type']) objects.push(record);
       }
     } catch (error) {
       fail(relpath + ': invalid JSON-LD: ' + error.message);
     }
   });
-  return types;
+  return objects;
 }
 
 if (!String(CONFIG.siteName || '').trim()) fail('site-config.json: siteName must be a non-empty string.');
@@ -84,6 +84,12 @@ for (const page of pages) {
   const relpath = relativePath(page);
   const $ = cheerio.load(fs.readFileSync(page, 'utf8'), { decodeEntities: false });
   const is404 = relpath === '404.html';
+  const htmlLanguage = String($('html').attr('lang') || '').trim().toLowerCase();
+  if (htmlLanguage !== 'en') fail(relpath + ': expected html lang="en"; found "' + htmlLanguage + '".');
+  const viewportTags = $('meta[name="viewport"]');
+  if (viewportTags.length !== 1 || !String(viewportTags.first().attr('content') || '').trim()) {
+    fail(relpath + ': expected exactly one non-empty viewport meta tag.');
+  }
   const title = $('title').first().text().trim();
   const descriptions = $('meta[name="description"]');
   const description = String(descriptions.first().attr('content') || '').trim();
@@ -118,6 +124,18 @@ for (const page of pages) {
   }
 
   if (h1Count !== 1) fail(relpath + ': expected one H1 in main; found ' + h1Count + '.');
+  const headingLevels = $('main h1, main h2, main h3, main h4, main h5, main h6').toArray()
+    .map(element => Number(element.name.slice(1)));
+  for (let index = 1; index < headingLevels.length; index++) {
+    if (headingLevels[index] > headingLevels[index - 1] + 1) {
+      fail(relpath + ': heading hierarchy skips from H' + headingLevels[index - 1] + ' to H' + headingLevels[index] + '.');
+      break;
+    }
+  }
+  $('img').each((_, image) => {
+    if (!$(image).is('[alt]')) fail(relpath + ': image is missing an alt attribute.');
+  });
+
   const requiredOgProperties = ['og:type', 'og:title', 'og:description', 'og:site_name'];
   if (!is404) requiredOgProperties.push('og:url');
   for (const property of requiredOgProperties) {
@@ -126,8 +144,24 @@ for (const page of pages) {
       fail(relpath + ': expected exactly one non-empty Open Graph property ' + property + '; found ' + tags.length + '.');
     }
   }
+  for (const field of ['twitter:card', 'twitter:title', 'twitter:description']) {
+    const tags = $('meta[name="' + field + '"]');
+    if (tags.length !== 1 || !String(tags.first().attr('content') || '').trim()) {
+      fail(relpath + ': expected exactly one non-empty ' + field + ' meta tag; found ' + tags.length + '.');
+    }
+  }
+  if ($('meta[name="twitter:card"]').attr('content') !== 'summary') {
+    fail(relpath + ': twitter:card must be "summary".');
+  }
+  if ($('meta[name="twitter:title"]').attr('content') !== $('meta[property="og:title"]').attr('content')) {
+    fail(relpath + ': twitter:title must match og:title.');
+  }
+  if ($('meta[name="twitter:description"]').attr('content') !== $('meta[property="og:description"]').attr('content')) {
+    fail(relpath + ': twitter:description must match og:description.');
+  }
 
-  const schemaTypes = schemaTypesFor($, relpath);
+  const schemaObjects = schemaObjectsFor($, relpath);
+  const schemaTypes = schemaObjects.map(schema => schema['@type']);
   const adScripts = $('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
   const publisherId = String(CONFIG.adsenseClientId || '').trim();
   const validPublisherId = /^ca-pub-\d{16}$/.test(publisherId);
@@ -169,12 +203,35 @@ for (const page of pages) {
   }
 
   if (relpath === 'index.html') {
-    if (schemaTypes.filter(type => type === 'WebSite').length !== 1) {
-      fail('index.html: expected one WebSite JSON-LD object.');
+    if (schemaTypes.length !== 1 || schemaTypes[0] !== 'WebSite') {
+      fail('index.html: expected exactly one WebSite JSON-LD object.');
+    } else {
+      const website = schemaObjects[0];
+      if (website.name !== CONFIG.siteName || website.url !== expectedCanonical || website.description !== description) {
+        fail('index.html: WebSite JSON-LD name, URL and description must match site configuration and page metadata.');
+      }
     }
-    if (schemaTypes.includes('BreadcrumbList')) fail('index.html: homepage should not contain BreadcrumbList JSON-LD.');
-  } else if (schemaTypes.filter(type => type === 'BreadcrumbList').length !== 1) {
-    fail(relpath + ': expected one BreadcrumbList JSON-LD object.');
+  } else if (schemaTypes.length !== 1 || schemaTypes[0] !== 'BreadcrumbList') {
+    fail(relpath + ': expected exactly one BreadcrumbList JSON-LD object.');
+  } else {
+    const breadcrumb = schemaObjects[0];
+    const items = Array.isArray(breadcrumb.itemListElement) ? breadcrumb.itemListElement : [];
+    if (items.length < 2 || items.some((item, index) => item.position !== index + 1 || !item.name || !item.item)) {
+      fail(relpath + ': BreadcrumbList must contain ordered, named, absolute breadcrumb items.');
+    } else {
+      const lastItem = items[items.length - 1];
+      if (lastItem.item !== expectedCanonical) fail(relpath + ': final BreadcrumbList item must match the page canonical.');
+      for (const item of items) {
+        try {
+          const itemUrl = new URL(item.item);
+          if (itemUrl.origin !== SITE_URL || itemUrl.protocol !== 'https:') {
+            fail(relpath + ': BreadcrumbList URL is outside the configured production origin: ' + item.item);
+          }
+        } catch (error) {
+          fail(relpath + ': BreadcrumbList contains an invalid absolute URL: ' + item.item);
+        }
+      }
+    }
   }
 }
 

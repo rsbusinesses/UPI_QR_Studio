@@ -1,5 +1,7 @@
 # Google Search Console setup — UPI QR Studio
 
+Phase 3 audit note: 8 November 2026. **Search Console ownership verification status is not confirmed from this repository session.** No authenticated property ownership status or indexing report was available to inspect. Treat the property as unverified until Search Console itself confirms ownership.
+
 ## Repository preparation status
 
 The repository is configured for the canonical origin:
@@ -34,6 +36,8 @@ A Domain property covers the root domain and its subdomains. Google requires DNS
 Do not put the verification token in this repository, commit history or a public issue. It belongs in the DNS provider's record editor.
 
 ## 3. Submit the sitemap
+
+The current development build prepares 22 canonical public URLs at `https://upiqrstudio.com/sitemap.xml`. The custom 404 is excluded. The Pages workflow now packages only visitor-facing HTML, CSS, JavaScript, assets, `robots.txt`, `sitemap.xml` and `.nojekyll`; build tooling, templates, repository documentation, package files and site configuration are excluded from the public artifact after these changes are deliberately promoted.
 
 After the Domain property is verified:
 
@@ -81,3 +85,9 @@ No Organization/LocalBusiness schema is added because verified organization iden
 - [Build and submit a sitemap — Google Search Central](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
 - [Introduction to robots.txt — Google Search Central](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - [Ask Google to recrawl your website — Google Search Central](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)
+
+## Verification method selection
+
+For the recommended **Domain** property (`upiqrstudio.com`), use the DNS-provider verification method. Google states that Domain properties can only be verified through the domain name provider (DNS); HTML file upload and HTML meta-tag verification apply to URL-prefix properties, not Domain properties. A URL-prefix property such as `https://upiqrstudio.com/` can use an HTML meta tag, but covers only that URL prefix. See [Google's ownership-verification instructions](https://support.google.com/webmasters/answer/9008080).
+
+Copy the DNS TXT or CNAME record verbatim from the signed-in Search Console wizard. It is unique to your account and must not be invented, guessed or committed to this repository. Keep the record in DNS after verification to retain ownership. A connection to a search analytics reporting service or the presence of search metrics does not by itself prove Domain-property ownership.
