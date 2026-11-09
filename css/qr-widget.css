@@ -310,3 +310,61 @@ Year         : 2026
     display: none;
   }
 }
+
+
+/* Extra-tight mobile spacing keeps the preview and form within easy reach. */
+@media (max-width: 47.99rem) {
+  .qr-widget-layout {
+    gap: .4rem;
+  }
+
+  .qr-widget-form-panel,
+  .qr-widget-result-panel {
+    padding: .6rem;
+    border-radius: var(--radius-md);
+  }
+
+  .qr-widget-result-panel .tool-panel-label,
+  .qr-widget-form-panel .tool-panel-label {
+    margin: 0 0 .4rem;
+  }
+
+  .qr-widget-qr-frame {
+    width: min(100%, 8rem);
+    margin-bottom: .4rem;
+    padding: .4rem;
+  }
+
+  .qr-widget-upi-display {
+    gap: .5rem;
+    margin-bottom: .4rem;
+    padding: .45rem .55rem;
+  }
+
+  .qr-widget-status {
+    margin-top: .35rem;
+    line-height: 1.3;
+  }
+
+  .qr-widget-form {
+    gap: .5rem;
+  }
+
+  .qr-widget-input-row {
+    gap: .35rem;
+  }
+
+  .qr-widget-input-row label {
+    margin-bottom: .2rem;
+    font-size: .85rem;
+  }
+
+  .qr-widget-form-panel .privacy-disclosure {
+    margin-top: .4rem;
+  }
+
+  .qr-widget-generate,
+  .qr-widget-download {
+    min-height: 2.75rem;
+  }
+}
