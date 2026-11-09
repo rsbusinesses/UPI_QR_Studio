@@ -1,4 +1,3 @@
-
 /*
 =========================================================
 Project      : UPI QR Studio
@@ -14,89 +13,101 @@ Description  : Stylesheet for the UPI QR Studio website.
                design, components, and visual presentation.
 
 Year         : 2026
-=========================================================
-*/
-
-/* ========================================
-   UPI QR STUDIO - FOOTER
-   File: css/footer.css
-======================================== */
+=========================================================*/
 
 .site-footer {
-    color: #cbd5e1;
-    background: #102a43;
+  --focus-ring: var(--color-highlight);
+  padding: var(--section-space) 0 var(--space-6);
+  background: var(--color-ink-deep);
+  color: var(--color-on-dark-muted);
 }
 
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
-    gap: 40px;
-    width: min(var(--container-width), calc(100% - 40px));
-    margin: 0 auto;
-    padding: 65px 0 50px;
+.footer-inner, .footer-bottom {
+  width: var(--frame);
+  margin-inline: auto;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 5vw, 4rem);
 }
 
 .footer-logo {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+  margin-bottom: var(--space-4);
+  color: var(--color-on-dark);
+  font-size: 1.35rem;
 }
 
-.footer-logo:hover {
-    color: #ffffff;
-}
-
-.footer-logo strong {
-    color: #56d6b5;
-}
-
-.footer-about p {
-    max-width: 310px;
-    color: #bdcbd9;
-    font-size: 14px;
-    line-height: 1.9;
+.footer-brand p {
+  max-width: 44ch;
 }
 
 .footer-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .2rem;
 }
 
-.footer-column h3 {
-    margin-bottom: 8px;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 800;
+.footer-column h2 {
+  margin: .35rem 0 var(--space-2);
+  color: var(--color-on-dark);
+  font-size: 1.125rem;
 }
 
-.footer-column a {
-    color: #bdcbd9;
-    font-size: 13px;
-    line-height: 1.6;
-    transition: color 0.2s ease;
+.footer-column a, .back-to-top {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  color: var(--color-on-dark-muted);
+  font-size: .9375rem;
+  text-decoration: none;
 }
 
-.footer-column a:hover {
-    color: #56d6b5;
+.site-footer a:hover {
+  color: var(--color-highlight);
+  text-decoration: underline;
 }
 
 .footer-bottom {
-    padding: 22px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: #bdcbd9;
-    font-size: 12px;
-    line-height: 1.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-on-dark-border);
+  font-size: .875rem;
 }
 
 .footer-bottom p + p {
-    margin-top: 5px;
+  margin-top: var(--space-1);
+}
+
+.footer-bottom p a {
+  color: var(--color-highlight);
+}
+
+.back-to-top {
+  flex: none;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: .5rem .75rem;
+  border: 1px solid var(--color-on-dark-border);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 46rem) {
+  .footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
 }

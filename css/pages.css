@@ -1,4 +1,3 @@
-
 /*
 =========================================================
 Project      : UPI QR Studio
@@ -14,705 +13,225 @@ Description  : Stylesheet for the UPI QR Studio website.
                design, components, and visual presentation.
 
 Year         : 2026
-=========================================================
-*/
+=========================================================*/
 
-/* ==========================================
-   UPI QR STUDIO - FAQ PAGE
-   File: css/pages.css
-========================================== */
-
-.upi-faqs-page {
-    --faq-panel: #f4f7fd;
-    --faq-border: #e1e5ec;
-    --faq-text: #24272d;
-    --faq-muted: #667085;
-    --faq-accent: #ff8b24;
-    background: #ffffff;
-    color: var(--faq-text);
-}
-
-.faq-main {
-    width: 100%;
-    padding: 27px 20px 50px;
-}
-
+/* FAQ topics and questions */
 .faq-layout {
-    display: grid;
-    grid-template-columns: 294px minmax(0, 1fr);
-    gap: 24px;
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    align-items: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
-/* Topic sidebar */
+.faq-sidebar, .faq-content, .faq-question-text {
+  min-width: 0;
+}
 
 .faq-sidebar {
-    min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
 }
 
 .faq-sidebar-heading {
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
-.faq-sidebar-heading h1 {
-    margin: 0 0 9px;
-    color: #17191d;
-    font-size: 29px;
-    font-weight: 750;
-    line-height: 1.3;
-}
-
-.topic-toggle {
-    display: none;
+.faq-topic-caption {
+  margin: var(--space-2) var(--space-3);
+  color: var(--color-ink);
+  font: 700 1.15rem/1.2 var(--font-heading);
 }
 
 .faq-topic-list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: grid;
+  gap: var(--space-1);
 }
 
-.faq-topic {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    min-height: 49px;
-    padding: 11px 5px 11px 0;
-    color: #5d6169;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #e4e4e4;
-    border-radius: 0;
-    text-align: left;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.5;
-    cursor: pointer;
-    transition: color 0.18s ease, border-color 0.18s ease;
+.faq-topic, .topic-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: .6rem .75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-muted);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: start;
+  transition: background-color var(--motion-fast), color var(--motion-fast);
 }
 
-.faq-topic > span:first-child {
-    min-width: 0;
+.faq-topic:hover, .faq-topic.active, .topic-toggle:hover {
+  color: var(--color-link);
+  background: var(--color-surface-tint);
 }
 
-.faq-topic:hover {
-    color: #15171a;
+.topic-toggle {
+  display: none;
 }
 
 .faq-topic.active {
-    color: #202124;
-    border-bottom: 3px solid #252525;
-    padding-bottom: 9px;
+  border-color: var(--color-border);
+  box-shadow: inset 3px 0 var(--color-action);
 }
 
 .topic-arrow {
-    flex: 0 0 auto;
-    color: #22252a;
-    font-size: 27px;
-    font-weight: 300;
-    line-height: 1;
-    transform: translateY(-1px);
-}
-
-/* FAQ content */
-
-.faq-content {
-    min-width: 0;
+  flex: none;
+  color: var(--color-link);
+  font-size: 1.25rem;
 }
 
 .faq-content-heading {
-    margin: 0 0 18px;
+  margin-bottom: var(--space-4);
 }
 
 .faq-eyebrow {
-    margin-bottom: 5px;
-    color: var(--faq-muted);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+  color: var(--color-link);
+  font: 700 .75rem/1.4 var(--font-mono);
+  letter-spacing: .1em;
 }
 
 .faq-content-heading h2 {
-    margin: 0 0 5px;
-    color: #202124;
-    font-size: 26px;
-    font-weight: 750;
-    line-height: 1.35;
+  margin: var(--space-2) 0;
 }
-
-.faq-content-heading > p:last-child {
-    color: var(--faq-muted);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Accordion list */
 
 .faq-questions {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    min-width: 0;
+  display: grid;
+  gap: var(--space-2);
 }
 
 .faq-item {
-    min-width: 0;
-    overflow: hidden;
-    background: var(--faq-panel);
-    border: 1px solid transparent;
-    border-radius: 12px;
-    transition: background 0.2s ease, border-color 0.2s ease;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
 }
 
 .faq-item[open] {
-    background: #f7f9fd;
-    border-color: #e5eaf3;
+  border-color: var(--color-control-border);
 }
 
 .faq-question {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    min-height: 65px;
-    padding: 17px 20px;
-    color: #27292e;
-    background: transparent;
-    border: 0;
-    text-align: left;
-    font-size: 16px;
-    font-weight: 650;
-    line-height: 1.5;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 3.5rem;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
+  font-weight: 700;
+  list-style: none;
 }
 
-.faq-question-text {
-    min-width: 0;
-    overflow-wrap: anywhere;
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question:focus-visible {
+  outline-offset: -4px;
+}
+
+.faq-question:hover {
+  background: var(--color-surface-soft);
 }
 
 .faq-chevron {
-    flex: 0 0 auto;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
-    border-right: 1.6px solid #22252a;
-    border-bottom: 1.6px solid #22252a;
-    transform: rotate(45deg) translateY(-3px);
-    transition: transform 0.2s ease;
+  flex: none;
+  width: .65rem;
+  height: .65rem;
+  margin: 0 .15rem .2rem 0;
+  border-right: 2px solid var(--color-action);
+  border-bottom: 2px solid var(--color-action);
+  transform: rotate(45deg);
+  transition: transform var(--motion-fast);
 }
 
 .faq-item[open] .faq-chevron {
-    transform: rotate(225deg) translate(-2px, -1px);
+  transform: rotate(225deg);
 }
 
 .faq-answer {
-    padding: 0 20px 20px;
-    color: #596273;
-    font-size: 14px;
-    line-height: 1.8;
-    overflow-wrap: anywhere;
+  max-width: 76ch;
+  padding: 0 var(--space-4) var(--space-4);
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
 }
 
-.faq-answer p + p {
-    margin-top: 10px;
+.faq-empty, .faq-loading, .faq-disclaimer {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-soft);
 }
-
-.faq-answer a {
-    color: #087b65;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.faq-loading,
-.faq-empty {
-    padding: 22px;
-    color: var(--faq-muted);
-    background: var(--faq-panel);
-    border-radius: 12px;
-}
-
-/* Pagination */
 
 .faq-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 31px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
 }
 
 .faq-page-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    color: #17191d;
-    background: #ffffff;
-    border: 1px solid #252525;
-    border-radius: 50%;
-    font-size: 14px;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.2s ease, background 0.2s ease;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
-.faq-page-button:hover:not(:disabled):not(.active) {
-    background: #f1f3f6;
+.faq-page-button:hover:not(:disabled) {
+  background: var(--color-surface-tint);
 }
 
-.faq-page-button.active {
-    color: #202020;
-    background: var(--faq-accent);
-    border-color: var(--faq-accent);
+.faq-page-button.active, .faq-page-button.active:hover {
+  border-color: var(--color-action);
+  background: var(--color-action);
+  color: var(--color-on-action);
 }
 
 .faq-page-button:disabled {
-    color: #b9bdc3;
-    border-color: #c7cbd0;
-    cursor: not-allowed;
+  border-color: var(--color-border);
+  color: var(--color-subtle);
 }
 
-.faq-page-button:focus-visible,
-.faq-question:focus-visible,
-.faq-topic:focus-visible {
-    outline: 3px solid rgba(255, 139, 36, 0.4);
-    outline-offset: 2px;
+.faq-disclaimer {
+  margin-top: var(--space-5);
 }
 
-.faq-page-ellipsis {
-    color: #30343b;
-    font-size: 15px;
+@media (min-width: 651px) {
+  .faq-layout {
+    grid-template-columns: minmax(13rem, .38fr) minmax(0, 1fr);
+  }
 }
-
-/* Tablet layout */
-
-@media (max-width: 950px) {
-    .faq-layout {
-        grid-template-columns: 235px minmax(0, 1fr);
-        gap: 20px;
-    }
-
-    .faq-main {
-        padding: 22px 16px 40px;
-    }
-
-    .faq-topic {
-        font-size: 14px;
-    }
-
-    .faq-question {
-        min-height: 61px;
-        padding: 15px 17px;
-        font-size: 15px;
-    }
-}
-
-/* Phone layout */
 
 @media (max-width: 650px) {
-    .faq-main {
-        padding: 18px 14px 35px;
-    }
-
-    .faq-layout {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-    }
-
-    .faq-sidebar-heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        margin-bottom: 12px;
-    }
-
-    .faq-sidebar-heading h1 {
-        margin: 0;
-        font-size: 25px;
-    }
-
-    .topic-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 40px;
-        padding: 8px 12px;
-        color: #333943;
-        background: #ffffff;
-        border: 1px solid var(--faq-border);
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-    }
-
-    .topic-toggle span {
-        font-size: 18px;
-        line-height: 1;
-    }
-
-    .faq-topic-list {
-        display: none;
-        max-height: 290px;
-        overflow-y: auto;
-        padding: 0 12px;
-        border: 1px solid var(--faq-border);
-        border-radius: 10px;
-    }
-
-    .faq-topic-list.is-open {
-        display: flex;
-    }
-
-    .faq-topic {
-        min-height: 45px;
-        padding: 10px 0;
-        font-size: 14px;
-    }
-
-    .faq-topic.active {
-        border-bottom-width: 2px;
-        padding-bottom: 10px;
-    }
-
-    .faq-content-heading {
-        margin-bottom: 14px;
-    }
-
-    .faq-content-heading h2 {
-        font-size: 22px;
-    }
-
-    .faq-content-heading > p:last-child {
-        font-size: 13px;
-    }
-
-    .faq-questions {
-        gap: 7px;
-    }
-
-    .faq-item {
-        border-radius: 10px;
-    }
-
-    .faq-question {
-        min-height: 57px;
-        gap: 14px;
-        padding: 15px 14px;
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .faq-chevron {
-        width: 9px;
-        height: 9px;
-        margin-right: 2px;
-    }
-
-    .faq-answer {
-        padding: 0 14px 16px;
-        font-size: 13px;
-        line-height: 1.75;
-    }
-
-    .faq-pagination {
-        gap: 8px;
-        margin-top: 23px;
-    }
-
-    .faq-page-button {
-        width: 36px;
-        height: 36px;
-        font-size: 13px;
-    }
-
-    .faq-disclaimer {
-        margin-top: 25px;
-        color: var(--faq-muted);
-        font-size: 11px;
-        line-height: 1.7;
-    }
-}
-
-/* Very small phones */
-
-@media (max-width: 360px) {
-    .faq-main {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .faq-sidebar-heading h1 {
-        font-size: 23px;
-    }
-
-    .topic-toggle {
-        gap: 6px;
-        padding: 7px 9px;
-        font-size: 12px;
-    }
-
-    .faq-question {
-        padding: 13px 11px;
-        font-size: 13px;
-    }
-
-    .faq-answer {
-        padding-right: 11px;
-        padding-left: 11px;
-    }
-
-    .faq-pagination {
-        gap: 6px;
-    }
-
-    .faq-page-button {
-        width: 33px;
-        height: 33px;
-    }
-}
-
-/* ========================================
-   UPI QR STUDIO - HEADER
-   File: css/header.css
-======================================== */
-
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 3px 15px rgba(16, 42, 67, 0.035);
-    backdrop-filter: blur(12px);
-}
-
-.header-container {
-    width: min(var(--container-width), calc(100% - 40px));
-    min-height: 76px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-}
-
-.logo {
+  .topic-toggle {
     display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 10px;
-    color: var(--secondary);
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: -0.6px;
-}
+    border-color: var(--color-control-border);
+  }
 
-.logo:hover {
-    color: var(--secondary);
-}
-
-.logo strong {
-    color: var(--primary);
-}
-
-.logo-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    color: #ffffff;
-    background: var(--primary);
-    border-radius: 12px;
-    font-size: 24px;
-    font-weight: 800;
-    box-shadow: 0 5px 12px rgba(11, 128, 104, 0.2);
-}
-
-.main-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 22px;
-}
-
-.nav-link {
-    position: relative;
-    padding: 8px 0;
-    color: #425466;
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary);
-}
-
-.nav-link.active::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background: var(--primary);
-    border-radius: 2px;
-    content: "";
-}
-
-.nav-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 10px 17px;
-    color: #ffffff;
-    background: var(--primary);
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-}
-
-.nav-button:hover {
-    color: #ffffff;
-    background: var(--primary-dark);
-}
-
-.menu-toggle {
+  .faq-topic-list {
     display: none;
-    width: 44px;
-    height: 44px;
-    padding: 10px;
-    color: var(--secondary);
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-}
+  }
 
-.menu-toggle span {
-    display: block;
-    width: 21px;
-    height: 2px;
-    margin: 5px auto;
-    background: currentColor;
-    border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.menu-toggle[aria-expanded="true"] span:first-child {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] span:last-child {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-
-/* ========================================
-   UPI QR STUDIO - FOOTER
-   File: css/footer.css
-======================================== */
-
-.site-footer {
-    color: #cbd5e1;
-    background: #102a43;
-}
-
-.footer-container {
+  .faq-topic-list.is-open {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
-    gap: 40px;
-    width: min(var(--container-width), calc(100% - 40px));
-    margin: 0 auto;
-    padding: 65px 0 50px;
+    margin-top: var(--space-3);
+  }
 }
-
-.footer-logo {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.footer-logo:hover {
-    color: #ffffff;
-}
-
-.footer-logo strong {
-    color: #56d6b5;
-}
-
-.footer-about p {
-    max-width: 310px;
-    color: #bdcbd9;
-    font-size: 14px;
-    line-height: 1.9;
-}
-
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.footer-column h3 {
-    margin-bottom: 8px;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.footer-column a {
-    color: #bdcbd9;
-    font-size: 13px;
-    line-height: 1.6;
-    transition: color 0.2s ease;
-}
-
-.footer-column a:hover {
-    color: #56d6b5;
-}
-
-.footer-bottom {
-    padding: 22px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: #bdcbd9;
-    font-size: 12px;
-    line-height: 1.8;
-}
-
-.footer-bottom p + p {
-    margin-top: 5px;
-}
-
 
 /* =========================================================
    UPI QR STUDIO
@@ -741,21 +260,21 @@ Year         : 2026
    ========================================================= */
 
 .safety-center {
-    --safety-primary: #2457d6;
-    --safety-primary-dark: #173ea5;
-    --safety-primary-light: #edf3ff;
-    --safety-text: #18243b;
-    --safety-muted: #64748b;
-    --safety-border: #e2e8f0;
-    --safety-surface: #ffffff;
-    --safety-background: #f7f9fc;
+    --safety-primary: var(--color-action);
+    --safety-primary-dark: var(--color-action-hover);
+    --safety-primary-light: var(--color-surface-tint);
+    --safety-text: var(--color-ink);
+    --safety-muted: var(--color-muted);
+    --safety-border: var(--color-border);
+    --safety-surface: var(--color-surface);
+    --safety-background: var(--color-page);
     --safety-red: #dc2626;
     --safety-red-light: #fff1f2;
-    --safety-green: #15803d;
-    --safety-green-light: #f0fdf4;
+    --safety-green: var(--color-link);
+    --safety-green-light: var(--color-surface-soft);
     --safety-purple: #7c3aed;
-    --safety-radius: 18px;
-    --safety-shadow: 0 12px 35px rgba(24, 36, 59, 0.07);
+    --safety-radius: var(--radius-md);
+    --safety-shadow: var(--shadow-soft);
 
     color: var(--safety-text);
     background: var(--safety-background);
@@ -945,7 +464,6 @@ Year         : 2026
    ========================================================= */
 
 .safety-hero {
-    padding-block: 86px 90px !important;
     background:
         radial-gradient(
             circle at 85% 20%,
@@ -972,9 +490,9 @@ Year         : 2026
     gap: 9px;
     margin-bottom: 20px;
     padding: 8px 13px;
-    color: #1d4ed8;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #dbe7ff;
+    color: var(--color-link);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 999px;
     font-size: 0.82rem;
     font-weight: 750;
@@ -1831,14 +1349,14 @@ Year         : 2026
    ========================================== */
 
 #privacy-policy-page {
-  --pp-green: #16834b;
-  --pp-green-dark: #0d6337;
-  --pp-green-light: #eaf7ef;
-  --pp-green-pale: #f5fbf7;
-  --pp-text: #1b3025;
-  --pp-muted: #647469;
-  --pp-border: #e0eae3;
-  --pp-shadow: 0 14px 38px rgba(24, 72, 43, 0.07);
+  --pp-green: var(--color-action);
+  --pp-green-dark: var(--color-action-hover);
+  --pp-green-light: var(--color-surface-tint);
+  --pp-green-pale: var(--color-surface-soft);
+  --pp-text: var(--color-ink);
+  --pp-muted: var(--color-muted);
+  --pp-border: var(--color-border);
+  --pp-shadow: var(--shadow-soft);
 
   color: var(--pp-text);
   background: #fff;
@@ -2809,14 +2327,14 @@ Year         : 2026
 ========================================= */
 
 #about-us-page {
-  --about-green: #087f5b;
-  --about-green-dark: #075c43;
-  --about-green-light: #e9f7ef;
-  --about-ink: #172d25;
-  --about-text: #65756d;
-  --about-border: #e4ece6;
-  --about-background: #f7faf8;
-  --about-white: #ffffff;
+  --about-green: var(--color-action);
+  --about-green-dark: var(--color-action-hover);
+  --about-green-light: var(--color-surface-tint);
+  --about-ink: var(--color-ink);
+  --about-text: var(--color-muted);
+  --about-border: var(--color-border);
+  --about-background: var(--color-page);
+  --about-white: var(--color-surface);
 
   color: var(--about-ink);
   background: var(--about-white);
@@ -3914,14 +3432,14 @@ Year         : 2026
    ========================================================= */
 
 #terms-and-conditions-page {
-  --terms-green: #16834a;
-  --terms-green-dark: #116638;
-  --terms-green-light: #eaf7ef;
-  --terms-green-soft: #f4fbf6;
-  --terms-text: #26352d;
-  --terms-muted: #637269;
-  --terms-border: #dfe9e2;
-  --terms-white: #ffffff;
+  --terms-green: var(--color-action);
+  --terms-green-dark: var(--color-action-hover);
+  --terms-green-light: var(--color-surface-tint);
+  --terms-green-soft: var(--color-surface-soft);
+  --terms-text: var(--color-ink);
+  --terms-muted: var(--color-muted);
+  --terms-border: var(--color-border);
+  --terms-white: var(--color-surface);
   --terms-warning-bg: #fff9e9;
   --terms-warning-border: #f0dfaa;
 
@@ -4678,57 +4196,4 @@ Year         : 2026
     color: #000000;
     text-decoration: underline;
   }
-}
-
-
-/* Mobile hamburger menu button */
-.menu-toggle {
-    display: none;
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    color: var(--secondary);
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 21px;
-    height: 2.5px;
-    margin: 0;
-    background: currentColor;
-    border-radius: 3px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-/* Show hamburger on mobile screens */
-@media (max-width: 768px) {
-    .header-container {
-        gap: 10px;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-}
-
-/* Animate hamburger into an X */
-.menu-toggle[aria-expanded="true"] span:first-child {
-    transform: translateY(7.5px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] span:last-child {
-    transform: translateY(-7.5px) rotate(-45deg);
 }

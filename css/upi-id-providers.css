@@ -23,15 +23,15 @@ Year         : 2026
 ========================================= */
 
 #upi-providers-page {
-  --up-primary: #087f5b;
-  --up-primary-dark: #075c43;
-  --up-primary-light: #e9f7f0;
-  --up-ink: #152b25;
-  --up-text: #5f7069;
-  --up-border: #e4ece7;
-  --up-bg: #f7faf8;
-  --up-white: #ffffff;
-  --up-radius: 18px;
+  --up-primary: var(--color-action);
+  --up-primary-dark: var(--color-action-hover);
+  --up-primary-light: var(--color-surface-tint);
+  --up-ink: var(--color-ink);
+  --up-text: var(--color-muted);
+  --up-border: var(--color-border);
+  --up-bg: var(--color-page);
+  --up-white: var(--color-surface);
+  --up-radius: var(--radius-md);
 
   color: var(--up-ink);
   background: var(--up-white);

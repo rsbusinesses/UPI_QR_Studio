@@ -23,7 +23,7 @@ function collectHtmlPages() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.name.startsWith('.')) continue;
       if (entry.isDirectory()) {
-        if (['tools', 'components', 'node_modules'].includes(entry.name)) continue;
+        if (['tools', 'components', 'node_modules', 'dist'].includes(entry.name)) continue;
         walk(path.join(dir, entry.name));
       } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
         result.push(path.resolve(dir, entry.name));

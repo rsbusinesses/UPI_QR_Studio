@@ -576,6 +576,7 @@ document.addEventListener("DOMContentLoaded", () => {
             topicList &&
             window.matchMedia("(max-width: 650px)").matches
         ) {
+            if (topicList.contains(document.activeElement)) topicToggle.focus();
             topicList.classList.remove("is-open");
             topicToggle.setAttribute("aria-expanded", "false");
         }

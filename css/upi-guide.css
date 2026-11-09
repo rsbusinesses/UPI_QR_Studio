@@ -1,4 +1,3 @@
-
 /*
 =========================================================
 Project      : UPI QR Studio
@@ -14,176 +13,88 @@ Description  : Stylesheet for the UPI QR Studio website.
                design, components, and visual presentation.
 
 Year         : 2026
-=========================================================
-*/
+=========================================================*/
 
-/* UPI guide topics landing page — add to css/upi-guide-topics.css */
-.upi-guide-topics-page {
-  --topic-text: #202124;
-  --topic-muted: #5f6368;
-  --topic-blue: #0b57d0;
-  --topic-border: #b8b8b8;
-  background: #fff;
-  color: var(--topic-text);
-}
-
-.upi-guide-topics-page *,
-.upi-guide-topics-page *::before,
-.upi-guide-topics-page *::after {
-  box-sizing: border-box;
-}
-
-.upi-topics-main {
-  width: min(100% - 40px, 850px);
-  margin: 0 auto;
-  padding: 28px 0 56px;
-}
-
-.upi-topics-heading {
-  margin: 0 0 8px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
+/* Topic directory */
 .upi-topics-intro {
-  margin: 0 0 18px;
-  color: var(--topic-muted);
-  font-size: 14px;
-  line-height: 1.6;
+  color: var(--color-muted);
 }
 
 .upi-topic-accordion {
-  overflow: hidden;
-  border: 1px solid var(--topic-border);
-  border-radius: 8px;
-  background: #fff;
+  display: grid;
+  gap: var(--space-3);
 }
 
-.upi-topic-group + .upi-topic-group {
-  border-top: 1px solid var(--topic-border);
+.upi-topic-group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .upi-topic-group h2 {
-  margin: 0;
-  font-size: inherit;
-  font-weight: inherit;
+  font: inherit;
 }
 
 .upi-topic-toggle {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  align-items: center;
+  gap: var(--space-3);
   width: 100%;
-  min-height: 52px;
-  padding: 15px 30px 15px 64px;
+  min-height: 3.5rem;
+  padding: .95rem clamp(1rem, 3vw, 1.6rem);
   border: 0;
-  background: #fff;
-  color: #202124;
-  text-align: left;
-  font: inherit;
-  font-size: 14px;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: background-color .16s ease;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-ink);
+  font-weight: 700;
+  text-align: start;
+  transition: background-color var(--motion-fast), color var(--motion-fast);
 }
 
-.upi-topic-toggle:hover,
-.upi-topic-toggle[aria-expanded="true"] {
-  background: #f8faff;
+.upi-topic-toggle:hover, .upi-topic-toggle[aria-expanded="true"] {
+  color: var(--color-link);
+  background: var(--color-surface-tint);
 }
 
-.upi-topic-toggle:focus-visible,
-.upi-subtopic-link:focus-visible {
-  outline: 3px solid rgba(11, 87, 208, .3);
-  outline-offset: -3px;
+.upi-topic-toggle:focus-visible {
+  outline-offset: -4px;
 }
 
 .upi-topic-chevron {
-  flex: 0 0 9px;
-  width: 9px;
-  height: 9px;
-  margin-right: 3px;
-  border-right: 1.8px solid var(--topic-blue);
-  border-bottom: 1.8px solid var(--topic-blue);
-  transform: rotate(45deg) translateY(-2px);
-  transition: transform .18s ease;
+  flex: none;
+  width: .65rem;
+  height: .65rem;
+  margin: 0 .15rem .2rem 0;
+  border-right: 2px solid var(--color-action);
+  border-bottom: 2px solid var(--color-action);
+  transform: rotate(45deg);
+  transition: transform var(--motion-fast);
 }
 
 .upi-topic-toggle[aria-expanded="true"] .upi-topic-chevron {
-  transform: rotate(225deg) translate(-1px, -1px);
+  transform: rotate(225deg);
 }
 
 .upi-topic-panel {
-  padding: 2px 30px 18px 64px;
-  background: #fff;
+  padding: var(--space-2) clamp(1rem, 3vw, 1.6rem) var(--space-4);
 }
 
 .upi-topic-panel[hidden] {
-  display: none !important;
+  display: none;
 }
 
 .upi-subtopic-link {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 10px 0;
-  color: var(--topic-blue);
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 1.55;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: .55rem 0;
+  color: var(--color-link);
 }
 
 .upi-subtopic-link + .upi-subtopic-link {
-  border-top: 1px solid #f0f0f0;
-}
-
-.upi-subtopic-link:hover {
-  text-decoration: underline;
-}
-
-.upi-subtopic-link span {
-  flex: 0 0 auto;
-  color: var(--topic-muted);
-  font-size: 13px;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .upi-topics-main {
-    width: calc(100% - 24px);
-    padding: 20px 0 36px;
-  }
-
-  .upi-topics-heading {
-    font-size: 19px;
-  }
-
-  .upi-topics-intro {
-    font-size: 13px;
-  }
-
-  .upi-topic-toggle {
-    min-height: 54px;
-    padding: 15px 18px;
-    font-size: 14px;
-  }
-
-  .upi-topic-panel {
-    padding: 2px 18px 14px;
-  }
-
-  .upi-subtopic-link {
-    gap: 10px;
-    font-size: 13px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .upi-topic-chevron,
-  .upi-topic-toggle {
-    transition: none;
-  }
+  border-top: 1px solid var(--color-border);
 }

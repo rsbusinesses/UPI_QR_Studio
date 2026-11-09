@@ -20,7 +20,7 @@ Year        : 2026
 <header class="site-header">
   <div class="header-container">
     <a class="logo" href="{{REL}}index.html" aria-label="UPI QR Studio home">
-      <span class="logo-icon" aria-hidden="true">₹</span>
+      <img class="logo-icon" src="{{REL}}assets/favicon.svg" width="40" height="40" alt="">
       <span>UPI QR <strong>Studio</strong></span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
@@ -33,7 +33,10 @@ Year        : 2026
       <a class="nav-link" href="{{REL}}pages/upi-id-providers.html">UPI ID Providers</a>
       <a class="nav-link" href="{{REL}}pages/upi-faqs.html">FAQs</a>
       <a class="nav-link" href="{{REL}}pages/about-us.html">About</a>
-      <a class="nav-cta" href="{{REL}}pages/qr-widget.html">Create a QR</a>
+      <a class="nav-cta" href="{{REL}}pages/qr-widget.html">
+        Create a QR <svg class="icon" aria-hidden="true"><use href="{{REL}}assets/studio-icons.svg#arrow"></use></svg>
+      </a>
     </nav>
   </div>
+  <span class="scroll-progress" aria-hidden="true"></span>
 </header>

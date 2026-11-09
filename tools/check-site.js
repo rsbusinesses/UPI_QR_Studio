@@ -17,7 +17,7 @@ function collectHtmlPages() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.name.startsWith('.')) continue;
       if (entry.isDirectory()) {
-        if (['tools', 'components', 'node_modules'].includes(entry.name)) continue;
+        if (['tools', 'components', 'node_modules', 'dist'].includes(entry.name)) continue;
         walk(path.join(dir, entry.name));
       } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
         pages.push(path.resolve(dir, entry.name));
@@ -85,7 +85,7 @@ function collectCssFiles() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.name.startsWith('.')) continue;
       if (entry.isDirectory()) {
-        if (['tools', 'components', 'node_modules'].includes(entry.name)) continue;
+        if (['tools', 'components', 'node_modules', 'dist'].includes(entry.name)) continue;
         walk(path.join(dir, entry.name));
       } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.css')) {
         files.push(path.resolve(dir, entry.name));
@@ -193,10 +193,10 @@ for (const page of pages) {
     }
   }
 
-  $('a[href], link[href], script[src], img[src], source[src], iframe[src], video[src], audio[src], track[src], embed[src], object[data]').each((_, element) => {
+  $('a[href], link[href], use[href], script[src], img[src], source[src], iframe[src], video[src], audio[src], track[src], embed[src], object[data]').each((_, element) => {
     const node = $(element);
-    const isLink = ['a', 'link'].includes(element.name);
-    const attribute = isLink ? 'href' : element.name === 'object' ? 'data' : 'src';
+    const usesHref = ['a', 'link', 'use'].includes(element.name);
+    const attribute = usesHref ? 'href' : element.name === 'object' ? 'data' : 'src';
     const ref = node.attr(attribute);
     if (ref) checkLocalReference(ref, element.name === 'a' ? 'link' : 'asset');
   });

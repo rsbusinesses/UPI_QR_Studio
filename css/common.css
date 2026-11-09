@@ -1,4 +1,3 @@
-
 /*
 =========================================================
 Project      : UPI QR Studio
@@ -14,199 +13,329 @@ Description  : Stylesheet for the UPI QR Studio website.
                design, components, and visual presentation.
 
 Year         : 2026
-=========================================================
-*/
+=========================================================*/
 
-
-/* ========================================
-   UPI QR STUDIO - COMMON STYLES
-   File: css/common.css
-======================================== */
-
-:root {
-    --primary: #0b8068;
-    --primary-dark: #086653;
-    --primary-light: #e9f7f2;
-
-    --secondary: #102a43;
-    --text: #263746;
-    --muted: #64748b;
-
-    --background: #ffffff;
-    --surface: #f6f9fc;
-    --border: #e2e8f0;
-
-    --success: #16805d;
-    --shadow: 0 12px 35px rgba(16, 42, 67, 0.08);
-
-    --radius: 16px;
-    --container-width: 1180px;
+/* Shared primitives. Semantic colors, spacing and type are defined in theme.css. */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:where(body, h1, h2, h3, h4, p, figure, fieldset) {
+  margin: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  scroll-padding-bottom: 1rem;
 }
 
 body {
-    min-width: 320px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-    background: var(--background);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font: 1rem/1.65 var(--font-body);
+  overflow-wrap: break-word;
 }
 
-img,
-svg {
-    max-width: 100%;
-    height: auto;
+:where(img, svg, video, canvas, iframe) {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
 }
 
 a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
+  color: var(--color-link);
+  text-underline-offset: .2em;
+  text-decoration-thickness: .08em;
 }
 
 a:hover {
-    color: var(--primary-dark);
+  color: var(--color-action-hover);
 }
 
-button,
-input {
-    font: inherit;
+:where(button, input, select, textarea) {
+  font: inherit;
 }
 
-button {
-    cursor: pointer;
+:where(button, summary, [type="button"], [type="submit"]) {
+  cursor: pointer;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 3px solid rgba(11, 128, 104, 0.35);
-    outline-offset: 3px;
+:where(button, input):disabled {
+  cursor: not-allowed;
 }
 
-.container {
-    width: min(var(--container-width), calc(100% - 40px));
-    margin-inline: auto;
-}
-
-.primary-button,
-.secondary-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: 48px;
-    padding: 12px 24px;
-    border: 1px solid transparent;
-    border-radius: 9px;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-align: center;
-    text-decoration: none;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.primary-button {
-    color: #ffffff;
-    background: var(--primary);
-    box-shadow: 0 5px 14px rgba(11, 128, 104, 0.16);
-}
-
-.primary-button:hover {
-    color: #ffffff;
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
-.secondary-button {
-    color: var(--secondary);
-    background: #ffffff;
-    border-color: var(--border);
-}
-
-.secondary-button:hover {
-    color: var(--primary-dark);
-    border-color: var(--primary);
-    transform: translateY(-2px);
-}
-
-.full-button {
-    width: 100%;
-    border: 0;
-}
-
-.eyebrow {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.8px;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-.section-heading {
-    max-width: 720px;
-    margin: 0 auto 38px;
-    text-align: center;
-}
-
-.section-heading h2 {
-    margin-bottom: 12px;
-    color: var(--secondary);
-    font-size: clamp(27px, 3.5vw, 38px);
-    font-weight: 800;
-    line-height: 1.25;
-    letter-spacing: -0.8px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    font-size: 16px;
-}
-
-.text-link {
-    display: inline-block;
-    margin-top: 12px;
-    font-weight: 700;
+:focus-visible {
+  outline: 3px solid var(--focus-ring, var(--color-focus)) !important;
+  outline-offset: 3px;
 }
 
 ::selection {
-    color: #ffffff;
-    background: var(--primary);
+  background: var(--color-highlight);
+  color: var(--color-ink);
 }
 
-.privacy-disclosure {
-    margin: 18px 0 0;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--primary);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.6;
+.icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -.2em;
+}
+
+.container {
+  width: var(--frame);
+  margin-inline: auto;
+}
+
+:where(h1, h2, h3, h4) {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -.025em;
+}
+
+:where(main h1) {
+  font-size: clamp(2.25rem, 5vw, 3.9rem);
+  text-wrap: balance;
+}
+
+:where(main h2) {
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  text-wrap: balance;
+}
+
+:where(main h3) {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+:where(main p, main li) {
+  color: var(--color-muted);
+}
+
+:where(main strong) {
+  color: var(--color-ink);
+}
+
+:where(main p + p) {
+  margin-top: var(--space-4);
+}
+
+:where(main ol, main ul) {
+  padding-inline-start: 1.35em;
+}
+
+:where(main li + li) {
+  margin-top: .45em;
+}
+
+:where(main hr) {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-6);
+}
+
+:where(main code, main a) {
+  overflow-wrap: anywhere;
+}
+
+:where(main code) {
+  padding: .12em .3em;
+  border-radius: .25rem;
+  background: var(--color-surface-soft);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: .9em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  color: var(--color-link);
+  font: 700 .75rem/1.45 var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  max-width: 68ch;
+  margin: 0 0 var(--space-6);
+  text-align: left;
+}
+
+.section-heading h2 {
+  margin: 0 0 var(--space-2);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-weight: 700;
+}
+
+.primary-button, .secondary-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  max-width: 100%;
+  padding: .7rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: .9375rem;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.primary-button {
+  color: var(--color-on-action);
+  background: var(--color-action);
+}
+
+.primary-button:hover {
+  color: var(--color-on-action);
+  background: var(--color-action-hover);
+  box-shadow: 0 3px 0 var(--color-ink);
+}
+
+.secondary-button {
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border-color: var(--color-control-border);
+}
+
+.secondary-button:hover {
+  color: var(--color-ink);
+  background: var(--color-surface-soft);
+  border-color: var(--color-action);
+}
+
+.full-button {
+  width: 100%;
+}
+
+:where(input:not([type="checkbox"], [type="radio"], [type="hidden"], [type="button"], [type="submit"]), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 3rem;
+  padding: .65rem .8rem;
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 1rem;
+}
+
+:where(input, textarea)::placeholder {
+  color: var(--color-subtle);
+  opacity: 1;
+}
+
+:where(input, select, textarea):focus {
+  border-color: var(--color-action);
+}
+
+[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+:where(label) {
+  display: block;
+  color: var(--color-ink);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.form-group {
+  min-width: 0;
+}
+
+.field-meta {
+  color: var(--color-subtle);
+  font-size: .8125rem;
+  font-weight: 400;
+}
+
+.field-hint {
+  margin-top: var(--space-1);
+  color: var(--color-muted);
+  font-size: .875rem;
+}
+
+.privacy-disclosure, .security-note, .notice, .source-note {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-inline-start: 3px solid var(--color-action);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+}
+
+.privacy-disclosure, .source-note {
+  font-size: .9375rem;
 }
 
 .privacy-disclosure a {
-    color: var(--primary-dark);
-    font-weight: 700;
-    text-underline-offset: 3px;
+  font-weight: 700;
+}
+
+.tool-panel-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  color: var(--color-ink);
+  font: 700 .875rem/1.4 var(--font-body);
+  letter-spacing: 0;
+}
+
+.tool-panel-label span {
+  flex: none;
+  color: var(--color-link);
+  background: var(--color-surface-tint);
+  border-radius: .35rem;
+  padding: .28rem .4rem;
+  font: 700 .6875rem/1.15 var(--font-mono);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  inset: .75rem auto auto .75rem;
+  transform: translateY(calc(-100% - 1rem));
+  padding: .65rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
