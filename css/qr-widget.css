@@ -21,6 +21,15 @@ Year         : 2026
   gap: var(--space-4);
 }
 
+/* Put the preview first on narrow screens while keeping the form first on desktop. */
+.qr-widget-result-panel {
+  order: -1;
+}
+
+.qr-widget-form-panel {
+  order: 1;
+}
+
 .qr-widget-form-panel, .qr-widget-result-panel {
   min-width: 0;
   padding: clamp(1rem, 3vw, 2rem);
@@ -194,5 +203,10 @@ Year         : 2026
 @media (min-width: 48rem) {
   .qr-widget-layout {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  }
+
+  .qr-widget-result-panel,
+  .qr-widget-form-panel {
+    order: 0;
   }
 }
