@@ -77,7 +77,7 @@ function collectHtmlPages() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.name.startsWith('.')) continue;
       if (entry.isDirectory()) {
-        if (['tools', 'components', 'node_modules'].includes(entry.name)) continue;
+        if (['tools', 'components', 'node_modules', 'dist'].includes(entry.name)) continue;
         walk(path.join(dir, entry.name));
       } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
         result.push(path.resolve(dir, entry.name));
@@ -288,7 +288,7 @@ function processPage(page) {
   $('title').first().length ? $('title').first().text(`${title} | ${CONFIG.siteName}`) : $('head').append($('<title></title>').text(`${title} | ${CONFIG.siteName}`));
   const description = DATA.DESCRIPTIONS[relpath] || `${title}. Read practical, independent guidance from ${CONFIG.siteName}; verify current payment rules with your bank or official provider.`;
   upsertMeta($, 'name', 'description', description);
-  upsertMeta($, 'name', 'theme-color', '#5A7863');
+  upsertMeta($, 'name', 'theme-color', '#f4f8f4');
   upsertMeta($, 'property', 'og:type', 'website');
   upsertMeta($, 'property', 'og:site_name', CONFIG.siteName);
   upsertMeta($, 'property', 'og:title', title);
@@ -331,11 +331,14 @@ function processPage(page) {
     $('head').append(script);
   }
 
+  const sharedStyles = ['common.css', 'header.css', 'footer.css', 'theme.css'];
   $('link[rel="stylesheet"]').each((_, element) => {
     const href = String($(element).attr('href') || '');
-    if (href.includes('theme.css') || href.includes('theme-refresh.css')) $(element).remove();
+    if (sharedStyles.includes(path.posix.basename(href))) $(element).remove();
   });
-  $('head').append(`<link rel="stylesheet" href="${relativePrefix(page)}css/theme.css">`);
+  for (const stylesheet of sharedStyles) {
+    $('head').append(`<link rel="stylesheet" href="${relativePrefix(page)}css/${stylesheet}">`);
+  }
   $('head link[rel]').each((_, element) => {
     const rel = String($(element).attr('rel') || '').toLowerCase().split(/\s+/);
     if (rel.includes('icon')) $(element).remove();
@@ -387,11 +390,23 @@ function processPage(page) {
   }
   if (!main.attr('id')) main.attr('id', 'main-content');
   else if (main.attr('id') !== 'main-content' && !$('[id="main-content"]').length) {
-    main.prepend('<span id="main-content" class="main-content-anchor" tabindex="-1" aria-hidden="true"></span>');
+    main.prepend('<span id="main-content" class="main-content-anchor"></span>');
   }
+  main.find('.main-content-anchor').removeAttr('aria-hidden').removeAttr('tabindex');
   if (!main.find('h1').length) main.prepend($('<h1 class="generated-page-title"></h1>').text(title));
 
+  // Keep the guide index before the article in both visual and keyboard order.
+  const guideLayout = main.children('.guide-layout').first();
+  const guideIndex = guideLayout.children('.popular-guides-card').first();
+  if (guideIndex.length && !guideLayout.children().first().is(guideIndex)) guideLayout.prepend(guideIndex);
+
   addUniqueGuideContent(page, $, relpath);
+  const guideArticle = guideLayout.children('.guide-article').first();
+  if (guideArticle.length) {
+    const readingColumn = $('<div class="guide-reading"></div>');
+    guideArticle.before(readingColumn);
+    readingColumn.append(guideArticle, main.children('[data-guide-editorial-note]'));
+  }
   addBreadcrumbs(page, $, relpath);
   addStructuredData(page, $, relpath, title, description, canonicalUrl);
 

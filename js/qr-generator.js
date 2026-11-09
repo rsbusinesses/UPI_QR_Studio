@@ -43,14 +43,20 @@ Year         : 2026
 
   let currentUpiId = "";
 
-  function showError(message) {
+  function showError(message, input) {
     errorElement.textContent = message;
     errorElement.hidden = false;
+    if (input) {
+      input.setAttribute("aria-invalid", "true");
+      input.focus();
+    }
   }
 
   function clearError() {
     errorElement.textContent = "";
     errorElement.hidden = true;
+    usernameInput.removeAttribute("aria-invalid");
+    providerInput.removeAttribute("aria-invalid");
   }
 
   function isValidPart(value) {
@@ -77,30 +83,28 @@ Year         : 2026
     const provider = providerInput.value.trim().replace(/^@+/, "");
 
     if (!username) {
-      showError("Please enter your UPI username.");
-      usernameInput.focus();
+      showError("Please enter your UPI username.", usernameInput);
       return;
     }
 
     if (!provider) {
-      showError("Please enter your UPI provider.");
-      providerInput.focus();
+      showError("Please enter your UPI provider.", providerInput);
       return;
     }
 
     if (!isValidPart(username)) {
       showError(
-        "The username can contain letters, numbers, dots, underscores and hyphens only."
+        "The username can contain letters, numbers, dots, underscores and hyphens only.",
+        usernameInput
       );
-      usernameInput.focus();
       return;
     }
 
     if (!isValidPart(provider)) {
       showError(
-        "Enter a valid provider handle without spaces or extra @ symbols."
+        "Enter a valid provider handle without spaces or extra @ symbols.",
+        providerInput
       );
-      providerInput.focus();
       return;
     }
 

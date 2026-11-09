@@ -85,10 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.hash = targetId;
       }
 
-      // Smooth scroll on smaller devices
+      // Follow the site's scroll behavior, including the reduced motion preference.
       if (window.matchMedia("(max-width: 960px)").matches) {
         document.getElementById("guideArticle")?.scrollIntoView({
-          behavior: "smooth",
           block: "start"
         });
       }
@@ -123,4 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Initial activation on page load
   handleHashRoute();
+
+  if (window.matchMedia("(max-width: 960px)").matches) {
+    const toggle = document.getElementById("popularGuidesToggle");
+    const index = document.getElementById("popularGuidesList");
+    if (toggle && index) {
+      toggle.setAttribute("aria-expanded", "false");
+      index.hidden = true;
+    }
+  }
 });

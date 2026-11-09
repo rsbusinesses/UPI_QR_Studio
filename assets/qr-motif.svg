@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+  <!-- Decorative scan motif. This pattern does not encode a payment address. -->
+  <g fill="none" stroke="#102d25" stroke-width="1.4">
+    <rect x="1.7" y="1.7" width="6.6" height="6.6" rx=".9"/>
+    <rect x="16.7" y="1.7" width="6.6" height="6.6" rx=".9"/>
+    <rect x="1.7" y="16.7" width="6.6" height="6.6" rx=".9"/>
+  </g>
+  <path fill="#102d25" d="M3.5 3.5h3v3h-3zm15 0h3v3h-3zm-15 15h3v3h-3zM10 1h3v2h-3zm3 3h2v3h-2zm-3 2h2v4h-2zm3 3h3v2h-3zm5 1h2v3h-2zm3 1h3v2h-3zM1 10h3v3H1zm4 2h2v2H5zm3-2h2v2H8zm0 4h4v2H8zm4-2h3v2h-3zm2 4h3v3h-3zm4-2h2v2h-2zm3 1h3v3h-3zm-1 4h2v2h-2zm2 3h2v2h-2zm-5-2h3v4h-3zm-4 1h2v3h-2zm-3-3h2v3h-2zm0 4h2v2h-2z"/>
+</svg>

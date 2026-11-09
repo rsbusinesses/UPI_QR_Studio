@@ -19,27 +19,24 @@ Year        : 2026
 
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="#5A7863" name="theme-color">
+<meta content="#f4f8f4" name="theme-color">
 <title>UPI QR Code Generator | UPI QR Studio</title>
 <meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." name="description">
 <!-- Your existing website styles -->
 <link href="../css/qr-widget.css" rel="stylesheet">
-<link href="../css/pages.css" rel="stylesheet">
-<link href="../css/responsive.css" rel="stylesheet">
-<link href="../css/home.css" rel="stylesheet">
-<link href="../css/common.css" rel="stylesheet">
+
 <!-- QR widget styles only -->
 <!-- QR generation library -->
 <script defer="" src="../assets/vendor/qrcode.min.js">
 </script>
 <!-- QR widget logic only -->
 <script defer="" src="../js/qr-generator.js"></script>
-<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://upiqrstudio.com/pages/qr-widget.html"><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"></head>
+<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="UPI QR Code Generator"><meta name="twitter:description" content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below."><link rel="canonical" href="https://upiqrstudio.com/pages/qr-widget.html"><meta property="og:url" content="https://upiqrstudio.com/pages/qr-widget.html"><link rel="stylesheet" href="../css/common.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><script type="application/ld+json" data-upiqr-schema="breadcrumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://upiqrstudio.com/"},{"@type":"ListItem","position":2,"name":"UPI QR Code Generator","item":"https://upiqrstudio.com/pages/qr-widget.html"}]}</script></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
   <div class="header-container">
     <a class="logo" href="../index.html" aria-label="UPI QR Studio home">
-      <span class="logo-icon" aria-hidden="true">₹</span>
+      <img class="logo-icon" src="../assets/favicon.svg" width="40" height="40" alt="">
       <span>UPI QR <strong>Studio</strong></span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
@@ -52,67 +49,51 @@ Year        : 2026
       <a class="nav-link" href="upi-id-providers.html">UPI ID Providers</a>
       <a class="nav-link" href="upi-faqs.html">FAQs</a>
       <a class="nav-link" href="about-us.html">About</a>
-      <a class="nav-cta" href="qr-widget.html">Create a QR</a>
+      <a class="nav-cta" href="qr-widget.html">
+        Create a QR <svg class="icon" aria-hidden="true"><use href="../assets/studio-icons.svg#arrow"></use></svg>
+      </a>
     </nav>
   </div>
+  <span class="scroll-progress" aria-hidden="true"></span>
 </header>
 <main class="qr-page-main" id="main-content"><nav aria-label="Breadcrumb" class="breadcrumbs"><ol><li><a href="../index.html">Home</a></li><li aria-current="page">UPI QR Code Generator</li></ol></nav>
+<header class="page-hero">
+  <p class="eyebrow">QR STUDIO / QUICK CREATE</p>
+  <h1 id="upi-qr-heading">Create a UPI QR from an ID</h1>
+  <p>Enter your UPI username and provider handle. Preview your code and download a PNG with your UPI ID on it.</p>
+</header>
 <section aria-labelledby="upi-qr-heading" id="upi-qr-widget">
 <div class="qr-widget-layout">
 <!-- LEFT: UPI ID FORM -->
 <div class="qr-widget-form-panel">
-<div class="qr-widget-heading">
-<div aria-hidden="true" class="qr-widget-logo">
-<svg viewBox="0 0 32 32">
-<path d="M4 12V5h7M21 5h7v7M28 20v7h-7M11 27H4v-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path>
-<rect fill="currentColor" height="5" rx="1" width="5" x="9" y="9"></rect>
-<rect fill="currentColor" height="5" rx="1" width="5" x="18" y="9"></rect>
-<rect fill="currentColor" height="5" rx="1" width="5" x="9" y="18"></rect>
-<path d="M18 18h2v2h-2zm4 3h2v2h-2zm-4 3h5" fill="currentColor"></path>
-</svg>
-</div>
-<div class="qr-widget-heading-text">
-<h1 id="upi-qr-heading">UPI QR Generator</h1>
-<p>Generate a QR code using your UPI ID.</p>
-</div>
-</div>
+<div class="tool-panel-label"><span>01</span> UPI ID details</div>
 <form class="qr-widget-form" novalidate="">
-<label class="qr-widget-label" for="qr-upi-username">
-              UPI ID
-            </label>
 <div class="qr-widget-input-row">
-<input aria-label="Enter UPI username" autocapitalize="none" autocomplete="off" class="qr-widget-username" id="qr-upi-username" maxlength="100" placeholder="UPI username" required="" spellcheck="false" type="text">
-<span aria-hidden="true" class="qr-widget-at">@</span>
-<input aria-label="Enter UPI provider" autocapitalize="none" autocomplete="off" class="qr-widget-provider" id="qr-upi-provider" maxlength="80" placeholder="UPI provider" required="" spellcheck="false" type="text">
+<div>
+<label for="qr-upi-username">UPI username</label>
+<input aria-describedby="qr-widget-hint qr-widget-error" autocapitalize="none" autocomplete="off" class="qr-widget-username" id="qr-upi-username" maxlength="100" placeholder="yourname" required="" spellcheck="false" type="text">
 </div>
-<p class="qr-widget-example">
-<strong>Example:</strong>
-<span>rahul123</span>
-<span class="qr-example-at">@</span>
-<span>okaxis</span>
-<span class="qr-example-full">(rahul123@okaxis)</span>
-</p>
-<p class="qr-widget-example">Enter the part before @ in the first field and the provider handle after @ in the second. Copy both parts from the current UPI ID shown in your official payment app; do not guess a handle.</p>
-<p class="qr-widget-error" hidden="" role="alert"></p>
+<span aria-hidden="true" class="qr-widget-at">@</span>
+<div>
+<label for="qr-upi-provider">UPI provider</label>
+<input aria-describedby="qr-widget-hint qr-widget-error" autocapitalize="none" autocomplete="off" class="qr-widget-provider" id="qr-upi-provider" maxlength="80" placeholder="provider" required="" spellcheck="false" type="text">
+</div>
+</div>
+<p class="field-hint" id="qr-widget-hint">For <code>yourname@provider</code>, enter <strong>yourname</strong> first and <strong>provider</strong> second. Copy both parts from your UPI app.</p>
+<p class="qr-widget-error" hidden="" id="qr-widget-error" role="alert"></p>
 <button class="qr-widget-generate" type="submit">
-<svg aria-hidden="true" viewBox="0 0 24 24">
-<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-2zM14 18h2v2h-2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-              Generate QR Code
-            </button>
+<svg class="icon" aria-hidden="true"><use href="../assets/studio-icons.svg#scan"></use></svg> Generate QR Code
+</button>
 </form>
 <p class="privacy-disclosure">QR details are processed in this browser and are not sent to a UPI QR Studio application server by this tool. GitHub Pages logs visitor IP addresses for security. <a href="privacy-policy.html">Read the Privacy Policy</a>.</p>
 </div>
 <!-- RIGHT: QR CODE RESULT -->
 <div class="qr-widget-result-panel">
-<h2>Your UPI QR Code</h2>
+<h2 class="tool-panel-label"><span>02</span> Your QR preview</h2>
 <div class="qr-widget-qr-frame">
 <div class="qr-widget-qr-code"></div>
 <div class="qr-widget-placeholder">
-<svg aria-hidden="true" viewBox="0 0 64 64">
-<path d="M7 7h18v18H7zM39 7h18v18H39zM7 39h18v18H7z" fill="none" stroke="currentColor" stroke-width="4"></path>
-<path d="M13 13h6v6h-6zM45 13h6v6h-6zM13 45h6v6h-6zM39 35h6v6h-6zM49 39h8v8h-8zM35 49h8v8h-8zM47 51h4v6h-4z" fill="currentColor"></path>
-</svg>
+<svg class="icon" aria-hidden="true"><use href="../assets/studio-icons.svg#scan"></use></svg>
 <span>Your QR code will appear here</span>
 </div>
 </div>
@@ -131,10 +112,7 @@ Year        : 2026
 </div>
 </div>
 <button class="qr-widget-download" disabled="" type="button">
-<svg aria-hidden="true" viewBox="0 0 24 24">
-<path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v4h14v-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-            Download QR Code
+<svg class="icon" aria-hidden="true"><use href="../assets/studio-icons.svg#download"></use></svg> Download QR Code
           </button>
 <p aria-live="polite" class="qr-widget-status">
             Enter your UPI ID to generate your QR code.
@@ -158,10 +136,14 @@ Year        : 2026
 </main>
 
 
+
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="footer-logo" href="../index.html">UPI QR <strong>Studio</strong></a>
+      <a class="footer-logo" href="../index.html">
+        <img class="logo-icon" src="../assets/favicon.svg" width="40" height="40" alt="">
+        <span>UPI QR Studio</span>
+      </a>
       <p>Independent educational guides and browser-based tools for understanding UPI payments. We are not a bank, payment app, or official NPCI website.</p>
     </div>
     <div class="footer-column">
@@ -181,11 +163,10 @@ Year        : 2026
     </div>
   </div>
   <div class="footer-bottom">
-    <p style="text-align: left;">© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.
-      <br>
-        Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
-    </p>
-    
-    <a href="#main-content" class="back-to-top">Back to top ↑</a>
+    <div>
+      <p>© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.</p>
+      <p>Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer">RS Businesses</a>. View the source code on GitHub.</p>
+    </div>
+    <a href="#main-content" class="back-to-top">Back to top <svg class="icon" aria-hidden="true"><use href="../assets/studio-icons.svg#arrow-up"></use></svg></a>
   </div>
 </footer><script src="../js/main.js" defer=""></script></body></html>

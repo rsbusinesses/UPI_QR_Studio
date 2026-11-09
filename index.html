@@ -22,17 +22,16 @@ Year        : 2026
 <meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." name="description">
 <title>Create a UPI QR Code Online | UPI QR Studio</title>
 <!-- Shared and section-specific CSS  -->
-<link href="css/common.css" rel="stylesheet">
-<link href="css/header.css" rel="stylesheet">
+
+
 <link href="css/home.css" rel="stylesheet">  
-<link href="css/footer.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-<meta content="#5A7863" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="Create a UPI QR Code Online" property="og:title"><meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." property="og:description"><!-- ADSENSE INSERTION POINT: use only the real code supplied by your own AdSense account after verification. Do not use a sample publisher ID. --><link rel="canonical" href="https://upiqrstudio.com/"><link rel="stylesheet" href="css/theme.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"></head>
+
+<meta content="#f4f8f4" name="theme-color"><meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="Create a UPI QR Code Online" property="og:title"><meta content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources." property="og:description"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Create a UPI QR Code Online"><meta name="twitter:description" content="Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources."><link rel="canonical" href="https://upiqrstudio.com/"><meta property="og:url" content="https://upiqrstudio.com/"><meta name="google-adsense-account" content="ca-pub-6680219748778164"><link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/header.css"><link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="css/theme.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><script type="application/ld+json" data-upiqr-schema="website">{"@context":"https://schema.org","@type":"WebSite","name":"UPI QR Studio","url":"https://upiqrstudio.com/","description":"Create a UPI QR code in your browser with an optional payee name, amount and note. Explore independent UPI guides and payment safety resources."}</script></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
   <div class="header-container">
     <a class="logo" href="index.html" aria-label="UPI QR Studio home">
-      <span class="logo-icon" aria-hidden="true">₹</span>
+      <img class="logo-icon" src="assets/favicon.svg" width="40" height="40" alt="">
       <span>UPI QR <strong>Studio</strong></span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation">
@@ -45,69 +44,84 @@ Year        : 2026
       <a class="nav-link" href="pages/upi-id-providers.html">UPI ID Providers</a>
       <a class="nav-link" href="pages/upi-faqs.html">FAQs</a>
       <a class="nav-link" href="pages/about-us.html">About</a>
-      <a class="nav-cta" href="pages/qr-widget.html">Create a QR</a>
+      <a class="nav-cta" href="pages/qr-widget.html">
+        Create a QR <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#arrow"></use></svg>
+      </a>
     </nav>
   </div>
+  <span class="scroll-progress" aria-hidden="true"></span>
 </header>
 <!-- ================= HEADER ================= -->
 <!-- ================= MAIN BODY ================= -->
 <main class="home-main" id="main-content">
 <!-- Hero section -->
-<section class="hero-section">
-<div class="hero-content">
-<span class="eyebrow">SIMPLE • FAST • CONVENIENT</span>
-<h1>Your UPI QR Code, Made <span>Simple.</span></h1>
-<p>
-                    Create a UPI QR code for receiving payments and explore
-                    helpful guides to make digital payments easier and safer.
-                </p>
-<div class="hero-actions">
-<a class="primary-button" href="#qr-generator">
-                        Generate Your QR
-                    </a>
-<a class="secondary-button" href="pages/upi-guides.html">
-                        Explore UPI Guides
-                    </a>
-</div>
-<p class="hero-note">
-                    Use trusted payment apps and never share your UPI PIN.
-                </p>
-</div>
+<section aria-labelledby="home-hero-title" class="hero-section">
+  <div class="home-hero-copy">
+    <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span> UPI QR STUDIO</span>
+    <h1 id="home-hero-title">Create a UPI QR code <span>in seconds.</span></h1>
+    <p>Turn your UPI ID into a QR code you can download and share. Add an amount, name or note when you need one.</p>
+    <div class="hero-actions">
+      <a class="primary-button" href="#qr-generator">
+        Create my QR <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#arrow"></use></svg>
+      </a>
+      <a class="secondary-button" href="pages/upi-guides.html">Explore UPI guides</a>
+    </div>
+    <p class="hero-note"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#shield"></use></svg> QR details stay in your browser.</p>
+  </div>
+  <div class="scanner-stage" aria-hidden="true">
+    <div class="scanner-card">
+      <div class="scanner-card-top"><span class="status-dot"></span><span>QR STUDIO</span><span class="scanner-tag">DEMO</span></div>
+      <div class="scanner-window">
+        <img src="assets/qr-motif.svg" width="176" height="176" alt="">
+        <span class="scanner-beam"></span>
+      </div>
+      <div class="scanner-card-bottom"><svg class="icon"><use href="assets/studio-icons.svg#scan"></use></svg> UPI QR preview</div>
+    </div>
+    <div class="scanner-chip"><svg class="icon"><use href="assets/studio-icons.svg#download"></use></svg> PNG export</div>
+  </div>
 </section>
 <!-- QR generator section -->
-<section class="qr-section" id="qr-generator">
+<section aria-labelledby="qr-generator-heading" class="qr-section" id="qr-generator">
 <div class="section-heading">
-<span class="eyebrow">CREATE YOUR QR</span>
-<h2>Generate a UPI QR Code</h2>
-<p>
-                    Enter your UPI ID and optional payment details to create
-                    a QR code for others to scan using a compatible UPI app.
-                </p>
+<span class="eyebrow">THE QR WORKBENCH</span>
+<h2 id="qr-generator-heading">Generate a UPI QR code</h2>
+<p>Enter the UPI ID from your payment app, then review the code before you download it.</p>
 </div>
 <div class="qr-card">
+<div class="qr-input-panel">
+<div class="tool-panel-label"><span>01</span> Payment details</div>
 <form id="upiForm">
 <div class="form-group">
-<label for="upiId">UPI ID *</label>
-<input autocomplete="off" id="upiId" maxlength="321" name="upiId" placeholder="example@bank" required="" type="text">
+<label for="upiId">UPI ID <span class="field-meta">Required</span></label>
+<input aria-describedby="upi-id-hint" autocapitalize="none" autocomplete="off" id="upiId" maxlength="321" name="upiId" placeholder="yourname@provider" required="" spellcheck="false" type="text">
+<p class="field-hint" id="upi-id-hint">Use the exact ID shown in your UPI app.</p>
 </div>
 <div class="form-group">
-<label for="payeeName">Payee Name (optional)</label>
+<label for="payeeName">Payee name <span class="field-meta">Optional</span></label>
 <input autocomplete="name" id="payeeName" maxlength="100" name="payeeName" placeholder="Your name or business name" type="text">
 </div>
 <div class="form-group">
-<label for="amount">Amount in INR (optional)</label>
-<input id="amount" min="0.01" name="amount" placeholder="e.g. 250" step="0.01" type="number">
+<label for="amount">Amount in INR <span class="field-meta">Optional</span></label>
+<input id="amount" inputmode="decimal" min="0.01" name="amount" placeholder="e.g. 250" step="0.01" type="number">
 </div>
 <div class="form-group">
-<label for="note">Payment Note (optional)</label>
+<label for="note">Payment note <span class="field-meta">Optional</span></label>
 <input id="note" maxlength="100" name="note" placeholder="e.g. Product payment" type="text">
 </div>
 <button class="primary-button full-button" type="submit">
-                        Generate QR Code
-                    </button>
+  <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#scan"></use></svg> Generate QR Code
+</button>
 </form>
+</div>
+<div class="qr-preview-panel">
+<div class="tool-panel-label"><span>02</span> QR preview</div>
 <div aria-live="polite" class="qr-result" id="qrResult">
-<p>Your generated QR code will appear here.</p>
+  <div class="qr-placeholder">
+    <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#scan"></use></svg>
+    <p><strong>Your QR code will appear here</strong></p>
+    <p>Enter your UPI ID and select Generate QR Code.</p>
+  </div>
+</div>
 </div>
 </div>
 <p class="privacy-disclosure">QR details are processed in this browser and are not sent to a UPI QR Studio application server by this tool. GitHub Pages logs visitor IP addresses for security. <a href="pages/privacy-policy.html">Read the Privacy Policy</a>.</p>
@@ -169,7 +183,7 @@ Year        : 2026
 </div>
 <div class="features-grid">
 <article class="feature-card">
-<div class="feature-icon">⚡</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#bolt"></use></svg></div>
 <h3>Quick Transfers</h3>
 <p>
                         Send money through supported UPI applications
@@ -177,7 +191,7 @@ Year        : 2026
                     </p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">▦</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#scan"></use></svg></div>
 <h3>Scan and Pay</h3>
 <p>
                         Scan a compatible merchant or personal QR code
@@ -185,7 +199,7 @@ Year        : 2026
                     </p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">₹</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#wallet"></use></svg></div>
 <h3>Convenient Payments</h3>
 <p>
                         Make eligible payments using a UPI ID or other
@@ -193,7 +207,7 @@ Year        : 2026
                     </p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">🔒</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#shield"></use></svg></div>
 <h3>Security Matters</h3>
 <p>
                         Protect your credentials, verify recipients, and
@@ -201,7 +215,7 @@ Year        : 2026
                     </p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">📱</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#phone"></use></svg></div>
 <h3>Supported Apps</h3>
 <p>
                         Choose a compatible UPI application offered by
@@ -209,7 +223,7 @@ Year        : 2026
                     </p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">✓</div>
+<div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#check"></use></svg></div>
 <h3>Payment Confirmation</h3>
 <p>
                         Check the transaction status in your payment app
@@ -229,7 +243,7 @@ Year        : 2026
                 </p>
 </div>
 <a class="primary-button" href="pages/safety-center.html">
-                Visit Safety Center
+                Visit Safety Center <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#arrow"></use></svg>
             </a>
 </section>
 </main>
@@ -240,10 +254,15 @@ Year        : 2026
 <script src="js/home-qr-generator.js"></script>
 
 
+
+
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="footer-logo" href="index.html">UPI QR <strong>Studio</strong></a>
+      <a class="footer-logo" href="index.html">
+        <img class="logo-icon" src="assets/favicon.svg" width="40" height="40" alt="">
+        <span>UPI QR Studio</span>
+      </a>
       <p>Independent educational guides and browser-based tools for understanding UPI payments. We are not a bank, payment app, or official NPCI website.</p>
     </div>
     <div class="footer-column">
@@ -263,11 +282,10 @@ Year        : 2026
     </div>
   </div>
   <div class="footer-bottom">
-    <p style="text-align: left;">© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.
-      <br>
-        Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer" style="color: #56d6b5;">RS Businesses</a> see the source code on GitHub
-    </p>
-    
-    <a href="#main-content" class="back-to-top">Back to top ↑</a>
+    <div>
+      <p>© <span data-current-year="">2026</span> UPI QR Studio. Information is general and should be verified with your bank or payment app.</p>
+      <p>Made by <a href="https://github.com/rsbusinesses/UPI_QR_Studio" target="_blank" rel="noopener noreferrer">RS Businesses</a>. View the source code on GitHub.</p>
+    </div>
+    <a href="#main-content" class="back-to-top">Back to top <svg class="icon" aria-hidden="true"><use href="assets/studio-icons.svg#arrow-up"></use></svg></a>
   </div>
 </footer><script src="js/main.js" defer=""></script></body></html>
