@@ -152,6 +152,14 @@ function normalizeAssetAndAnchorLinks(page, $) {
     if (!target) return;
     const rawPath = original.split(/[?#]/, 1)[0];
     const suffix = original.slice(rawPath.length);
+    // Use the canonical homepage URL for all internal links, including
+    // previously generated breadcrumbs and relative ../index.html links.
+    // GitHub Pages serves / and /index.html from the same file, but only
+    // / is the homepage canonical declared in our HTML and sitemap.
+    if (element.name === 'a' && target === path.join(ROOT, 'index.html')) {
+      node.attr(attribute, `/${suffix}`);
+      return;
+    }
     let relative = path.relative(path.dirname(page), target).split(path.sep).join('/');
     if (!relative) relative = path.basename(target);
     node.attr(attribute, `${relative}${suffix}`);
@@ -215,10 +223,9 @@ function addBreadcrumbs(page, $, relpath) {
   if (['index.html', '404.html'].includes(relpath)) return;
   const main = $('main').first();
   if (!main.length || $('nav[aria-label="Breadcrumb"]').length) return;
-  const prefix = relativePrefix(page);
   const nav = $('<nav aria-label="Breadcrumb" class="breadcrumbs"><ol></ol></nav>');
   const list = nav.find('ol');
-  list.append(`<li><a href="${prefix}index.html">Home</a></li>`);
+  list.append('<li><a href="/">Home</a></li>');
   if (path.basename(path.dirname(page)) === 'upi-guides') {
     list.append('<li><a href="../upi-guide.html">UPI Guides</a></li>');
   }
