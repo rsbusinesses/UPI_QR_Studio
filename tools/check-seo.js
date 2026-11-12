@@ -188,6 +188,19 @@ for (const page of pages) {
   }
 
   if (robots.includes('noindex')) fail(relpath + ': an indexable page contains a noindex directive.');
+  // Internal links should not advertise /index.html as another homepage URL.
+  $('a[href]').each((_, element) => {
+    const href = String($(element).attr('href') || '').trim();
+    if (!href || /^(?:#|mailto:|tel:|javascript:)/i.test(href)) return;
+    try {
+      const target = new URL(href, expectedCanonical);
+      if (target.origin === SITE_URL && target.pathname === '/index.html') {
+        fail(relpath + ': internal link uses /index.html instead of the canonical homepage /: ' + href);
+      }
+    } catch (_error) {
+      // Invalid or special-purpose hrefs are handled by the site link checker.
+    }
+  });
   const ogUrlTags = $('meta[property="og:url"]');
   if (ogUrlTags.length !== 1 || ogUrlTags.attr('content') !== expectedCanonical) {
     fail(relpath + ': exactly one og:url must match its canonical URL.');
