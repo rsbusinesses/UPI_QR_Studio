@@ -338,6 +338,16 @@ function processPage(page) {
     $('head').append(script);
   }
 
+
+  // Apply the saved/system theme before styles render to avoid a light-theme flash.
+  // Keep the bootstrap in the generated <head> on every page (including 404).
+  $('head script[data-upiqr-theme-init]').remove();
+  const themeBootstrap = `(function(){var theme='light';var mq=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)');try{var saved=window.localStorage.getItem('upiqr-theme');theme=saved==='dark'||saved==='light'?saved:(mq&&mq.matches?'dark':'light');}catch(e){theme=mq&&mq.matches?'dark':'light';}document.documentElement.setAttribute('data-theme',theme);})();`;
+  const themeScript = `<script data-upiqr-theme-init>${themeBootstrap}</script>`;
+  const charset = $('head meta[charset]').first();
+  if (charset.length) charset.after(themeScript);
+  else $('head').prepend(themeScript);
+
   const sharedStyles = ['common.css', 'header.css', 'footer.css', 'theme.css'];
   $('link[rel="stylesheet"]').each((_, element) => {
     const href = String($(element).attr('href') || '');
