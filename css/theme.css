@@ -469,7 +469,7 @@ body > main:is(.safety-center, #upi-providers-page, #about-us-page, #privacy-pol
 
 :root[data-theme="dark"] .safety-center :is(
   .safety-payment-process, .safety-business-card, .safety-resources-section,
-  .safety-mini-tip, .safety-pin-symbol, .safety-shield, .safety-center blockquote
+  .safety-mini-tip, .safety-pin-symbol, .safety-shield
 ) {
   background: var(--color-surface-soft);
   border-color: var(--color-border);
@@ -501,6 +501,7 @@ body > main:is(.safety-center, #upi-providers-page, #about-us-page, #privacy-pol
   background: var(--color-surface-tint);
 }
 
+:root[data-theme="dark"] .safety-center .safety-emergency-symbol { color: #ffb9b5; }
 :root[data-theme="dark"] .safety-center .safety-icon-red { color: #ffb9b5; }
 :root[data-theme="dark"] .safety-center .safety-icon-purple { color: #d1baff; }
 :root[data-theme="dark"] .safety-center .safety-icon-green { color: #a4efbb; }
@@ -632,6 +633,11 @@ body > main:is(.safety-center, #upi-providers-page, #about-us-page, #privacy-pol
 
 :root[data-theme="dark"] #privacy-policy-page .pp-note-warning strong {
   color: #ffe7a1;
+}
+
+:root[data-theme="dark"] #privacy-policy-page .pp-button,
+:root[data-theme="dark"] #privacy-policy-page .pp-button:hover {
+  color: var(--color-on-action);
 }
 
 /* About Us: preserve the green contact panel and QR illustration. */
