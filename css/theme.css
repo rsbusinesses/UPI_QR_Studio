@@ -356,3 +356,389 @@ body > main:is(.safety-center, #upi-providers-page, #about-us-page, #privacy-pol
     animation: none;
   }
 }
+
+
+/* Site-wide light/dark switch. The light palette above remains the default. */
+.theme-toggle {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-soft);
+  color: var(--color-ink);
+  transition: background-color var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-tint);
+  border-color: var(--color-action);
+  color: var(--color-link);
+}
+
+.theme-toggle .theme-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
+  display: inline-block;
+}
+
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-page: #0b1612;
+  --color-surface: #16271e;
+  --color-surface-soft: #1b3126;
+  --color-surface-tint: #254636;
+  --color-ink: #f0faf3;
+  --color-ink-deep: #091f16;
+  --color-muted: #c5d9ca;
+  --color-subtle: #b1cbbb;
+  --color-border: #395b48;
+  --color-control-border: #81a18d;
+  --color-action: #a4efbb;
+  --color-action-hover: #c2fbd0;
+  --color-on-action: #082317;
+  --color-link: #a4efbb;
+  --color-focus: #e0fb91;
+  --color-on-dark: #f3fff4;
+  --color-on-dark-muted: #d0e6d6;
+  --color-on-dark-border: #607966;
+  --color-danger: #ffaba7;
+  --color-danger-soft: #3f2429;
+  --shadow-soft: 0 8px 24px #0005;
+  --shadow-raised: 0 14px 42px #0009;
+  --hero-surface: radial-gradient(ellipse at 95% 85%, #254e38, transparent 70%), var(--color-surface);
+}
+
+:root[data-theme="dark"] ::selection {
+  background: var(--color-highlight);
+  color: #092119;
+}
+
+/* Keep contrast on the dark header, form controls and primary actions. */
+:root[data-theme="dark"] .nav-cta,
+:root[data-theme="dark"] .nav-cta:hover,
+:root[data-theme="dark"] .nav-cta[aria-current] {
+  color: var(--color-on-action);
+  background: var(--color-action);
+}
+
+:root[data-theme="dark"] .nav-cta:hover {
+  background: var(--color-action-hover);
+}
+
+:root[data-theme="dark"] .qr-result {
+  background: radial-gradient(circle, #466a50 1px, transparent 1.5px) 0 0 / .95rem .95rem, var(--color-surface);
+}
+
+/* The exported QR must keep its white, scannable background. */
+:root[data-theme="dark"] .generated-qr-image {
+  background: #fff;
+}
+
+/* Safety Center uses some older, fixed light backgrounds and status colors. */
+:root[data-theme="dark"] .safety-center {
+  --safety-red-light: #44262b;
+  --safety-purple: #c5b0ff;
+}
+
+:root[data-theme="dark"] .safety-center :is(
+  .safety-core-rules, .safety-rule-card, .safety-card-bottom,
+  .safety-scam-card, .safety-pin-section, .safety-process-card,
+  .safety-merchant-section, .safety-business-icon, .safety-device-card,
+  .safety-faq-section, .safety-faq-item, .safety-resource-card,
+  .safety-final-section, .safety-emergency-step
+) {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .safety-center :is(
+  .safety-payment-process, .safety-business-card, .safety-resources-section,
+  .safety-mini-tip, .safety-pin-symbol, .safety-shield, .safety-center blockquote
+) {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .safety-center :is(.safety-hero-description, .safety-feature-list > li, .safety-business-check) {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] .safety-center .safety-emergency {
+  background: #291a1e;
+}
+
+:root[data-theme="dark"] .safety-center .safety-emergency-panel {
+  border-color: #91636a;
+  background: #362328;
+}
+
+:root[data-theme="dark"] .safety-center :is(.safety-emergency-content h2, .safety-emergency-footnote) {
+  color: #ffd0c9;
+}
+
+:root[data-theme="dark"] .safety-center .safety-scam-tag {
+  background: #4a3024;
+  color: #ffca9c;
+}
+
+:root[data-theme="dark"] .safety-center :is(.safety-icon-red, .safety-icon-purple, .safety-icon-green, .safety-icon-blue) {
+  background: var(--color-surface-tint);
+}
+
+:root[data-theme="dark"] .safety-center .safety-icon-red { color: #ffb9b5; }
+:root[data-theme="dark"] .safety-center .safety-icon-purple { color: #d1baff; }
+:root[data-theme="dark"] .safety-center .safety-icon-green { color: #a4efbb; }
+:root[data-theme="dark"] .safety-center .safety-icon-blue { color: #a6d2ff; }
+
+:root[data-theme="dark"] .safety-center :is(.safety-mini-tip, .safety-center code) {
+  color: #bddbff;
+}
+
+:root[data-theme="dark"] .safety-center .safety-button-light,
+:root[data-theme="dark"] .safety-center .safety-button-light:hover {
+  color: var(--color-ink) !important;
+  background: var(--color-surface-tint);
+  border-color: var(--color-control-border);
+}
+
+:root[data-theme="dark"] .safety-center .safety-button-primary,
+:root[data-theme="dark"] .safety-center .safety-button-primary:hover {
+  color: var(--color-on-action) !important;
+}
+
+:root[data-theme="dark"] .safety-center blockquote {
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+}
+
+/* UPI provider directory, including its illustration and filter controls. */
+:root[data-theme="dark"] #upi-providers-page :is(
+  .providers-intro, .payment-card, .floating-note, .directory-count,
+  .provider-search, .filter-button, .provider-card, .no-results,
+  .upi-id-section, .example-id, .comparison-item
+) {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #upi-providers-page :is(
+  .payment-success, .directory-disclaimer, .provider-type, .upi-id-example,
+  .comparison-section, .resources-section, .provider-tags span
+) {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #upi-providers-page :is(
+  .hero-trust, .payment-caption, .payment-detail span, .payment-success small,
+  .floating-note small, .directory-count, .filter-button, .provider-type,
+  .provider-tags span, .example-window-top small, .example-label,
+  .resource-links a
+) {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] #upi-providers-page :is(.providers-hero, .upi-id-example) {
+  background: var(--hero-surface);
+}
+
+:root[data-theme="dark"] #upi-providers-page .eyebrow,
+:root[data-theme="dark"] #upi-providers-page .secondary-button,
+:root[data-theme="dark"] #upi-providers-page .secondary-button:hover {
+  background: var(--color-surface-soft);
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #upi-providers-page .visual-glow {
+  background: #225038;
+}
+
+:root[data-theme="dark"] #upi-providers-page .payment-divider {
+  background: var(--color-border);
+}
+
+:root[data-theme="dark"] #upi-providers-page .provider-search input::placeholder {
+  color: var(--color-subtle);
+}
+
+:root[data-theme="dark"] #upi-providers-page .primary-button,
+:root[data-theme="dark"] #upi-providers-page .filter-button.active {
+  color: var(--color-on-action);
+}
+
+:root[data-theme="dark"] #upi-providers-page .filter-button.active {
+  background: var(--color-action);
+}
+
+:root[data-theme="dark"] #upi-providers-page :is(.secure-label, .search-symbol, .payment-success .success-icon) {
+  color: var(--color-link);
+}
+
+/* Privacy Policy: original component styles contain fixed white cards. */
+:root[data-theme="dark"] #privacy-policy-page {
+  background: transparent;
+}
+
+:root[data-theme="dark"] #privacy-policy-page :is(
+  .pp-shield, .pp-float-card, .pp-intro-card, .pp-toc a, .pp-card,
+  .pp-sidebar-card
+) {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #privacy-policy-page :is(
+  .pp-toc-section, .pp-note, .pp-contact-panel, .pp-sidebar-feature,
+  .pp-sidebar-icon, .pp-contact-icon
+) {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #privacy-policy-page :is(.pp-hero, .pp-bottom-card) {
+  background: var(--hero-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #privacy-policy-page :is(
+  .pp-hero-description, .pp-intro-card p, .pp-card-body p, .pp-card-body li,
+  .pp-note, .pp-card-body .pp-small-print, .pp-related-links a, .pp-toc b
+) {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] #privacy-policy-page .pp-note-warning {
+  background: #3c3324;
+  border-color: #8c7541;
+  color: #f3e6c3;
+}
+
+:root[data-theme="dark"] #privacy-policy-page .pp-note-warning strong {
+  color: #ffe7a1;
+}
+
+/* About Us: preserve the green contact panel and QR illustration. */
+:root[data-theme="dark"] #about-us-page :is(
+  .about-payment-card, .about-floating-card, .about-purpose-card,
+  .about-offering-card, .about-value-number
+) {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #about-us-page :is(
+  .about-purpose, .about-values, .about-transparency-inner,
+  .about-purpose-icon, .about-floating-icon, .about-icon-green,
+  .about-icon-blue, .about-icon-purple, .about-icon-orange
+) {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #about-us-page :is(
+  .about-offerings, .about-transparency, .about-contact
+) {
+  background: transparent;
+}
+
+:root[data-theme="dark"] #about-us-page :is(.about-hero, .about-transparency-inner) {
+  background: var(--hero-surface);
+}
+
+:root[data-theme="dark"] #about-us-page :is(
+  .about-hero-points, .about-payment-card-header div:nth-child(2) > span,
+  .about-card-menu, .about-card-caption span, .about-card-bottom,
+  .about-floating-card div > span
+) {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] #about-us-page .about-eyebrow,
+:root[data-theme="dark"] #about-us-page .about-btn-secondary,
+:root[data-theme="dark"] #about-us-page .about-btn-secondary:hover {
+  color: var(--color-ink);
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #about-us-page .about-btn-primary {
+  color: var(--color-on-action);
+}
+
+:root[data-theme="dark"] #about-us-page .about-icon-blue { color: #a6d2ff; }
+:root[data-theme="dark"] #about-us-page :is(.about-icon-purple, .about-floating-shield, .about-vision-card .about-card-label) { color: #d4baff; }
+:root[data-theme="dark"] #about-us-page .about-icon-orange { color: #ffd19b; }
+
+/* Terms: retain readable article headings, warnings and sidebar links. */
+:root[data-theme="dark"] #terms-and-conditions-page {
+  --terms-warning-bg: #3a3020;
+  --terms-warning-border: #8a7343;
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page :is(
+  .terms-intro, .terms-toc, .terms-sidebar-card, .terms-sidebar-disclaimer
+) {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page .terms-hero {
+  background: var(--hero-surface);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page :is(
+  h1, h2, h3
+) {
+  color: var(--color-ink);
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page :is(
+  .terms-hero-description, .terms-meta, .terms-intro p, .terms-section p,
+  .terms-list li, .terms-sidebar-card p, .terms-sidebar-secondary a,
+  .terms-sidebar-disclaimer p
+) {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page .terms-final-note p,
+:root[data-theme="dark"] #terms-and-conditions-page .terms-final-note svg {
+  color: #f2dba0;
+}
+
+:root[data-theme="dark"] #terms-and-conditions-page .terms-sidebar-link,
+:root[data-theme="dark"] #terms-and-conditions-page .terms-toc a {
+  color: var(--color-link);
+}
+
+@media (max-width: 58rem) {
+  .header-container .theme-toggle {
+    order: 1;
+    margin-inline-start: auto;
+  }
+
+  .header-container .menu-toggle {
+    order: 2;
+  }
+
+  .header-container .main-navigation {
+    order: 3;
+  }
+}
