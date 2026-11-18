@@ -24,6 +24,76 @@ Year         : 2026
     ? document.addEventListener('DOMContentLoaded', fn, { once: true })
     : fn();
 
+  function initTheme() {
+    const storageKey = 'upiqr-theme';
+    const root = document.documentElement;
+    const systemPreference = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-color-scheme: dark)')
+      : null;
+    let manualChoice = false;
+    let themeButton = null;
+
+    const storedTheme = () => {
+      try {
+        const choice = window.localStorage.getItem(storageKey);
+        return choice === 'dark' || choice === 'light' ? choice : null;
+      } catch {
+        return null; // Private browsing or disabled storage: toggle still works.
+      }
+    };
+    const systemTheme = () => systemPreference?.matches ? 'dark' : 'light';
+    const applyTheme = (theme) => {
+      root.setAttribute('data-theme', theme);
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0b1612' : '#f4f8f4');
+      if (themeButton) {
+        themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
+        themeButton.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    };
+
+    const header = document.querySelector('.header-container');
+    if (header) {
+      // Use the shared script so all authored and newly built HTML pages have one toggle.
+      themeButton = document.createElement('button');
+      themeButton.type = 'button';
+      themeButton.className = 'theme-toggle';
+      themeButton.setAttribute('aria-label', 'Dark mode');
+      themeButton.innerHTML = [
+        '<svg class="icon theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">',
+        '<path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path></svg>',
+        '<svg class="icon theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">',
+        '<circle cx="12" cy="12" r="4"></circle>',
+        '<path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>'
+      ].join('');
+      header.appendChild(themeButton);
+      themeButton.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        manualChoice = true;
+        applyTheme(next);
+        try { window.localStorage.setItem(storageKey, next); } catch { /* Storage is optional. */ }
+      });
+    }
+
+    applyTheme(storedTheme() || systemTheme());
+    const followSystem = () => {
+      if (!manualChoice && !storedTheme()) applyTheme(systemTheme());
+    };
+    if (systemPreference) {
+      if (typeof systemPreference.addEventListener === 'function') {
+        systemPreference.addEventListener('change', followSystem);
+      } else if (typeof systemPreference.addListener === 'function') {
+        systemPreference.addListener(followSystem);
+      }
+    }
+    window.addEventListener('storage', (event) => {
+      if (event.key === storageKey || event.key === null) {
+        manualChoice = false;
+        applyTheme(storedTheme() || systemTheme());
+      }
+    });
+  }
+
   function initScrollEffects() {
     const progress = document.querySelector('.scroll-progress');
     if (progress) {
@@ -69,6 +139,7 @@ Year         : 2026
   }
 
   ready(() => {
+    initTheme();
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('primaryNavigation');
     const closeMenu = (returnFocus = false) => {
