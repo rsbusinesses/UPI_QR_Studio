@@ -94,6 +94,54 @@ Year         : 2026
     });
   }
 
+  function initFooterSharing() {
+    const shareArea = document.querySelector('[data-site-share-url]');
+    if (!shareArea) return;
+
+    const button = shareArea.querySelector('[data-copy-site-link]');
+    const status = shareArea.querySelector('[data-site-share-status]');
+    const websiteUrl = shareArea.getAttribute('data-site-share-url');
+    if (!button || !websiteUrl || !/^https:\/\//.test(websiteUrl)) return;
+
+    // Sharing links work without JavaScript; reveal the copy button once ready.
+    button.hidden = false;
+
+    function legacyCopy() {
+      const textarea = document.createElement('textarea');
+      textarea.value = websiteUrl;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      document.body.appendChild(textarea);
+      try {
+        textarea.select();
+        return typeof document.execCommand === 'function' && document.execCommand('copy');
+      } catch {
+        return false;
+      } finally {
+        textarea.remove();
+      }
+    }
+
+    button.addEventListener('click', async () => {
+      let copied = false;
+      try {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          await navigator.clipboard.writeText(websiteUrl);
+          copied = true;
+        }
+      } catch {
+        // Permissions can block the modern Clipboard API: use the legacy fallback.
+      }
+
+      if (!copied) copied = legacyCopy();
+      if (status) status.textContent = copied
+        ? 'Website link copied to clipboard.'
+        : 'Copy unavailable. Website link: ' + websiteUrl;
+    });
+  }
+
   function initScrollEffects() {
     const progress = document.querySelector('.scroll-progress');
     if (progress) {
@@ -140,6 +188,7 @@ Year         : 2026
 
   ready(() => {
     initTheme();
+    initFooterSharing();
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('primaryNavigation');
     const closeMenu = (returnFocus = false) => {
