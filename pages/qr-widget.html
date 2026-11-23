@@ -31,7 +31,18 @@ Year        : 2026
 </script>
 <!-- QR widget logic only -->
 <script defer="" src="../js/qr-generator.js"></script>
-<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="UPI QR Code Generator"><meta name="twitter:description" content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below."><link rel="canonical" href="https://upiqrstudio.com/pages/qr-widget.html"><meta property="og:url" content="https://upiqrstudio.com/pages/qr-widget.html"><link rel="stylesheet" href="../css/common.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/theme.css"><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><script type="application/ld+json" data-upiqr-schema="breadcrumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://upiqrstudio.com/"},{"@type":"ListItem","position":2,"name":"UPI QR Code Generator","item":"https://upiqrstudio.com/pages/qr-widget.html"}]}</script></head>
+<meta content="website" property="og:type"><meta content="UPI QR Studio" property="og:site_name"><meta content="UPI QR Code Generator" property="og:title"><meta content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below." property="og:description"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="UPI QR Code Generator"><meta name="twitter:description" content="Build a UPI payment QR code from a UPI ID. Preview and download the QR code with its recipient ID shown below."><link rel="canonical" href="https://upiqrstudio.com/pages/qr-widget.html"><meta property="og:url" content="https://upiqrstudio.com/pages/qr-widget.html"><link rel="stylesheet" href="../css/common.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/theme.css"><style>
+/* Scale only the QR preview to its available container width. */
+#upi-qr-widget .qr-widget-qr-frame {
+  width: 100%;
+  max-width: 26rem;
+}
+@media (max-width: 47.99rem) {
+  #upi-qr-widget .qr-widget-qr-frame {
+    max-width: 22rem;
+  }
+}
+</style><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><script type="application/ld+json" data-upiqr-schema="breadcrumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://upiqrstudio.com/"},{"@type":"ListItem","position":2,"name":"UPI QR Code Generator","item":"https://upiqrstudio.com/pages/qr-widget.html"}]}</script></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header">
   <div class="header-container">
